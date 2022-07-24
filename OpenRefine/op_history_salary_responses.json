@@ -1,0 +1,4206 @@
+[
+  {
+    "op": "core/column-rename",
+    "oldColumnName": "What industry do you work in?",
+    "newColumnName": "industry",
+    "description": "Rename column What industry do you work in? to industry"
+  },
+  {
+    "op": "core/column-rename",
+    "oldColumnName": "Job title",
+    "newColumnName": "job_title",
+    "description": "Rename column Job title to job_title"
+  },
+  {
+    "op": "core/column-rename",
+    "oldColumnName": "How old are you?",
+    "newColumnName": "age",
+    "description": "Rename column How old are you? to age"
+  },
+  {
+    "op": "core/column-rename",
+    "oldColumnName": "If your job title needs additional context, please clarify here:",
+    "newColumnName": "job_context",
+    "description": "Rename column If your job title needs additional context, please clarify here: to job_context"
+  },
+  {
+    "op": "core/column-rename",
+    "oldColumnName": "What is your annual salary? (You'll indicate the currency in a later question. If you are part-time or hourly, please enter an annualized equivalent -- what you would earn if you worked the job 40 hours a week, 52 weeks a year.)",
+    "newColumnName": "annual_salary",
+    "description": "Rename column What is your annual salary? (You'll indicate the currency in a later question. If you are part-time or hourly, please enter an annualized equivalent -- what you would earn if you worked the job 40 hours a week, 52 weeks a year.) to annual_salary"
+  },
+  {
+    "op": "core/column-rename",
+    "oldColumnName": "How much additional monetary compensation do you get, if any (for example, bonuses or overtime in an average year)? Please only include monetary compensation here, not the value of benefits.",
+    "newColumnName": "additional_salary",
+    "description": "Rename column How much additional monetary compensation do you get, if any (for example, bonuses or overtime in an average year)? Please only include monetary compensation here, not the value of benefits. to additional_salary"
+  },
+  {
+    "op": "core/column-rename",
+    "oldColumnName": "Please indicate the currency",
+    "newColumnName": "currency",
+    "description": "Rename column Please indicate the currency to currency"
+  },
+  {
+    "op": "core/column-rename",
+    "oldColumnName": "If \"Other,\" please indicate the currency here:",
+    "newColumnName": "currency_context",
+    "description": "Rename column If \"Other,\" please indicate the currency here: to currency_context"
+  },
+  {
+    "op": "core/column-rename",
+    "oldColumnName": "If your income needs additional context, please provide it here:",
+    "newColumnName": "salary_context",
+    "description": "Rename column If your income needs additional context, please provide it here: to salary_context"
+  },
+  {
+    "op": "core/column-rename",
+    "oldColumnName": "What country do you work in?",
+    "newColumnName": "country",
+    "description": "Rename column What country do you work in? to country"
+  },
+  {
+    "op": "core/column-rename",
+    "oldColumnName": "If you're in the U.S., what state do you work in?",
+    "newColumnName": "state",
+    "description": "Rename column If you're in the U.S., what state do you work in? to state"
+  },
+  {
+    "op": "core/column-rename",
+    "oldColumnName": "What city do you work in?",
+    "newColumnName": "city",
+    "description": "Rename column What city do you work in? to city"
+  },
+  {
+    "op": "core/column-rename",
+    "oldColumnName": "How many years of professional work experience do you have overall?",
+    "newColumnName": "total_experience",
+    "description": "Rename column How many years of professional work experience do you have overall? to total_experience"
+  },
+  {
+    "op": "core/column-rename",
+    "oldColumnName": "How many years of professional work experience do you have in your field?",
+    "newColumnName": "current_experience",
+    "description": "Rename column How many years of professional work experience do you have in your field? to current_experience"
+  },
+  {
+    "op": "core/column-rename",
+    "oldColumnName": "What is your highest level of education completed?",
+    "newColumnName": "education",
+    "description": "Rename column What is your highest level of education completed? to education"
+  },
+  {
+    "op": "core/column-rename",
+    "oldColumnName": "What is your gender?",
+    "newColumnName": "gender",
+    "description": "Rename column What is your gender? to gender"
+  },
+  {
+    "op": "core/column-rename",
+    "oldColumnName": "What is your race? (Choose all that apply.)",
+    "newColumnName": "race",
+    "description": "Rename column What is your race? (Choose all that apply.) to race"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "country",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "USA",
+          "USA ",
+          "Usa",
+          "usa",
+          "U.S.A.",
+          "Usa ",
+          "U.S.A",
+          "U.S.A ",
+          "U.S.A. ",
+          "U.SA",
+          "U.s.a.",
+          "UsA",
+          "uSA",
+          "usa "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "United States"
+      },
+      {
+        "from": [
+          "US",
+          "U.S.",
+          "Us",
+          "us",
+          "U.S",
+          "US ",
+          "U.S. ",
+          "Us ",
+          "U.s.",
+          "u.s.",
+          " U.S.",
+          " US",
+          "uS"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "United States"
+      },
+      {
+        "from": [
+          "United States",
+          "United States ",
+          "United states",
+          "united states",
+          "United states ",
+          "UNITED STATES",
+          "united States",
+          "united states ",
+          " United States",
+          "UNited States",
+          "United  States",
+          "United STates"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "United States"
+      },
+      {
+        "from": [
+          "United States of America",
+          "United States of America ",
+          "United States of america",
+          "United States Of America",
+          "United states of America ",
+          "United states of America",
+          "United States of america ",
+          "United states of america",
+          "united states of america"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "United States"
+      },
+      {
+        "from": [
+          "UK",
+          "Uk",
+          "UK ",
+          "U.K. ",
+          "Uk ",
+          "uk",
+          "U.K.",
+          "U.K"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "United Kingdom"
+      },
+      {
+        "from": [
+          "Canada",
+          "Canada ",
+          "canada",
+          "CANADA",
+          "CANADA ",
+          "Canadá"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Canada"
+      },
+      {
+        "from": [
+          "United Kingdom",
+          "United Kingdom ",
+          "United kingdom",
+          "united kingdom",
+          "United kingdom ",
+          "United Kingdom."
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "United Kingdom"
+      },
+      {
+        "from": [
+          "The Netherlands",
+          "The Netherlands ",
+          "The netherlands",
+          "the Netherlands",
+          "the netherlands"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "The Netherlands"
+      },
+      {
+        "from": [
+          "New Zealand",
+          "New Zealand ",
+          "New zealand",
+          "new zealand",
+          " New Zealand"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "New Zealand"
+      },
+      {
+        "from": [
+          "Switzerland",
+          "Switzerland ",
+          "SWITZERLAND",
+          "switzerland"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Switzerland"
+      },
+      {
+        "from": [
+          "France",
+          "FRANCE",
+          "France ",
+          "france"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "France"
+      },
+      {
+        "from": [
+          "England",
+          "England ",
+          "england",
+          "ENGLAND"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "England"
+      },
+      {
+        "from": [
+          "Czech Republic",
+          "Czech Republic ",
+          "Czech republic",
+          "czech republic"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Czech Republic"
+      },
+      {
+        "from": [
+          "Japan",
+          "Japan ",
+          "japan"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Japan"
+      },
+      {
+        "from": [
+          "U. S. ",
+          "U. S.",
+          "U. S "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "United States"
+      },
+      {
+        "from": [
+          "South Africa",
+          "South Africa ",
+          "South africa"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "South Africa"
+      },
+      {
+        "from": [
+          "Unites States",
+          "Unites states ",
+          "Unites States "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "United States"
+      },
+      {
+        "from": [
+          "Australia",
+          "Australia ",
+          "australia"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Australia"
+      },
+      {
+        "from": [
+          "England, UK",
+          "UK (England)",
+          "England, UK."
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "England"
+      },
+      {
+        "from": [
+          "Germany",
+          "Germany ",
+          "germany"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Germany"
+      },
+      {
+        "from": [
+          "Denmark",
+          "denmark",
+          "Denmark "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Denmark"
+      },
+      {
+        "from": [
+          "Ireland",
+          "Ireland ",
+          "ireland"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Ireland"
+      },
+      {
+        "from": [
+          "England, United Kingdom",
+          "United Kingdom (England)",
+          "England, United Kingdom "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "England"
+      },
+      {
+        "from": [
+          "Spain",
+          "spain",
+          "Spain "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Spain"
+      },
+      {
+        "from": [
+          "Singapore",
+          "Singapore ",
+          "singapore"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Singapore"
+      },
+      {
+        "from": [
+          "Mexico",
+          "Mexico ",
+          "México"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Mexico"
+      },
+      {
+        "from": [
+          "Netherlands",
+          "Netherlands ",
+          "netherlands"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Netherlands"
+      },
+      {
+        "from": [
+          "United States of American",
+          "United States of American "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "United States"
+      },
+      {
+        "from": [
+          "Northern Ireland ",
+          "Northern Ireland"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Northern Ireland "
+      },
+      {
+        "from": [
+          "Hong Kong",
+          "Hong Kong "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Hong Kong"
+      },
+      {
+        "from": [
+          "United Stares",
+          "United Stares "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "United States"
+      },
+      {
+        "from": [
+          "Norway",
+          "Norway "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Norway"
+      },
+      {
+        "from": [
+          "Wales (UK)",
+          "Wales, UK"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Wales"
+      },
+      {
+        "from": [
+          "U.A.",
+          "UA"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "U.A."
+      },
+      {
+        "from": [
+          "Scotland",
+          "Scotland "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Scotland"
+      },
+      {
+        "from": [
+          "Brazil",
+          "Brazil "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Brazil"
+      },
+      {
+        "from": [
+          "South Korea",
+          "South Korea "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "South Korea"
+      },
+      {
+        "from": [
+          "India",
+          "INDIA"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "India"
+      },
+      {
+        "from": [
+          "Malaysia",
+          "Malaysia "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Malaysia"
+      },
+      {
+        "from": [
+          "Sri Lanka",
+          "Sri lanka"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Sri Lanka"
+      },
+      {
+        "from": [
+          "Bangladesh",
+          "Bangladesh "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Bangladesh"
+      },
+      {
+        "from": [
+          "America",
+          "america"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "America"
+      },
+      {
+        "from": [
+          "Great Britain ",
+          "Great Britain"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Great Britain "
+      },
+      {
+        "from": [
+          "Sweden",
+          "Sweden "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Sweden"
+      },
+      {
+        "from": [
+          "United Stated",
+          "united stated"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "United States"
+      },
+      {
+        "from": [
+          "I.S.",
+          "IS"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "I.S."
+      },
+      {
+        "from": [
+          "Puerto Rico",
+          "Puerto Rico "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Puerto Rico"
+      },
+      {
+        "from": [
+          "Portugal",
+          "Portugal "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Portugal"
+      },
+      {
+        "from": [
+          "Aotearoa New Zealand",
+          "New Zealand Aotearoa"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "New Zealand"
+      },
+      {
+        "from": [
+          "Finland",
+          "finland"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Finland"
+      },
+      {
+        "from": [
+          "NIGERIA",
+          "Nigeria"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Nigeria"
+      },
+      {
+        "from": [
+          "Belgium",
+          "Belgium "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Belgium"
+      },
+      {
+        "from": [
+          "Croatia ",
+          "croatia"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Croatia "
+      }
+    ],
+    "description": "Mass edit cells in column country"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "annual_salary",
+    "expression": "grel:replace(value, \",\", \"\").toNumber()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column annual_salary using expression grel:replace(value, \",\", \"\").toNumber()"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "additional_salary",
+    "expression": "grel:replace(value, \",\", \"\").toNumber()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column additional_salary using expression grel:replace(value, \",\", \"\").toNumber()"
+  },
+  {
+    "op": "core/column-rename",
+    "oldColumnName": "Timestamp",
+    "newColumnName": "timestamp",
+    "description": "Rename column Timestamp to timestamp"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "country",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "United States",
+          "UnitedStates",
+          "United Status",
+          "Uniited States",
+          "United Statees",
+          "United States (I work from home and my clients are all over the US/Canada/PR",
+          "United States is America",
+          "United States of Americas",
+          "United States- Puerto Rico",
+          "United Statesp",
+          "United Statss",
+          "United Stattes",
+          "United Statues",
+          "United Statws",
+          "Uniteed States",
+          "Unitied States",
+          "Unted States",
+          "Untied States"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "United States"
+      },
+      {
+        "from": [
+          "I.S.",
+          "ISA",
+          "U.S>",
+          "USS",
+          "USaa"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "United States"
+      },
+      {
+        "from": [
+          "Canada",
+          "Canda",
+          "Canad",
+          "Canadw"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Canada"
+      },
+      {
+        "from": [
+          "United State",
+          "United Statea",
+          "United statew"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "United States"
+      },
+      {
+        "from": [
+          "Denmark",
+          "Danmark"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Denmark"
+      },
+      {
+        "from": [
+          "USD",
+          "Usat"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "United States"
+      },
+      {
+        "from": [
+          "United Kingdom",
+          "United Kingdomk"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "United Kingdom"
+      },
+      {
+        "from": [
+          "Australia",
+          "Australi"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Australia"
+      },
+      {
+        "from": [
+          "Unite States",
+          "Uniyed states"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "United States"
+      },
+      {
+        "from": [
+          "Northern Ireland ",
+          "Northern Ireland, United Kingdom"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Northern Ireland "
+      },
+      {
+        "from": [
+          "United Sates",
+          "United Sttes"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "United Sates"
+      },
+      {
+        "from": [
+          "Luxembourg",
+          "Luxemburg"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Luxembourg"
+      },
+      {
+        "from": [
+          "Brazil",
+          "Brasil"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Brazil"
+      }
+    ],
+    "description": "Mass edit cells in column country"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "country",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "United States",
+          "United State of America",
+          "United Stateds",
+          "Uniter Statez"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "United States"
+      },
+      {
+        "from": [
+          "England",
+          "England, Gb",
+          "England/UK"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "England"
+      },
+      {
+        "from": [
+          "United Sates",
+          "United Sates of America"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "United States"
+      },
+      {
+        "from": [
+          "United Kingdom",
+          "United Kindom"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "United Kingdom"
+      }
+    ],
+    "description": "Mass edit cells in column country"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "country",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Hong Kong",
+          "hong konh"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Hong Kong"
+      },
+      {
+        "from": [
+          "England",
+          "Englang"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "England"
+      }
+    ],
+    "description": "Mass edit cells in column country"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "country",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "United States",
+          "The United States",
+          "Unitef Stated",
+          "Uniyes States"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "United States"
+      },
+      {
+        "from": [
+          "United States",
+          "The United States",
+          "Uniyes States"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "United States"
+      },
+      {
+        "from": [
+          "Netherlands",
+          "The Netherlands",
+          "Nederland"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Netherlands"
+      },
+      {
+        "from": [
+          "United States",
+          "The United States",
+          "United y"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "United States"
+      },
+      {
+        "from": [
+          "Netherlands",
+          "Nederland"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Netherlands"
+      },
+      {
+        "from": [
+          "Australia",
+          "Australian "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Australia"
+      },
+      {
+        "from": [
+          "Great Britain ",
+          "Britain "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Great Britain "
+      },
+      {
+        "from": [
+          "Northern Ireland ",
+          "UK (Northern Ireland)"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Northern Ireland "
+      },
+      {
+        "from": [
+          "United States",
+          "United y"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "United States"
+      },
+      {
+        "from": [
+          "United States",
+          "The United States"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "United States"
+      },
+      {
+        "from": [
+          "Netherlands",
+          "The Netherlands"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Netherlands"
+      },
+      {
+        "from": [
+          "Scotland",
+          "Scotland, UK"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Scotland"
+      },
+      {
+        "from": [
+          "United States",
+          "Unitef Stated"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "United States"
+      },
+      {
+        "from": [
+          "United Kingdom",
+          "Wales (United Kingdom)"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "United Kingdom"
+      },
+      {
+        "from": [
+          "United States",
+          "Uniyes States"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "United States"
+      }
+    ],
+    "description": "Mass edit cells in column country"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "country",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "United Kingdom",
+          "Unites kingdom "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "United Kingdom"
+      }
+    ],
+    "description": "Mass edit cells in column country"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "city",
+          "expression": "grel:value.contains(/remote/i)",
+          "columnName": "city",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": true,
+                "l": "true"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "city",
+    "expression": "grel:\"Remote\"",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column city using expression grel:\"Remote\""
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "gender",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Other or prefer not to answer"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Other"
+      }
+    ],
+    "description": "Mass edit cells in column gender"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "gender",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Prefer not to answer"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Other"
+      }
+    ],
+    "description": "Mass edit cells in column gender"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "timestamp",
+    "expression": "grel:value.toDate()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column timestamp using expression grel:value.toDate()"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "industry",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Public Libraries",
+          "Public libraries",
+          "Libraries (Public)",
+          "Libraries (public)",
+          "Public Libraries ",
+          "public libraries",
+          "public libraries "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Public Library"
+      },
+      {
+        "from": [
+          "Public Library",
+          "Public library",
+          "public library",
+          "Public library ",
+          "Public LIbrary",
+          "Public Library "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Public Library"
+      },
+      {
+        "from": [
+          "E-commerce",
+          "E-Commerce",
+          "E-commerce ",
+          "ECommerce ",
+          "Ecommerce",
+          "e-commerce"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "E-commerce"
+      },
+      {
+        "from": [
+          "Real Estate",
+          "Real estate",
+          "real estate",
+          "Real Estate ",
+          "real estate "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Real Estate"
+      },
+      {
+        "from": [
+          "Science research",
+          "Research Science",
+          "Research science",
+          "Science Research",
+          "science research"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Science Research"
+      },
+      {
+        "from": [
+          "Clinical Research",
+          "Clinical Research ",
+          "clinical research",
+          "Clinical research",
+          "Clinical research "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Clinical Research"
+      },
+      {
+        "from": [
+          "Academic Publishing",
+          "Academic publishing",
+          "Academic publishing ",
+          "Publishing (academic)",
+          "academic publishing"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Academic Publishing"
+      },
+      {
+        "from": [
+          "Food Service",
+          "Food service",
+          "Food service ",
+          "Food Service "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Food Service"
+      },
+      {
+        "from": [
+          "Oil & Gas",
+          "Oil & gas",
+          "Gas & Oil",
+          "oil & gas"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Oil and Gas"
+      },
+      {
+        "from": [
+          "Market Research",
+          "Market research",
+          "market research",
+          "Market Research "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Market Research"
+      },
+      {
+        "from": [
+          "Biotech",
+          "Biotech ",
+          "BioTech",
+          "biotech"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Biotechnology"
+      },
+      {
+        "from": [
+          "Libraries",
+          "Libraries ",
+          "LIBRARIES ",
+          "libraries"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Library"
+      },
+      {
+        "from": [
+          "Manufacturing",
+          "Manufacturing ",
+          "manufacturing",
+          "MANUFACTURING"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Manufacturing"
+      },
+      {
+        "from": [
+          "Public Health",
+          "Public health",
+          "public health",
+          "Public health "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Public Health"
+      },
+      {
+        "from": [
+          "Early Childhood Education",
+          "Early childhood education",
+          "Education (Early Childhood Education)",
+          "Education (early childhood)"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Early Childhood Education"
+      },
+      {
+        "from": [
+          "Scientific Research",
+          "Scientific research",
+          "scientific research",
+          "Scientific Research "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Scientific Research"
+      },
+      {
+        "from": [
+          "Book Publishing",
+          "Book publishing",
+          "Publishing (book)"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Book Publishing"
+      },
+      {
+        "from": [
+          "Pharmaceutical research",
+          "Pharmaceutical Research",
+          "Pharmaceutical research "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Pharmaceutical research"
+      },
+      {
+        "from": [
+          "Food Manufacturing",
+          "Food manufacturing",
+          "Food manufacturing "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Food Manufacturing"
+      },
+      {
+        "from": [
+          "Childcare",
+          "Childcare ",
+          "childcare "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Childcare"
+      },
+      {
+        "from": [
+          "Professional Services",
+          "Professional services",
+          "Professional services "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Professional Services"
+      },
+      {
+        "from": [
+          "Translation",
+          "Translation ",
+          "translation"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Translation"
+      },
+      {
+        "from": [
+          "Biotechnology",
+          "Biotechnology ",
+          "biotechnology "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Biotechnology"
+      },
+      {
+        "from": [
+          "Government contractor",
+          "Government Contractor",
+          "Government contractor "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Government Contracting"
+      },
+      {
+        "from": [
+          "Biotech / Research",
+          "Biotech Research",
+          "Biotech research "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Biotechnology"
+      },
+      {
+        "from": [
+          "Sales Operations",
+          "Sales Operations ",
+          "Sales operations"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Sales Operations"
+      },
+      {
+        "from": [
+          "Construction",
+          "Construction ",
+          "construction "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Construction"
+      },
+      {
+        "from": [
+          "Trade Association",
+          "Trade association",
+          "trade association"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Trade Association"
+      },
+      {
+        "from": [
+          "Environmental",
+          "Environmental ",
+          "environmental"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Environmental"
+      },
+      {
+        "from": [
+          "Pharmaceutical Manufacturing",
+          "Pharmaceutical Manufacturing ",
+          "Pharmaceutical manufacturing"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Pharmaceutical Manufacturing"
+      },
+      {
+        "from": [
+          "Consulting",
+          "Consulting ",
+          "consulting"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Consulting"
+      },
+      {
+        "from": [
+          "Renewable Energy",
+          "Renewable energy",
+          "Renewable Energy "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Renewable Energy"
+      },
+      {
+        "from": [
+          "Research",
+          "Research ",
+          "research"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Research"
+      },
+      {
+        "from": [
+          "Environmental Consulting",
+          "Environmental consulting",
+          "Environmental Consulting "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Environmental Consulting"
+      },
+      {
+        "from": [
+          "Pharmaceuticals",
+          "Pharmaceuticals ",
+          "pharmaceuticals"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Pharmaceutical"
+      },
+      {
+        "from": [
+          "Finance",
+          "Finance ",
+          "finance"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Finance"
+      },
+      {
+        "from": [
+          "International Development",
+          "International development",
+          "International development "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "International Development"
+      },
+      {
+        "from": [
+          "Architecture",
+          "Architecture ",
+          "architecture"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Architecture"
+      },
+      {
+        "from": [
+          "Pharmaceutical",
+          "Pharmaceutical ",
+          "pharmaceutical"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Pharmaceutical"
+      },
+      {
+        "from": [
+          "Video Games",
+          "Video games",
+          "video games"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Game Development"
+      },
+      {
+        "from": [
+          "Energy (Oil & Gas)",
+          "Energy, Oil & Gas",
+          "Energy: oil & gas"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Oil and Gas"
+      },
+      {
+        "from": [
+          "Academic research",
+          "academic research",
+          "Research - academic"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Academic Research"
+      },
+      {
+        "from": [
+          "Consumer Packaged Goods",
+          "Consumer packaged goods",
+          "Consumer packaged goods "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Consumer Packaged Goods"
+      },
+      {
+        "from": [
+          "Life Sciences",
+          "Life Sciences ",
+          "life sciences"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Life Sciences"
+      },
+      {
+        "from": [
+          "Library",
+          "Library ",
+          "library"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Library"
+      },
+      {
+        "from": [
+          "Publishing",
+          "Publishing ",
+          "publishing"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Publishing"
+      },
+      {
+        "from": [
+          "Medical Research",
+          "Medical research",
+          "medical research "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Medical Research"
+      },
+      {
+        "from": [
+          "Pharma",
+          "Pharma ",
+          "pharma"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Pharmaceutical"
+      },
+      {
+        "from": [
+          "Biotech/pharmaceuticals ",
+          "Biotech/Pharmaceuticals",
+          "Biotech/pharmaceuticals"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Pharmaceuticals "
+      },
+      {
+        "from": [
+          "Mental Health",
+          "Mental health ",
+          "mental health"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Mental Health"
+      },
+      {
+        "from": [
+          "Oil and Gas",
+          "Oil and gas",
+          "Oil and gas "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Oil and Gas"
+      },
+      {
+        "from": [
+          "Customer Service",
+          "Customer service",
+          "Customer service "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Customer Service"
+      },
+      {
+        "from": [
+          "Supply Chain",
+          "Supply chain",
+          "Supply Chain!"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Supply Chain"
+      },
+      {
+        "from": [
+          "Biomedical Research",
+          "Biomedical research",
+          "biomedical research"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Biomedical Research"
+      },
+      {
+        "from": [
+          "Information Technology",
+          "Information Technology "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Information Technology"
+      },
+      {
+        "from": [
+          "Food Distribution",
+          "Food distribution"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Food Distribution"
+      },
+      {
+        "from": [
+          "Animal Care",
+          "Animal care"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Animal Care"
+      },
+      {
+        "from": [
+          "Surveying",
+          "Surveying "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Surveying"
+      },
+      {
+        "from": [
+          "Research and Development",
+          "Research and development"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Research and Development"
+      },
+      {
+        "from": [
+          "Science",
+          "Science "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Science"
+      },
+      {
+        "from": [
+          "Chemistry",
+          "chemistry"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Chemistry"
+      },
+      {
+        "from": [
+          "Government Contracting",
+          "Government contracting"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Government Contractring"
+      },
+      {
+        "from": [
+          "Aerospace",
+          "Aerospace "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Aerospace"
+      },
+      {
+        "from": [
+          "Fitness",
+          "fitness"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Fitness"
+      },
+      {
+        "from": [
+          "Auction House",
+          "Auction house"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Auction House"
+      },
+      {
+        "from": [
+          "Warehousing",
+          "Warehousing "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Warehousing"
+      },
+      {
+        "from": [
+          "Veterinary Care",
+          "Veterinary care"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Veterinary"
+      },
+      {
+        "from": [
+          "Food and Beverage",
+          "Food and Beverage "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Food and Beverage"
+      },
+      {
+        "from": [
+          "Medical Technology",
+          "Medical technology"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Medical Technology"
+      },
+      {
+        "from": [
+          "Political Consulting",
+          "Political consulting "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Political Consulting"
+      },
+      {
+        "from": [
+          "Veterinary",
+          "Veterinary "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Veterinary"
+      },
+      {
+        "from": [
+          "Academia",
+          "Academia "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Academia"
+      },
+      {
+        "from": [
+          "Academic science",
+          "Academic Science "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Academic Science"
+      },
+      {
+        "from": [
+          "auto repair",
+          "Auto Repair"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Auto Repair"
+      },
+      {
+        "from": [
+          "Defense Contracting",
+          "Defense contracting"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Defense Contracting"
+      },
+      {
+        "from": [
+          "Ed Tech",
+          "Ed tech"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Ed Tech"
+      },
+      {
+        "from": [
+          "Accessibility",
+          "accessibility"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Accessibility"
+      },
+      {
+        "from": [
+          "Warehouse",
+          "Warehouse "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Warehouse"
+      },
+      {
+        "from": [
+          "Non Profit Theater",
+          "Non profit theater"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Non Profit Theater"
+      },
+      {
+        "from": [
+          "Executive Search",
+          "Executive search"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Executive Search"
+      },
+      {
+        "from": [
+          "Defense",
+          "Defense "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Defense"
+      },
+      {
+        "from": [
+          "Librarian",
+          "Librarian "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Library"
+      },
+      {
+        "from": [
+          "Religion",
+          "Religion "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Religion"
+      },
+      {
+        "from": [
+          "Pharma/Biotech",
+          "Pharma/biotech"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Pharmaceutical"
+      },
+      {
+        "from": [
+          "Administration",
+          "Administration "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Administration"
+      },
+      {
+        "from": [
+          "Apparel",
+          "Apparel "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Apparel"
+      },
+      {
+        "from": [
+          "Research & Development",
+          "Research & Development "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Research and Development"
+      },
+      {
+        "from": [
+          "Educational Publishing",
+          "educational publishing"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Educational Publishing"
+      },
+      {
+        "from": [
+          "Food Processing",
+          "Food processing"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Food Processing"
+      },
+      {
+        "from": [
+          "Museum",
+          "Museum "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Museum"
+      },
+      {
+        "from": [
+          "Family Office",
+          "Family office "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Family Office"
+      },
+      {
+        "from": [
+          "Veterinary medicine",
+          " Veterinary medicine"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Veterinary"
+      },
+      {
+        "from": [
+          "Philanthropy",
+          "Philanthropy "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Philanthropy"
+      },
+      {
+        "from": [
+          "Government Relations",
+          "Government relations "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Government Relations"
+      },
+      {
+        "from": [
+          "Commercial Real Estate",
+          "Commercial Real Estate "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Commercial Real Estate"
+      },
+      {
+        "from": [
+          "Public safety",
+          "Public safety "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Public Safety"
+      },
+      {
+        "from": [
+          "Medical Communications",
+          "Medical communications"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Medical Communications"
+      },
+      {
+        "from": [
+          "Funeral services",
+          "funeral services"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Funeral Services"
+      },
+      {
+        "from": [
+          "Heritage",
+          "Heritage "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Heritage"
+      },
+      {
+        "from": [
+          "Environmental health and safety",
+          "environmental health and safety"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Environmental Health and Safety"
+      },
+      {
+        "from": [
+          "Fundraising",
+          "Fundraising "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Fundraising"
+      },
+      {
+        "from": [
+          "Social Research",
+          "Social research"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Social Research"
+      },
+      {
+        "from": [
+          "Travel",
+          "Travel "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Travel"
+      },
+      {
+        "from": [
+          "Health Research",
+          "Research (health)"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Health Research"
+      },
+      {
+        "from": [
+          "Aviation",
+          "aviation"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Aviation"
+      },
+      {
+        "from": [
+          "Automotive",
+          "Automotive "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Automotive"
+      },
+      {
+        "from": [
+          "Politics/Campaigns",
+          "Politics/campaigns"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Politics"
+      },
+      {
+        "from": [
+          "Communications",
+          "Communications "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Communications"
+      },
+      {
+        "from": [
+          "Biotech/Pharma",
+          "Biotech/pharma"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Pharmaceutical"
+      },
+      {
+        "from": [
+          "Consumer Goods",
+          "Consumer goods"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Consumer Goods"
+      },
+      {
+        "from": [
+          "Business Process Outsourcing",
+          "Business Process Outsourcing "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Business Process Outsourcing"
+      },
+      {
+        "from": [
+          "Purchasing",
+          "Purchasing "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Purchasing"
+      },
+      {
+        "from": [
+          "Telecommunications",
+          "Telecommunications "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Telecommunications"
+      },
+      {
+        "from": [
+          "Biotech (R&D) ",
+          "Biotech R&D"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Biotechnology Research"
+      },
+      {
+        "from": [
+          "Energy - Oil and Gas",
+          "Energy, Oil and Gas"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Oil and Gas"
+      },
+      {
+        "from": [
+          "Environmental compliance",
+          "environmental compliance "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Environmental Compliance"
+      },
+      {
+        "from": [
+          "Food Industry",
+          "Food industry "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Food Industry"
+      },
+      {
+        "from": [
+          "Association Management ",
+          "association management"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Association Management "
+      },
+      {
+        "from": [
+          "Restaurant ",
+          "Restaurant"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Restaurant "
+      },
+      {
+        "from": [
+          "Environmental Science",
+          "Environmental science "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Environmental Science"
+      },
+      {
+        "from": [
+          "Pharma research",
+          "Pharma/ Research"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Pharmaceutical"
+      },
+      {
+        "from": [
+          "Facilities ",
+          "facilities"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Facilities "
+      },
+      {
+        "from": [
+          "EdTech",
+          "Edtech"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Ed Tech"
+      },
+      {
+        "from": [
+          "Natural Resources",
+          "Natural resources"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Natural Resources"
+      },
+      {
+        "from": [
+          "Student",
+          "student"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Student"
+      },
+      {
+        "from": [
+          "Legal Services",
+          "Legal services"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Legal Services"
+      },
+      {
+        "from": [
+          "STEM Research",
+          "STEM research"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "STEM Research"
+      },
+      {
+        "from": [
+          "Pharma/biotechnology",
+          "Pharma/biotechnology "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Pharmaceutical"
+      },
+      {
+        "from": [
+          "Public Health Research",
+          "Research - Public Health"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Public Health Research"
+      },
+      {
+        "from": [
+          "Pharmaceutical Industry",
+          "Pharmaceutical industry "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Pharmaceutical"
+      },
+      {
+        "from": [
+          "Human Resources ",
+          "Human Resources"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Human Resources "
+      },
+      {
+        "from": [
+          "Labor Union",
+          "labor union"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Labor Union"
+      },
+      {
+        "from": [
+          "Oil and gas exploration",
+          "Oil and gas exploration "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Oil and Gas"
+      },
+      {
+        "from": [
+          "Archives",
+          "Archives "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Archives"
+      },
+      {
+        "from": [
+          "project management",
+          "project management "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Project Management"
+      },
+      {
+        "from": [
+          "Aerospace/Aviation ",
+          "Aerospace/aviation"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Aerospace"
+      },
+      {
+        "from": [
+          "Military",
+          "Military "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Military"
+      },
+      {
+        "from": [
+          "IT Security",
+          "It security "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "IT Security"
+      },
+      {
+        "from": [
+          "Procurement",
+          "Procurement "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Procurement"
+      },
+      {
+        "from": [
+          "Chemical Manufacturing",
+          "Manufacturing, Chemical"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Chemical Manufacturing"
+      },
+      {
+        "from": [
+          "Technology",
+          "Technology "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Technology"
+      },
+      {
+        "from": [
+          "Corporate Sustainability ",
+          "Corporate sustainability "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Corporate Sustainability "
+      },
+      {
+        "from": [
+          "SAAS",
+          "Saas"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "SAAS"
+      },
+      {
+        "from": [
+          "Game Development",
+          "Game development"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Game Development"
+      },
+      {
+        "from": [
+          "Architect",
+          "Architect "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Architect"
+      },
+      {
+        "from": [
+          "Mortgage",
+          "mortgage"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Mortgage"
+      },
+      {
+        "from": [
+          "Sales",
+          "Sales "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Sales"
+      },
+      {
+        "from": [
+          "Mining",
+          "Mining "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Mining"
+      },
+      {
+        "from": [
+          "Environmental Sciences",
+          "Environmental sciences"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Environmental Sciences"
+      },
+      {
+        "from": [
+          "Automotive Repair",
+          "Automotive repair"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Automotive Repair"
+      },
+      {
+        "from": [
+          "Biotech pharmaceuticals",
+          "Pharmaceuticals / Biotech"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Pharmaceuticals"
+      },
+      {
+        "from": [
+          "Compliance",
+          "Compliance "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Compliance"
+      }
+    ],
+    "description": "Mass edit cells in column industry"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "industry",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Pharmaceuticals ",
+          "Pharmaceuticals"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Pharmaceutical"
+      },
+      {
+        "from": [
+          "CALL CENTER",
+          "Call center"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Call Center"
+      }
+    ],
+    "description": "Mass edit cells in column industry"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "industry",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "\"Government Relations\" (Lobbying) ",
+          "Government Relations/Lobbying"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Lobbying"
+      },
+      {
+        "from": [
+          "Food Service",
+          "Foodservice"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Food Service"
+      },
+      {
+        "from": [
+          "Information Services/Libraries",
+          "Information services (libraries)"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Information Services/Libraries"
+      },
+      {
+        "from": [
+          "Consumer Packaged Goods",
+          "Consumer/Packaged Goods"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Consumer Packaged Goods"
+      },
+      {
+        "from": [
+          "Libraries & Archives",
+          "Libraries/Archives"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Library"
+      },
+      {
+        "from": [
+          "Architecture & Construction",
+          "Architecture/Construction"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Architecture & Construction"
+      },
+      {
+        "from": [
+          "Science Research",
+          "Science/Research"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Science Research"
+      },
+      {
+        "from": [
+          "Real Estate Development",
+          "Real Estate/Development"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Real Estate Development"
+      },
+      {
+        "from": [
+          "Aerospace & Defense",
+          "Aerospace/Defense"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Aerospace & Defense"
+      },
+      {
+        "from": [
+          "Real estate servicea",
+          "Real estate services"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Real Estate Services"
+      },
+      {
+        "from": [
+          "Childcare",
+          "Child care"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Childcare"
+      },
+      {
+        "from": [
+          "E-commerce",
+          "E commerce "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "E-commerce"
+      }
+    ],
+    "description": "Mass edit cells in column industry"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "industry",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Game Development",
+          "Games development"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Game Development"
+      },
+      {
+        "from": [
+          "Pharmaceutical/biotechnology",
+          "Pharmaceuticals/Biotechnology"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Pharmaceutical"
+      },
+      {
+        "from": [
+          "Museum",
+          "Museums"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Museum"
+      },
+      {
+        "from": [
+          "Political Campaigns",
+          "political campaign"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Political Campaigns"
+      },
+      {
+        "from": [
+          "Automotive Repair",
+          "Automtive Repair"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Automotive Repair"
+      },
+      {
+        "from": [
+          "Library/archives",
+          "Library/Archive"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Library"
+      },
+      {
+        "from": [
+          "Environmental Science",
+          "Environmental Sciences"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Environmental Science"
+      },
+      {
+        "from": [
+          "Pharmaceutical R&D",
+          "Pharmaceuticals R&D"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Pharmaceutical"
+      },
+      {
+        "from": [
+          "Funeral Service ",
+          "Funeral Services"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Funeral Service "
+      },
+      {
+        "from": [
+          "Publishing",
+          "Publishibg"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Publishing"
+      },
+      {
+        "from": [
+          "Science",
+          "Sciences"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Science"
+      },
+      {
+        "from": [
+          "Government Contracting",
+          "Government Contractring"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Government Contracting"
+      },
+      {
+        "from": [
+          "Pharmaceutical Manufacturing",
+          "Pharmaceitical manufacturing"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Pharmaceutical Manufacturing"
+      },
+      {
+        "from": [
+          "Counseling",
+          "Counselling"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Counseling"
+      },
+      {
+        "from": [
+          "Government Relations",
+          "Government Relation"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Government Relations"
+      },
+      {
+        "from": [
+          "Medical Devices",
+          "Medical Device"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Medical Device"
+      },
+      {
+        "from": [
+          "Food & Beverage",
+          "Food & Beverages"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Food & Beverage"
+      },
+      {
+        "from": [
+          "Trade Association",
+          "Trade Associations"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Trade Association"
+      }
+    ],
+    "description": "Mass edit cells in column industry"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "industry",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Government Contracting",
+          "Federal Government Contracting",
+          "Government Contracting R&D"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Government Contracting"
+      },
+      {
+        "from": [
+          "Chemical",
+          "Chemicals "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Chemical"
+      },
+      {
+        "from": [
+          "Analytics",
+          "Data Analytics"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Analytics"
+      },
+      {
+        "from": [
+          "Learning & Development",
+          "Learning and Development"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Learning and Development"
+      },
+      {
+        "from": [
+          "Political Campaigns",
+          "Political Campaigning"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Political Campaigns"
+      },
+      {
+        "from": [
+          "Consumer Goods Production",
+          "Consumer Product Goods"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Consumer Goods Production"
+      },
+      {
+        "from": [
+          "Religious institute",
+          "Religious institution"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Religious Institute"
+      },
+      {
+        "from": [
+          "Administrative ",
+          "Administrative Work"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Administrative "
+      },
+      {
+        "from": [
+          "Environmental Consulting",
+          "Environmental Consultanting"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Environmental Consulting"
+      },
+      {
+        "from": [
+          "Telecommunications",
+          "Telecommunications (GPS)"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Telecommunications"
+      },
+      {
+        "from": [
+          "Government Contracting",
+          "Federal Government Contracting"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Government Contracting"
+      },
+      {
+        "from": [
+          "Architecture",
+          "Architect"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Architecture"
+      },
+      {
+        "from": [
+          "Entertainment",
+          "Entertainment data"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Entertainment"
+      },
+      {
+        "from": [
+          "Veterinary",
+          "Veterinary m&a"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Veterinary"
+      },
+      {
+        "from": [
+          "Environmental",
+          "Environment"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Environmental"
+      },
+      {
+        "from": [
+          "Food Manufacturing",
+          "Food Manufacture"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Food Manufacturing"
+      },
+      {
+        "from": [
+          "Educational Publishing",
+          "Education Publishing "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Educational Publishing"
+      },
+      {
+        "from": [
+          "Government Contracting",
+          "Government Contracting R&D"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Government Contracting"
+      }
+    ],
+    "description": "Mass edit cells in column industry"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "industry",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Software Development",
+          "Software Development / IT"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Software Development"
+      }
+    ],
+    "description": "Mass edit cells in column industry"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "industry",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Archaeology / Cultural Resource Management",
+          "Archaeology/Cultural Resource Manager",
+          "Cultural Resource Management",
+          "Cultural Resources Management/Major Univ.",
+          "Environmental/Cultural Resource Management",
+          "Science and Natural Resource Management"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Archaeology / Cultural Resource Management"
+      },
+      {
+        "from": [
+          "Archaeology / Cultural Resource Management",
+          "Archaeology/Cultural Resource Manager",
+          "Cultural Resource Management",
+          "Environmental/Cultural Resource Management",
+          "Science and Natural Resource Management"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Archaeology / Cultural Resource Management"
+      },
+      {
+        "from": [
+          "Information Services/Libraries",
+          "Information sciences",
+          "Information services",
+          "Information services (library)"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Information Services/Libraries"
+      },
+      {
+        "from": [
+          "Information Services/Libraries",
+          "Information services",
+          "Information services (library)",
+          "Library and Information Services"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Information Services/Libraries"
+      },
+      {
+        "from": [
+          "Pharmaceutical",
+          "Pharmaceutical research",
+          "Pharmaceutical research & development",
+          "Pharmaceutical research (chemist)"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Pharmaceutical"
+      },
+      {
+        "from": [
+          "Information Services/Libraries",
+          "Library and Information Science",
+          "Library and Information Services"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Information Services/Libraries"
+      },
+      {
+        "from": [
+          "Aerospace and Defense",
+          "Aerospace Manufacturing",
+          "Aerospace and Defense Manufacturing"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Aerospace and Defense"
+      },
+      {
+        "from": [
+          "Research and Development",
+          "Learning and Development",
+          "Corporate Learning and Development"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Research and Development"
+      },
+      {
+        "from": [
+          "Real Estate",
+          "Commercial Real Estate",
+          "Commercial Real Estate - Private Equity"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Real Estate"
+      },
+      {
+        "from": [
+          "Consumer Goods",
+          "Consumer Packaged Goods",
+          "Manufacturing/Consumer Packaged Goods"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Consumer Goods"
+      },
+      {
+        "from": [
+          "Pharmaceutical Manufacturing",
+          "Chemical Manufacturing",
+          "Synthetic Chemical Manufacturing"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Pharmaceutical Manufacturing"
+      },
+      {
+        "from": [
+          "Information Services/Libraries",
+          "Information services (library)",
+          "Library and Information Services"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Information Services/Libraries"
+      },
+      {
+        "from": [
+          "Pharmaceutical Manufacturing",
+          "Chemical Manufacturing",
+          "Manufacturing (pharmaceuticals) "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Pharmaceutical Manufacturing"
+      },
+      {
+        "from": [
+          "Aerospace & Defense",
+          "Aerospace and Defense",
+          "Aerospace and Defense Manufacturing"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Aerospace and Defense"
+      },
+      {
+        "from": [
+          "Environmental Health and Safety",
+          "Environment, health, and safety",
+          "Environmental health and safety compliance"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Environmental Health and Safety"
+      },
+      {
+        "from": [
+          "Libraries and Archives",
+          "Archives/Libraries",
+          "Libraries and Archives (Academic)"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Library"
+      },
+      {
+        "from": [
+          "Environmental Science",
+          "Environmental Compliance",
+          "environmental compliance/engineering"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Environmental Science"
+      },
+      {
+        "from": [
+          "Archaeology / Cultural Resource Management",
+          "Archaeology/Cultural Resource Manager",
+          "Cultural Resource Management"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Archaeology / Cultural Resource Management"
+      },
+      {
+        "from": [
+          "Pharmaceutical research",
+          "Pharmaceutical research & development",
+          "Pharmaceutical research (chemist)"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Pharmaceutical"
+      },
+      {
+        "from": [
+          "Educational Publishing",
+          "Editor in educational publishing",
+          "Educational publishing / ed tech"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Educational Publishing"
+      },
+      {
+        "from": [
+          "Information Services/Libraries",
+          "Information services",
+          "Information services (library)"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Information Services/Libraries"
+      },
+      {
+        "from": [
+          "Pharmaceutical research",
+          "Pharmaceutical Development",
+          "Pharmaceutical research & development"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Pharmaceutical"
+      },
+      {
+        "from": [
+          "Information Technology",
+          "Healthcare Information Technology",
+          "Information technology (IT)"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Information Technology"
+      },
+      {
+        "from": [
+          "Professional Services",
+          "Consulting / Professional Services",
+          "Training and Professional Services"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Professional Services"
+      },
+      {
+        "from": [
+          "Research and Development",
+          "Research and Development Academia"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Research and Development"
+      },
+      {
+        "from": [
+          "Government Relations",
+          "Politics/Government Relations"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Government Relations"
+      },
+      {
+        "from": [
+          "Environmental Compliance",
+          "environmental compliance/engineering"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Environmental Compliance"
+      },
+      {
+        "from": [
+          "Information Services/Libraries",
+          "Information services (library)"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Information Services/Libraries"
+      },
+      {
+        "from": [
+          "Benefits Administration",
+          "Pension Benefit Administration"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Benefits Administration"
+      },
+      {
+        "from": [
+          "Professional Association ",
+          "Professional Association in Finance"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Professional Association "
+      },
+      {
+        "from": [
+          "Information Technology",
+          "Healthcare Information Technology"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Information Technology"
+      },
+      {
+        "from": [
+          "Libraries and Archives",
+          "Libraries and Archives (Academic)"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Library"
+      },
+      {
+        "from": [
+          "Environment, health, and safety",
+          "Environmental health and safety compliance"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Environment, health, and safety"
+      },
+      {
+        "from": [
+          "Information Technology",
+          "Information technology (IT)"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Information Technology"
+      },
+      {
+        "from": [
+          "Large University Administration",
+          "University administration"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "University Administration"
+      },
+      {
+        "from": [
+          "Environmental Health and Safety",
+          "Environmental health and safety compliance"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Environmental Health and Safety"
+      },
+      {
+        "from": [
+          "Pharmaceutical research",
+          "Pharmaceutical research & development"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Pharmaceutical"
+      },
+      {
+        "from": [
+          "Utilities & Telecommunications",
+          "Telecommunications"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Utilities & Telecommunications"
+      },
+      {
+        "from": [
+          "Commercial Real Estate",
+          "Commercial Real Estate - Private Equity"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Commercial Real Estate"
+      },
+      {
+        "from": [
+          "Pharmaceutical Development",
+          "Pharmaceutical research & development"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Pharmaceutical"
+      },
+      {
+        "from": [
+          "Pharmaceutical research",
+          "Pharmaceutical research (chemist)"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Pharmaceutical"
+      },
+      {
+        "from": [
+          "Consumer Products design ",
+          "consumer product design"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Consumer Product Design "
+      },
+      {
+        "from": [
+          "Library and Information Science",
+          "Library and Information Services"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Library"
+      },
+      {
+        "from": [
+          "Cultural Resource Management",
+          "Cultural Resources Management/Major Univ."
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Cultural Resource Management"
+      },
+      {
+        "from": [
+          "Research and Development",
+          "Biotechnology, Research and Development"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Research and Development"
+      },
+      {
+        "from": [
+          "Aerospace and Defense",
+          "Aerospace and Defense Manufacturing"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Aerospace and Defense"
+      },
+      {
+        "from": [
+          "Pharmaceutical Manufacturing",
+          "Manufacturing (pharmaceuticals) "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Pharmaceutical"
+      },
+      {
+        "from": [
+          "International Development",
+          "Organizational Development "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "International Development"
+      },
+      {
+        "from": [
+          "Cultural Resource Management",
+          "Environmental/Cultural Resource Management"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Cultural Resource Management"
+      },
+      {
+        "from": [
+          "Learning and Development",
+          "Corporate Learning and Development"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Learning and Development"
+      },
+      {
+        "from": [
+          "Chemical Manufacturing",
+          "Synthetic Chemical Manufacturing"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Chemical Manufacturing"
+      },
+      {
+        "from": [
+          "Consumer Packaged Goods",
+          "Manufacturing/Consumer Packaged Goods"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Consumer Packaged Goods"
+      },
+      {
+        "from": [
+          "Environmental Consulting",
+          "Engineering and Environmental Consulting"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Environmental Consulting"
+      },
+      {
+        "from": [
+          "Professional Services",
+          "Training and Professional Services"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Professional Services"
+      },
+      {
+        "from": [
+          "wholesale distribution",
+          "Wholesale Distribution B2B"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Wholesale Distribution"
+      },
+      {
+        "from": [
+          "International organisations",
+          "International organization (UN)"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "International Organization"
+      },
+      {
+        "from": [
+          "Archaeology / Cultural Resource Management",
+          "Archaeology/Cultural Resource Manager"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Archaeology / Cultural Resource Management"
+      },
+      {
+        "from": [
+          "Government Contracting",
+          "Government Contractor (R&D)"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Government Contracting"
+      },
+      {
+        "from": [
+          "Professional Services",
+          "Consulting / Professional Services"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Professional Services"
+      }
+    ],
+    "description": "Mass edit cells in column industry"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "industry",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Pharmaceutical",
+          "Biopharmaceuticals",
+          "Pharmacuticals"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Pharmaceutical"
+      },
+      {
+        "from": [
+          "Pharmaceutical",
+          "Biopharmaceuticals"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Pharmaceutical"
+      },
+      {
+        "from": [
+          "Public Library",
+          "Public Librarian"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Public Library"
+      },
+      {
+        "from": [
+          "Pharmaceutical",
+          "Pharmacuticals"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Pharmaceutical"
+      },
+      {
+        "from": [
+          "Publishing",
+          "Book Publishing"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Publishing"
+      }
+    ],
+    "description": "Mass edit cells in column industry"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "industry",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Public Library",
+          "Public Library (Non-profit, but also government?)",
+          "Public Library (might be considered Government, but that always seems an odd designation...)",
+          "Public Library (technically City Govt.?) "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Public Library"
+      }
+    ],
+    "description": "Mass edit cells in column industry"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "range",
+          "name": "job_title",
+          "expression": "grel:facetCount(value, \"value\", \"job_title\")",
+          "columnName": "job_title",
+          "from": 10,
+          "to": 290,
+          "selectNumeric": true,
+          "selectNonNumeric": true,
+          "selectBlank": true,
+          "selectError": true
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "job_title",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Software Engineer",
+          "Software engineer",
+          "Software Engineer ",
+          "Software engineer ",
+          "software engineer"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Software Engineer"
+      },
+      {
+        "from": [
+          "Administrative Assistant",
+          "Administrative Assistant ",
+          "Administrative assistant "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Administrative Assistant"
+      },
+      {
+        "from": [
+          "Data Analyst",
+          "Data analyst",
+          "Data Analyst "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Data Analyst"
+      },
+      {
+        "from": [
+          "Project Manager",
+          "Project manager",
+          "Project Manager "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Project Manager"
+      },
+      {
+        "from": [
+          "Senior Software Engineer",
+          "Senior software engineer",
+          "Senior Software Engineer "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Senior Software Engineer"
+      },
+      {
+        "from": [
+          "Assistant Professor",
+          "Assistant professor",
+          "Assistant Professor "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Assistant Professor"
+      },
+      {
+        "from": [
+          "Account Manager",
+          "Account Manager "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Account Manager"
+      },
+      {
+        "from": [
+          "Program Manager",
+          "Program manager"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Program Manager"
+      },
+      {
+        "from": [
+          "Attorney",
+          "Attorney "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Attorney"
+      },
+      {
+        "from": [
+          "Software Developer",
+          "Software developer"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Software Developer"
+      },
+      {
+        "from": [
+          "Product Manager",
+          "Product manager"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Product Manager"
+      },
+      {
+        "from": [
+          "Data Scientist",
+          "Data scientist"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Data Scientist"
+      },
+      {
+        "from": [
+          "Librarian",
+          "Librarian "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Librarian"
+      },
+      {
+        "from": [
+          "Office Manager",
+          "Office Manager "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Office Manager"
+      },
+      {
+        "from": [
+          "Consultant",
+          "Consultant "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Consultant"
+      },
+      {
+        "from": [
+          "Director of Operations",
+          "Director of Operations "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Director of Operations"
+      },
+      {
+        "from": [
+          "Assistant Director",
+          "Assistant Director "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Assistant Director"
+      },
+      {
+        "from": [
+          "Registered Nurse",
+          "Registered nurse"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Registered Nurse"
+      },
+      {
+        "from": [
+          "Associate Director",
+          "Associate Director "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Associate Director"
+      },
+      {
+        "from": [
+          "High School Teacher",
+          "High school teacher"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "High School Teacher"
+      },
+      {
+        "from": [
+          "Executive Director",
+          "Executive Director "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Executive Director"
+      },
+      {
+        "from": [
+          "Operations Manager",
+          "Operations Manager "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Operations Manager"
+      },
+      {
+        "from": [
+          "Director",
+          "Director "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Director"
+      },
+      {
+        "from": [
+          "Executive Assistant",
+          "Executive Assistant "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Executive Assistant"
+      },
+      {
+        "from": [
+          "Senior Associate",
+          "Senior Associate "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Senior Associate"
+      },
+      {
+        "from": [
+          "Associate",
+          "Associate "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Associate"
+      },
+      {
+        "from": [
+          "Senior Manager",
+          "Senior manager"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Senior Manager"
+      },
+      {
+        "from": [
+          "Teacher",
+          "Teacher "
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Teacher"
+      },
+      {
+        "from": [
+          "Senior Analyst",
+          "Senior analyst"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Senior Analyst"
+      },
+      {
+        "from": [
+          "Technical Writer",
+          "Technical writer"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Technical Writer"
+      }
+    ],
+    "description": "Mass edit cells in column job_title"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "range",
+          "name": "job_title",
+          "expression": "grel:facetCount(value, \"value\", \"job_title\")",
+          "columnName": "job_title",
+          "from": 10,
+          "to": 290,
+          "selectNumeric": true,
+          "selectNonNumeric": true,
+          "selectBlank": true,
+          "selectError": true
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "job_title",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Solution Architect",
+          "Solutions Architect"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Solution Architect"
+      }
+    ],
+    "description": "Mass edit cells in column job_title"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "range",
+          "name": "job_title",
+          "expression": "grel:facetCount(value, \"value\", \"job_title\")",
+          "columnName": "job_title",
+          "from": 10,
+          "to": 290,
+          "selectNumeric": true,
+          "selectNonNumeric": true,
+          "selectBlank": true,
+          "selectError": true
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "job_title",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Software Engineer II",
+          "Software Engineer 2"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Software Engineer II"
+      }
+    ],
+    "description": "Mass edit cells in column job_title"
+  }
+]
