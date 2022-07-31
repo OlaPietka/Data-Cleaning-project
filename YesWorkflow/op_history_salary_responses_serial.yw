@@ -1,0 +1,313 @@
+#@begin Linear_OR #@desc Linear OpenRefine Workflow
+#@param newColumnName:additional_salary
+#@param newColumnName:currency_context
+#@param oldColumnName:If_you're_in_the_U.S.,_what_state_do_you_work_in?
+#@param newColumnName:city
+#@param oldColumnName:What_is_your_highest_level_of_education_completed?
+#@param newColumnName:salary_context
+#@param oldColumnName:What_country_do_you_work_in?
+#@param col-name:timestamp
+#@param expression:grel:replace(value,_",",_"").toNumber()
+#@param oldColumnName:What_is_your_annual_salary?_(You'll_indicate_the_currency_in_a_later_question._If_you_are_part-time_or_hourly,_please_enter_an_annualized_equivalent_--_what_you_would_earn_if_you_worked_the_job_40_hours_a_week,_52_weeks_a_year.)
+#@param newColumnName:total_experience
+#@param oldColumnName:How_many_years_of_professional_work_experience_do_you_have_overall?
+#@param newColumnName:country
+#@param oldColumnName:What_industry_do_you_work_in?
+#@param newColumnName:job_title
+#@param oldColumnName:If_your_income_needs_additional_context,_please_provide_it_here:
+#@param oldColumnName:How_many_years_of_professional_work_experience_do_you_have_in_your_field?
+#@param col-name:job_title
+#@param oldColumnName:If_your_job_title_needs_additional_context,_please_clarify_here:
+#@param oldColumnName:If_"Other,"_please_indicate_the_currency_here:
+#@param newColumnName:current_experience
+#@param oldColumnName:Timestamp
+#@param oldColumnName:How_old_are_you?
+#@param oldColumnName:Job_title
+#@param newColumnName:age
+#@param expression:grel:"Remote"
+#@param col-name:industry
+#@param col-name:gender
+#@param col-name:annual_salary
+#@param newColumnName:timestamp
+#@param oldColumnName:Please_indicate_the_currency
+#@param newColumnName:job_context
+#@param col-name:country
+#@param col-name:city
+#@param expression:grel:value.toDate()
+#@param newColumnName:race
+#@param newColumnName:annual_salary
+#@param oldColumnName:What_city_do_you_work_in?
+#@param oldColumnName:What_is_your_gender?
+#@param newColumnName:gender
+#@param newColumnName:education
+#@param oldColumnName:What_is_your_race?_(Choose_all_that_apply.)
+#@param newColumnName:state
+#@param newColumnName:industry
+#@param col-name:additional_salary
+#@param oldColumnName:How_much_additional_monetary_compensation_do_you_get,_if_any_(for_example,_bonuses_or_overtime_in_an_average_year)?_Please_only_include_monetary_compensation_here,_not_the_value_of_benefits.
+#@param newColumnName:currency
+#@in table0
+#@out table48
+#@begin core/column-rename0#@desc Rename column What industry do you work in? to industry
+#@param oldColumnName:What_industry_do_you_work_in?
+#@param newColumnName:industry
+#@in table0
+#@out table1
+#@end core/column-rename0
+#@begin core/column-rename1#@desc Rename column Job title to job_title
+#@param oldColumnName:Job_title
+#@param newColumnName:job_title
+#@in table1
+#@out table2
+#@end core/column-rename1
+#@begin core/column-rename2#@desc Rename column How old are you? to age
+#@param oldColumnName:How_old_are_you?
+#@param newColumnName:age
+#@in table2
+#@out table3
+#@end core/column-rename2
+#@begin core/column-rename3#@desc Rename column If your job title needs additional context, please clarify here: to job_context
+#@param oldColumnName:If_your_job_title_needs_additional_context,_please_clarify_here:
+#@param newColumnName:job_context
+#@in table3
+#@out table4
+#@end core/column-rename3
+#@begin core/column-rename4#@desc Rename column What is your annual salary? (You'll indicate the currency in a later question. If you are part-time or hourly, please enter an annualized equivalent -- what you would earn if you worked the job 40 hours a week, 52 weeks a year.) to annual_salary
+#@param oldColumnName:What_is_your_annual_salary?_(You'll_indicate_the_currency_in_a_later_question._If_you_are_part-time_or_hourly,_please_enter_an_annualized_equivalent_--_what_you_would_earn_if_you_worked_the_job_40_hours_a_week,_52_weeks_a_year.)
+#@param newColumnName:annual_salary
+#@in table4
+#@out table5
+#@end core/column-rename4
+#@begin core/column-rename5#@desc Rename column How much additional monetary compensation do you get, if any (for example, bonuses or overtime in an average year)? Please only include monetary compensation here, not the value of benefits. to additional_salary
+#@param oldColumnName:How_much_additional_monetary_compensation_do_you_get,_if_any_(for_example,_bonuses_or_overtime_in_an_average_year)?_Please_only_include_monetary_compensation_here,_not_the_value_of_benefits.
+#@param newColumnName:additional_salary
+#@in table5
+#@out table6
+#@end core/column-rename5
+#@begin core/column-rename6#@desc Rename column Please indicate the currency to currency
+#@param oldColumnName:Please_indicate_the_currency
+#@param newColumnName:currency
+#@in table6
+#@out table7
+#@end core/column-rename6
+#@begin core/column-rename7#@desc Rename column If \"Other,\" please indicate the currency here: to currency_context
+#@param oldColumnName:If_"Other,"_please_indicate_the_currency_here:
+#@param newColumnName:currency_context
+#@in table7
+#@out table8
+#@end core/column-rename7
+#@begin core/column-rename8#@desc Rename column If your income needs additional context, please provide it here: to salary_context
+#@param oldColumnName:If_your_income_needs_additional_context,_please_provide_it_here:
+#@param newColumnName:salary_context
+#@in table8
+#@out table9
+#@end core/column-rename8
+#@begin core/column-rename9#@desc Rename column What country do you work in? to country
+#@param oldColumnName:What_country_do_you_work_in?
+#@param newColumnName:country
+#@in table9
+#@out table10
+#@end core/column-rename9
+#@begin core/column-rename10#@desc Rename column If you're in the U.S., what state do you work in? to state
+#@param oldColumnName:If_you're_in_the_U.S.,_what_state_do_you_work_in?
+#@param newColumnName:state
+#@in table10
+#@out table11
+#@end core/column-rename10
+#@begin core/column-rename11#@desc Rename column What city do you work in? to city
+#@param oldColumnName:What_city_do_you_work_in?
+#@param newColumnName:city
+#@in table11
+#@out table12
+#@end core/column-rename11
+#@begin core/column-rename12#@desc Rename column How many years of professional work experience do you have overall? to total_experience
+#@param oldColumnName:How_many_years_of_professional_work_experience_do_you_have_overall?
+#@param newColumnName:total_experience
+#@in table12
+#@out table13
+#@end core/column-rename12
+#@begin core/column-rename13#@desc Rename column How many years of professional work experience do you have in your field? to current_experience
+#@param oldColumnName:How_many_years_of_professional_work_experience_do_you_have_in_your_field?
+#@param newColumnName:current_experience
+#@in table13
+#@out table14
+#@end core/column-rename13
+#@begin core/column-rename14#@desc Rename column What is your highest level of education completed? to education
+#@param oldColumnName:What_is_your_highest_level_of_education_completed?
+#@param newColumnName:education
+#@in table14
+#@out table15
+#@end core/column-rename14
+#@begin core/column-rename15#@desc Rename column What is your gender? to gender
+#@param oldColumnName:What_is_your_gender?
+#@param newColumnName:gender
+#@in table15
+#@out table16
+#@end core/column-rename15
+#@begin core/column-rename16#@desc Rename column What is your race? (Choose all that apply.) to race
+#@param oldColumnName:What_is_your_race?_(Choose_all_that_apply.)
+#@param newColumnName:race
+#@in table16
+#@out table17
+#@end core/column-rename16
+#@begin core/mass-edit0#@desc Mass edit cells in column country
+#@param col-name:country
+#@in table17
+#@out table18
+#@end core/mass-edit0
+#@begin core/text-transform0#@desc Text transform on cells in column annual_salary using expression grel:replace(value, \",\", \"\").toNumber()
+#@param col-name:annual_salary
+#@param expression:grel:replace(value,_",",_"").toNumber()
+#@in table18
+#@out table19
+#@end core/text-transform0
+#@begin core/text-transform1#@desc Text transform on cells in column additional_salary using expression grel:replace(value, \",\", \"\").toNumber()
+#@param col-name:additional_salary
+#@param expression:grel:replace(value,_",",_"").toNumber()
+#@in table19
+#@out table20
+#@end core/text-transform1
+#@begin core/column-rename17#@desc Rename column Timestamp to timestamp
+#@param oldColumnName:Timestamp
+#@param newColumnName:timestamp
+#@in table20
+#@out table21
+#@end core/column-rename17
+#@begin core/mass-edit1#@desc Mass edit cells in column country
+#@param col-name:country
+#@in table21
+#@out table22
+#@end core/mass-edit1
+#@begin core/mass-edit2#@desc Mass edit cells in column country
+#@param col-name:country
+#@in table22
+#@out table23
+#@end core/mass-edit2
+#@begin core/mass-edit3#@desc Mass edit cells in column country
+#@param col-name:country
+#@in table23
+#@out table24
+#@end core/mass-edit3
+#@begin core/mass-edit4#@desc Mass edit cells in column country
+#@param col-name:country
+#@in table24
+#@out table25
+#@end core/mass-edit4
+#@begin core/mass-edit5#@desc Mass edit cells in column country
+#@param col-name:country
+#@in table25
+#@out table26
+#@end core/mass-edit5
+#@begin core/text-transform2#@desc Text transform on cells in column city using expression grel:\"Remote\"
+#@param col-name:city
+#@param expression:grel:"Remote"
+#@in table26
+#@out table27
+#@end core/text-transform2
+#@begin core/mass-edit6#@desc Mass edit cells in column gender
+#@param col-name:gender
+#@in table27
+#@out table28
+#@end core/mass-edit6
+#@begin core/mass-edit7#@desc Mass edit cells in column gender
+#@param col-name:gender
+#@in table28
+#@out table29
+#@end core/mass-edit7
+#@begin core/text-transform3#@desc Text transform on cells in column timestamp using expression grel:value.toDate()
+#@param col-name:timestamp
+#@param expression:grel:value.toDate()
+#@in table29
+#@out table30
+#@end core/text-transform3
+#@begin core/mass-edit8#@desc Mass edit cells in column industry
+#@param col-name:industry
+#@in table30
+#@out table31
+#@end core/mass-edit8
+#@begin core/mass-edit9#@desc Mass edit cells in column industry
+#@param col-name:industry
+#@in table31
+#@out table32
+#@end core/mass-edit9
+#@begin core/mass-edit10#@desc Mass edit cells in column industry
+#@param col-name:industry
+#@in table32
+#@out table33
+#@end core/mass-edit10
+#@begin core/mass-edit11#@desc Mass edit cells in column industry
+#@param col-name:industry
+#@in table33
+#@out table34
+#@end core/mass-edit11
+#@begin core/mass-edit12#@desc Mass edit cells in column industry
+#@param col-name:industry
+#@in table34
+#@out table35
+#@end core/mass-edit12
+#@begin core/mass-edit13#@desc Mass edit cells in column industry
+#@param col-name:industry
+#@in table35
+#@out table36
+#@end core/mass-edit13
+#@begin core/mass-edit14#@desc Mass edit cells in column industry
+#@param col-name:industry
+#@in table36
+#@out table37
+#@end core/mass-edit14
+#@begin core/mass-edit15#@desc Mass edit cells in column industry
+#@param col-name:industry
+#@in table37
+#@out table38
+#@end core/mass-edit15
+#@begin core/mass-edit16#@desc Mass edit cells in column industry
+#@param col-name:industry
+#@in table38
+#@out table39
+#@end core/mass-edit16
+#@begin core/mass-edit17#@desc Mass edit cells in column job_title
+#@param col-name:job_title
+#@in table39
+#@out table40
+#@end core/mass-edit17
+#@begin core/mass-edit18#@desc Mass edit cells in column job_title
+#@param col-name:job_title
+#@in table40
+#@out table41
+#@end core/mass-edit18
+#@begin core/mass-edit19#@desc Mass edit cells in column job_title
+#@param col-name:job_title
+#@in table41
+#@out table42
+#@end core/mass-edit19
+#@begin core/mass-edit20#@desc Mass edit cells in column job_title
+#@param col-name:job_title
+#@in table42
+#@out table43
+#@end core/mass-edit20
+#@begin core/mass-edit21#@desc Mass edit cells in column job_title
+#@param col-name:job_title
+#@in table43
+#@out table44
+#@end core/mass-edit21
+#@begin core/mass-edit22#@desc Mass edit cells in column job_title
+#@param col-name:job_title
+#@in table44
+#@out table45
+#@end core/mass-edit22
+#@begin core/mass-edit23#@desc Mass edit cells in column job_title
+#@param col-name:job_title
+#@in table45
+#@out table46
+#@end core/mass-edit23
+#@begin core/mass-edit24#@desc Mass edit cells in column job_title
+#@param col-name:job_title
+#@in table46
+#@out table47
+#@end core/mass-edit24
+#@begin core/mass-edit25#@desc Mass edit cells in column job_title
+#@param col-name:job_title
+#@in table47
+#@out table48
+#@end core/mass-edit25
+#@end Linear_OR

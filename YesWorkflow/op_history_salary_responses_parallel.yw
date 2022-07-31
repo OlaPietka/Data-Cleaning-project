@@ -1,0 +1,388 @@
+#@begin Parallel_OR #@desc Parallel OpenRefine Workflow
+#@param newColumnName:city
+#@param expression:grel:"Remote"
+#@param oldColumnName:How_old_are_you?
+#@param newColumnName:additional_salary
+#@param expression:grel:replace(value,_",",_"").toNumber()
+#@param newColumnName:currency
+#@param newColumnName:industry
+#@param newColumnName:current_experience
+#@param expression:grel:value.toDate()
+#@param expression:value
+#@param newColumnName:state
+#@param oldColumnName:What_is_your_highest_level_of_education_completed?
+#@param newColumnName:salary_context
+#@param newColumnName:age
+#@param oldColumnName:Please_indicate_the_currency
+#@param newColumnName:job_title
+#@param newColumnName:timestamp
+#@param oldColumnName:What_is_your_gender?
+#@param newColumnName:total_experience
+#@param newColumnName:race
+#@param oldColumnName:Timestamp
+#@param oldColumnName:What_country_do_you_work_in?
+#@param newColumnName:job_context
+#@param newColumnName:annual_salary
+#@param oldColumnName:How_many_years_of_professional_work_experience_do_you_have_overall?
+#@param oldColumnName:If_your_income_needs_additional_context,_please_provide_it_here:
+#@param oldColumnName:What_is_your_annual_salary?_(You'll_indicate_the_currency_in_a_later_question._If_you_are_part-time_or_hourly,_please_enter_an_annualized_equivalent_--_what_you_would_earn_if_you_worked_the_job_40_hours_a_week,_52_weeks_a_year.)
+#@param oldColumnName:How_much_additional_monetary_compensation_do_you_get,_if_any_(for_example,_bonuses_or_overtime_in_an_average_year)?_Please_only_include_monetary_compensation_here,_not_the_value_of_benefits.
+#@param oldColumnName:If_"Other,"_please_indicate_the_currency_here:
+#@param newColumnName:gender
+#@param oldColumnName:What_is_your_race?_(Choose_all_that_apply.)
+#@param newColumnName:currency_context
+#@param oldColumnName:How_many_years_of_professional_work_experience_do_you_have_in_your_field?
+#@param oldColumnName:What_city_do_you_work_in?
+#@param newColumnName:country
+#@param oldColumnName:Job_title
+#@param newColumnName:education
+#@param oldColumnName:If_you're_in_the_U.S.,_what_state_do_you_work_in?
+#@param oldColumnName:What_industry_do_you_work_in?
+#@param oldColumnName:If_your_job_title_needs_additional_context,_please_clarify_here:
+#@in country_4
+#@in job_title
+#@in additional_salary
+#@in Please_indicate_the_currency
+#@in What_is_your_race?_(Choose_all_that_apply.)
+#@in What_industry_do_you_work_in?
+#@in industry
+#@in industry_5
+#@in What_is_your_highest_level_of_education_completed?
+#@in job_title_5
+#@in industry_7
+#@in If_"Other,"_please_indicate_the_currency_here:
+#@in industry_2
+#@in What_country_do_you_work_in?
+#@in job_title_4
+#@in Job_title
+#@in industry_6
+#@in If_your_income_needs_additional_context,_please_provide_it_here:
+#@in What_city_do_you_work_in?
+#@in gender_1
+#@in country_2
+#@in industry_4
+#@in If_you're_in_the_U.S.,_what_state_do_you_work_in?
+#@in country_5
+#@in What_is_your_annual_salary?_(You'll_indicate_the_currency_in_a_later_question._If_you_are_part-time_or_hourly,_please_enter_an_annualized_equivalent_--_what_you_would_earn_if_you_worked_the_job_40_hours_a_week,_52_weeks_a_year.)
+#@in annual_salary
+#@in country
+#@in How_many_years_of_professional_work_experience_do_you_have_overall?
+#@in job_title_2
+#@in job_title_8
+#@in job_title_3
+#@in gender
+#@in How_much_additional_monetary_compensation_do_you_get,_if_any_(for_example,_bonuses_or_overtime_in_an_average_year)?_Please_only_include_monetary_compensation_here,_not_the_value_of_benefits.
+#@in How_many_years_of_professional_work_experience_do_you_have_in_your_field?
+#@in What_is_your_gender?
+#@in Timestamp
+#@in city
+#@in country_3
+#@in If_your_job_title_needs_additional_context,_please_clarify_here:
+#@in industry_1
+#@in industry_8
+#@in How_old_are_you?
+#@in industry_3
+#@in job_title_7
+#@in country_1
+#@in job_title_6
+#@in timestamp
+#@in job_title_1
+#@out CleanData
+#@begin core/column-rename0 #@desc Rename column What industry do you work in? to industry
+#@param oldColumnName:What_industry_do_you_work_in?
+#@param newColumnName:industry
+#@in What_industry_do_you_work_in?
+#@out industry
+#@end core/column-rename0
+#@begin core/column-rename1 #@desc Rename column Job title to job_title
+#@param oldColumnName:Job_title
+#@param newColumnName:job_title
+#@in Job_title
+#@out job_title
+#@end core/column-rename1
+#@begin core/column-rename2 #@desc Rename column How old are you? to age
+#@param oldColumnName:How_old_are_you?
+#@param newColumnName:age
+#@in How_old_are_you?
+#@out age
+#@end core/column-rename2
+#@begin core/column-rename3 #@desc Rename column If your job title needs additional context, please clarify here: to job_context
+#@param oldColumnName:If_your_job_title_needs_additional_context,_please_clarify_here:
+#@param newColumnName:job_context
+#@in If_your_job_title_needs_additional_context,_please_clarify_here:
+#@out job_context
+#@end core/column-rename3
+#@begin core/column-rename4 #@desc Rename column What is your annual salary? (You'll indicate the currency in a later question. If you are part-time or hourly, please enter an annualized equivalent -- what you would earn if you worked the job 40 hours a week, 52 weeks a year.) to annual_salary
+#@param oldColumnName:What_is_your_annual_salary?_(You'll_indicate_the_currency_in_a_later_question._If_you_are_part-time_or_hourly,_please_enter_an_annualized_equivalent_--_what_you_would_earn_if_you_worked_the_job_40_hours_a_week,_52_weeks_a_year.)
+#@param newColumnName:annual_salary
+#@in What_is_your_annual_salary?_(You'll_indicate_the_currency_in_a_later_question._If_you_are_part-time_or_hourly,_please_enter_an_annualized_equivalent_--_what_you_would_earn_if_you_worked_the_job_40_hours_a_week,_52_weeks_a_year.)
+#@out annual_salary
+#@end core/column-rename4
+#@begin core/column-rename5 #@desc Rename column How much additional monetary compensation do you get, if any (for example, bonuses or overtime in an average year)? Please only include monetary compensation here, not the value of benefits. to additional_salary
+#@param oldColumnName:How_much_additional_monetary_compensation_do_you_get,_if_any_(for_example,_bonuses_or_overtime_in_an_average_year)?_Please_only_include_monetary_compensation_here,_not_the_value_of_benefits.
+#@param newColumnName:additional_salary
+#@in How_much_additional_monetary_compensation_do_you_get,_if_any_(for_example,_bonuses_or_overtime_in_an_average_year)?_Please_only_include_monetary_compensation_here,_not_the_value_of_benefits.
+#@out additional_salary
+#@end core/column-rename5
+#@begin core/column-rename6 #@desc Rename column Please indicate the currency to currency
+#@param oldColumnName:Please_indicate_the_currency
+#@param newColumnName:currency
+#@in Please_indicate_the_currency
+#@out currency
+#@end core/column-rename6
+#@begin core/column-rename7 #@desc Rename column If \"Other,\" please indicate the currency here: to currency_context
+#@param oldColumnName:If_"Other,"_please_indicate_the_currency_here:
+#@param newColumnName:currency_context
+#@in If_"Other,"_please_indicate_the_currency_here:
+#@out currency_context
+#@end core/column-rename7
+#@begin core/column-rename8 #@desc Rename column If your income needs additional context, please provide it here: to salary_context
+#@param oldColumnName:If_your_income_needs_additional_context,_please_provide_it_here:
+#@param newColumnName:salary_context
+#@in If_your_income_needs_additional_context,_please_provide_it_here:
+#@out salary_context
+#@end core/column-rename8
+#@begin core/column-rename9 #@desc Rename column What country do you work in? to country
+#@param oldColumnName:What_country_do_you_work_in?
+#@param newColumnName:country
+#@in What_country_do_you_work_in?
+#@out country
+#@end core/column-rename9
+#@begin core/column-rename10 #@desc Rename column If you're in the U.S., what state do you work in? to state
+#@param oldColumnName:If_you're_in_the_U.S.,_what_state_do_you_work_in?
+#@param newColumnName:state
+#@in If_you're_in_the_U.S.,_what_state_do_you_work_in?
+#@out state
+#@end core/column-rename10
+#@begin core/column-rename11 #@desc Rename column What city do you work in? to city
+#@param oldColumnName:What_city_do_you_work_in?
+#@param newColumnName:city
+#@in What_city_do_you_work_in?
+#@out city
+#@end core/column-rename11
+#@begin core/column-rename12 #@desc Rename column How many years of professional work experience do you have overall? to total_experience
+#@param oldColumnName:How_many_years_of_professional_work_experience_do_you_have_overall?
+#@param newColumnName:total_experience
+#@in How_many_years_of_professional_work_experience_do_you_have_overall?
+#@out total_experience
+#@end core/column-rename12
+#@begin core/column-rename13 #@desc Rename column How many years of professional work experience do you have in your field? to current_experience
+#@param oldColumnName:How_many_years_of_professional_work_experience_do_you_have_in_your_field?
+#@param newColumnName:current_experience
+#@in How_many_years_of_professional_work_experience_do_you_have_in_your_field?
+#@out current_experience
+#@end core/column-rename13
+#@begin core/column-rename14 #@desc Rename column What is your highest level of education completed? to education
+#@param oldColumnName:What_is_your_highest_level_of_education_completed?
+#@param newColumnName:education
+#@in What_is_your_highest_level_of_education_completed?
+#@out education
+#@end core/column-rename14
+#@begin core/column-rename15 #@desc Rename column What is your gender? to gender
+#@param oldColumnName:What_is_your_gender?
+#@param newColumnName:gender
+#@in What_is_your_gender?
+#@out gender
+#@end core/column-rename15
+#@begin core/column-rename16 #@desc Rename column What is your race? (Choose all that apply.) to race
+#@param oldColumnName:What_is_your_race?_(Choose_all_that_apply.)
+#@param newColumnName:race
+#@in What_is_your_race?_(Choose_all_that_apply.)
+#@out race
+#@end core/column-rename16
+#@begin core/mass-edit17 #@desc Mass edit cells in column country
+#@param expression:value
+#@in country
+#@out country_1
+#@end core/mass-edit17
+#@begin core/text-transform18 #@desc Text transform on cells in column annual_salary using expression grel:replace(value, \",\", \"\").toNumber()
+#@param expression:grel:replace(value,_",",_"").toNumber()
+#@in annual_salary
+#@out annual_salary_1
+#@end core/text-transform18
+#@begin core/text-transform19 #@desc Text transform on cells in column additional_salary using expression grel:replace(value, \",\", \"\").toNumber()
+#@param expression:grel:replace(value,_",",_"").toNumber()
+#@in additional_salary
+#@out additional_salary_1
+#@end core/text-transform19
+#@begin core/column-rename20 #@desc Rename column Timestamp to timestamp
+#@param oldColumnName:Timestamp
+#@param newColumnName:timestamp
+#@in Timestamp
+#@out timestamp
+#@end core/column-rename20
+#@begin core/mass-edit21 #@desc Mass edit cells in column country
+#@param expression:value
+#@in country_1
+#@out country_2
+#@end core/mass-edit21
+#@begin core/mass-edit22 #@desc Mass edit cells in column country
+#@param expression:value
+#@in country_2
+#@out country_3
+#@end core/mass-edit22
+#@begin core/mass-edit23 #@desc Mass edit cells in column country
+#@param expression:value
+#@in country_3
+#@out country_4
+#@end core/mass-edit23
+#@begin core/mass-edit24 #@desc Mass edit cells in column country
+#@param expression:value
+#@in country_4
+#@out country_5
+#@end core/mass-edit24
+#@begin core/mass-edit25 #@desc Mass edit cells in column country
+#@param expression:value
+#@in country_5
+#@out country_6
+#@end core/mass-edit25
+#@begin core/text-transform26 #@desc Text transform on cells in column city using expression grel:\"Remote\"
+#@param expression:grel:"Remote"
+#@in city
+#@out city_1
+#@end core/text-transform26
+#@begin core/mass-edit27 #@desc Mass edit cells in column gender
+#@param expression:value
+#@in gender
+#@out gender_1
+#@end core/mass-edit27
+#@begin core/mass-edit28 #@desc Mass edit cells in column gender
+#@param expression:value
+#@in gender_1
+#@out gender_2
+#@end core/mass-edit28
+#@begin core/text-transform29 #@desc Text transform on cells in column timestamp using expression grel:value.toDate()
+#@param expression:grel:value.toDate()
+#@in timestamp
+#@out timestamp_1
+#@end core/text-transform29
+#@begin core/mass-edit30 #@desc Mass edit cells in column industry
+#@param expression:value
+#@in industry
+#@out industry_1
+#@end core/mass-edit30
+#@begin core/mass-edit31 #@desc Mass edit cells in column industry
+#@param expression:value
+#@in industry_1
+#@out industry_2
+#@end core/mass-edit31
+#@begin core/mass-edit32 #@desc Mass edit cells in column industry
+#@param expression:value
+#@in industry_2
+#@out industry_3
+#@end core/mass-edit32
+#@begin core/mass-edit33 #@desc Mass edit cells in column industry
+#@param expression:value
+#@in industry_3
+#@out industry_4
+#@end core/mass-edit33
+#@begin core/mass-edit34 #@desc Mass edit cells in column industry
+#@param expression:value
+#@in industry_4
+#@out industry_5
+#@end core/mass-edit34
+#@begin core/mass-edit35 #@desc Mass edit cells in column industry
+#@param expression:value
+#@in industry_5
+#@out industry_6
+#@end core/mass-edit35
+#@begin core/mass-edit36 #@desc Mass edit cells in column industry
+#@param expression:value
+#@in industry_6
+#@out industry_7
+#@end core/mass-edit36
+#@begin core/mass-edit37 #@desc Mass edit cells in column industry
+#@param expression:value
+#@in industry_7
+#@out industry_8
+#@end core/mass-edit37
+#@begin core/mass-edit38 #@desc Mass edit cells in column industry
+#@param expression:value
+#@in industry_8
+#@out industry_9
+#@end core/mass-edit38
+#@begin core/mass-edit39 #@desc Mass edit cells in column job_title
+#@param expression:value
+#@in job_title
+#@out job_title_1
+#@end core/mass-edit39
+#@begin core/mass-edit40 #@desc Mass edit cells in column job_title
+#@param expression:value
+#@in job_title_1
+#@out job_title_2
+#@end core/mass-edit40
+#@begin core/mass-edit41 #@desc Mass edit cells in column job_title
+#@param expression:value
+#@in job_title_2
+#@out job_title_3
+#@end core/mass-edit41
+#@begin core/mass-edit42 #@desc Mass edit cells in column job_title
+#@param expression:value
+#@in job_title_3
+#@out job_title_4
+#@end core/mass-edit42
+#@begin core/mass-edit43 #@desc Mass edit cells in column job_title
+#@param expression:value
+#@in job_title_4
+#@out job_title_5
+#@end core/mass-edit43
+#@begin core/mass-edit44 #@desc Mass edit cells in column job_title
+#@param expression:value
+#@in job_title_5
+#@out job_title_6
+#@end core/mass-edit44
+#@begin core/mass-edit45 #@desc Mass edit cells in column job_title
+#@param expression:value
+#@in job_title_6
+#@out job_title_7
+#@end core/mass-edit45
+#@begin core/mass-edit46 #@desc Mass edit cells in column job_title
+#@param expression:value
+#@in job_title_7
+#@out job_title_8
+#@end core/mass-edit46
+#@begin core/mass-edit47 #@desc Mass edit cells in column job_title
+#@param expression:value
+#@in job_title_8
+#@out job_title_9
+#@end core/mass-edit47
+#@begin CombineDataCleaningChanges
+#@in What_industry_do_you_work_in?
+#@in industry_9
+#@in Job_title
+#@in job_title_9
+#@in How_old_are_you?
+#@in age
+#@in If_your_job_title_needs_additional_context,_please_clarify_here:
+#@in job_context
+#@in What_is_your_annual_salary?_(You'll_indicate_the_currency_in_a_later_question._If_you_are_part-time_or_hourly,_please_enter_an_annualized_equivalent_--_what_you_would_earn_if_you_worked_the_job_40_hours_a_week,_52_weeks_a_year.)
+#@in annual_salary_1
+#@in How_much_additional_monetary_compensation_do_you_get,_if_any_(for_example,_bonuses_or_overtime_in_an_average_year)?_Please_only_include_monetary_compensation_here,_not_the_value_of_benefits.
+#@in additional_salary_1
+#@in Please_indicate_the_currency
+#@in currency
+#@in If_"Other,"_please_indicate_the_currency_here:
+#@in currency_context
+#@in If_your_income_needs_additional_context,_please_provide_it_here:
+#@in salary_context
+#@in What_country_do_you_work_in?
+#@in country_6
+#@in If_you're_in_the_U.S.,_what_state_do_you_work_in?
+#@in state
+#@in What_city_do_you_work_in?
+#@in city_1
+#@in How_many_years_of_professional_work_experience_do_you_have_overall?
+#@in total_experience
+#@in How_many_years_of_professional_work_experience_do_you_have_in_your_field?
+#@in current_experience
+#@in What_is_your_highest_level_of_education_completed?
+#@in education
+#@in What_is_your_gender?
+#@in gender_2
+#@in What_is_your_race?_(Choose_all_that_apply.)
+#@in race
+#@in Timestamp
+#@in timestamp_1
+#@out CleanData
+#@end CombineDataCleaningChanges
+#@end Parallel_OR
