@@ -638,7 +638,7 @@ enchant_dic = enchant.Dict("en_US")
 @begin clean_word @desc Cleans strings with a series of replacements
 @in data_dropped_salary_job_ctx
 @param word @AS word_values
-@out data_dropped_salary_job_ctx
+@out cleaned_word_values
 """
 def clean_word(word):
         # replace & with and
@@ -676,6 +676,15 @@ def clean_word(word):
 
 # @end clean_word
 
+"""
+@begin cluster @desc Clusterize possibilities for the job_title column
+@in data_dropped_salary_job_ctx
+@in cleaned_word_values
+@param possibilities @AS possibilities
+@param cutoff @AS cutoff
+@param n @AS n
+@out data_cluster_job_title
+"""
 def cluster(possibilities, cutoff = 0.90, n = 10):
     possibilities_copy = possibilities.copy()
 
@@ -697,6 +706,7 @@ def cluster(possibilities, cutoff = 0.90, n = 10):
             possibilities_copy.remove(match)
     return clusters
 
+# @end cluster
 
 # In[304]:
 
@@ -708,7 +718,12 @@ clusters_job_title = cluster(possibilities, 0.95)
 
 # In[306]:
 
-
+"""
+@begin create_job_title_clean @desc Creates a 'job_title_clean' from column 'job_title'
+@in data_cluster_job_title
+@out data_plus_job_title_clean
+@end create_job_title_clean
+"""
 data['job_title_clean'] = data['job_title'].replace(clusters_job_title)
 
 
@@ -724,7 +739,12 @@ clusters_job_title = cluster(possibilities, 0.95)
 
 # In[313]:
 
-
+"""
+@begin create_job_title_clean_second @desc Replaces the 'job_title_clean' from column 'job_title_clean' with second word possibilities word clean and cluster
+@in data_plus_job_title_clean
+@out data_replaced_job_title_clean
+@end create_job_title_clean_second
+"""
 data['job_title_clean'].replace(clusters_job_title, inplace=True)
 
 
