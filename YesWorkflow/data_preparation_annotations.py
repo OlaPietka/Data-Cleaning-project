@@ -2,13 +2,13 @@
 # coding: utf-8
 
 # # Description
-# The purpose of this notebook is to take the "cleaned" csv file as an input, and then further refine/split the data for future SQL tables creation. 
-# 
+# The purpose of this notebook is to take the "cleaned" csv file as an input, and then further refine/split the data for future SQL tables creation.
+#
 # ---
 
 # # About the data
 # This dataset (Ask A Manager Salary Survey 2021 dataset) contains salary information by industry, age group, location, gender, years of experience, and education level. The data is based on approximately 28k user entered responses.
-# 
+#
 # **Features:**
 # - `timestamp` - time when the survey was filed
 # - `age` - Age range of the person
@@ -37,60 +37,59 @@ import numpy as np
 FILE = 'Data/salary_responses_clean.csv'
 
 """
+@begin clean_data_with_python
+"""
+
+"""
 @begin convert_to_df @desc Converts the input file to a pandas dataframe
 @in FILE @URI file:'Data/salary_responses_clean.csv'
-@out data @desc Pandas dataframe
-@end convert_to_df
+@out data @AS data
 """
-def convert_to_df(file):
-    data = pd.read_csv('Data/salary_responses_clean.csv')
-    data.info()
-    data['age'].value_counts()
-    data['age'].isnull().sum()
-
-data = convert_to_df(FILE)
+data = pd.read_csv('Data/salary_responses_clean.csv')
+data.info()
+data['age'].value_counts()
+data['age'].isnull().sum()
+# @end convert_to_df
 
 """
 @begin age_range_to_min @desc Creates a new column 'age_min' that cleans dashes and strings to output a valid minimum age
-®param age
 @in data
-@out dataage_min @desc Age min column
-@end age_range_to_min
+@out data_plus_age_min @desc Age min column
 """
 def age_range_to_min(row):
     age_range = row['age']
-    
+
     if '-' in age_range:
         age_min = age_range.split('-')[0]
     elif 'over' in age_range:
         age_min = age_range.split()[0]
     elif 'under' in age_range:
         return np.nan
-    
+
     return int(age_min)
-    
+
 data['age_min'] = data.apply(lambda row: age_range_to_min(row), axis=1)
+# @end age_range_to_min
 
 """
 @begin age_range_to_max @desc Adjust age range to maximum
-®param age
-@in data
-@out age_min
-@end age_range_to_max
+@in data_plus_age_min
+@out data_plus_age_max
 """
 def age_range_to_max(row):
     age_range = row['age']
-    
+
     if '-' in age_range:
         age_max = age_range.split('-')[1]
     elif 'over' in age_range:
         return np.nan
     elif 'under' in age_range:
         age_max = age_range.split()[-1]
-    
+
     return int(age_max)
 
 data['age_max'] = data.apply(lambda row: age_range_to_max(row), axis=1)
+# @end age_range_to_max
 
 # ## Experience
 # Same goes for `total_experience` and `current_experience` attributes.
@@ -102,38 +101,71 @@ data['total_experience'].value_counts()
 # In[11]:
 data['total_experience'].isnull().sum()
 
-
+"""
+@begin experience_range_to_min @desc Creates a new total_experience_min column from total_experience
+@in data_plus_age_max
+@param experience
+@param attribute
+@out data_plus_total_experience_min
+"""
 # In[12]:
 def experience_range_to_min(row, attribute):
     total_exp_range = row[attribute]
-    
+
     if '-' in total_exp_range:
         total_exp_min = total_exp_range.strip().split('-')[0]
     elif 'more' in total_exp_range:
         total_exp_min = total_exp_range.split()[0]
     elif 'less' in total_exp_range:
         return np.nan
-    
-    return int(total_exp_min)
 
+    return int(total_exp_min)
+# @end experience_range_to_min
+
+"""
+@begin experience_range_to_max @desc Creates a new total_experience_max column from total_experience
+@in data_plus_total_experience_min
+@param experience
+@param attribute
+@out data_plus_total_experience_max
+"""
 def experience_range_to_max(row, attribute):
     total_exp_range = row[attribute]
-    
+
     if '-' in total_exp_range:
         total_exp_max = total_exp_range.strip().replace('years', '').split('-')[1]
     elif 'more' in total_exp_range:
         return np.nan
     elif 'less' in total_exp_range:
         total_exp_max = total_exp_range.split()[0]
-    
-    return int(total_exp_max)
 
+    return int(total_exp_max)
+# @end experience_range_to_max
 
 # In[13]:
 data['total_experience_min'] = data.apply(lambda row: experience_range_to_min(row, 'total_experience'), axis=1)
 data['total_experience_max'] = data.apply(lambda row: experience_range_to_max(row, 'total_experience'), axis=1)
 # In[14]:
 data['current_experience'].value_counts()
+
+"""
+@begin experience_current_to_min @desc Creates a new current_experience_min column from total_experience
+@in data_plus_total_experience_max
+@param experience
+@param attribute
+@out data_plus_current_experience_min
+@end experience_current_to_min
+"""
+
+"""
+@begin experience_current_to_max @desc Creates a new current_experience_max column from total_experience
+@in data_plus_current_experience_min
+@param experience
+@param attribute
+@out data_plus_current_experience_max
+@end experience_current_to_max
+"""
+
 # In[13]:
 data['current_experience_min'] = data.apply(lambda row: experience_range_to_min(row, 'current_experience'), axis=1)
 data['current_experience_max'] = data.apply(lambda row: experience_range_to_max(row, 'current_experience'), axis=1)
@@ -150,14 +182,25 @@ data['education'].value_counts()
 
 # In[15]:
 
+"""
+@begin clean_education_naming @desc Replaces all graduate professional degrees with 'Professional degree' string
+@in data_plus_current_experience_max
+@out data_replaced_education_naming
+@end clean_education_naming
+"""
 
 data['education'].replace({"Professional degree (MD, JD, etc.)": "Professional degree"}, inplace=True)
-
 
 # It would be nice to have some kind of knowledge about the actual "level" of education (e.g. 0 - High school, 1 - Some college, etc.). Lets map those values to their level:
 
 # In[16]:
 
+"""
+@begin create_education_level @desc Creates a column 'education_lvl' from 'education' that assigns a numerical value to each education level
+@in data_replaced_education_naming
+@out data_plus_education_lvl
+@end create_education_level
+"""
 
 data['education_lvl'] = data['education'].map({'High School': 1, 'Some college': 2, 'College degree': 3, "Master's degree": 4, 'Professional degree': 5})
 
@@ -180,6 +223,12 @@ data['gender'].value_counts()
 
 # In[19]:
 
+"""
+@begin cluster_other_gender @desc Cluster 'Other or prefer not to answer' into 'Other'
+@in data_plus_education_lvl
+@out data_replaced_other_gender
+@end cluster_other_gender
+"""
 
 data['gender'].replace({"Other or prefer not to answer": "Other"}, inplace=True)
 
@@ -188,6 +237,12 @@ data['gender'].replace({"Other or prefer not to answer": "Other"}, inplace=True)
 
 # In[20]:
 
+"""
+@begin create_gender_idx @desc Creates column 'gender_idx' replacing gender with a string to integer value map
+@in data_replaced_other_gender
+@out data_plus_gender_idx
+@end create_gender_idx
+"""
 
 data['gender_idx'] = data['gender'].map({'Woman': 1, 'Man': 2, 'Non-binary': 3, "Other": 4})
 
@@ -217,22 +272,28 @@ data['race'].value_counts().tail()
 
 # In[142]:
 
-
+"""
+@begin map_race_to_index @desc Creates column 'race_idx' replacing race with a string to integer value map
+@in data_plus_gender_idx
+@param row @AS race_values
+@out data_plus_race_idx
+@end map_race_to_index
+"""
 race_map = {
-    'Asian or Asian American': 1, 
-    'Black or African American': 2, 
-    'Hispanic, Latino, or Spanish origin': 4, 
-    'Middle Eastern or Northern African': 5, 
-    'Native American or Alaska Native': 6, 
-    'White': 7, 
+    'Asian or Asian American': 1,
+    'Black or African American': 2,
+    'Hispanic, Latino, or Spanish origin': 4,
+    'Middle Eastern or Northern African': 5,
+    'Native American or Alaska Native': 6,
+    'White': 7,
     "Another option not listed here or prefer not to answer": 8 }
 
 def map_race_to_index(row):
     race = row['race']
-    
+
     if type(race) != str:
         return np.nan
-    
+
     races = []
     for r_key in race_map.keys():
         if r_key in race:
@@ -278,22 +339,29 @@ try:
 except:
     get_ipython().system('pip install geotext')
     from geotext import GeoText
-    
+
+"""
+@begin get_city_from_text @desc Replaces 'city' columm values by its defined standard geographic location name
+@in data_plus_race_idx
+@param row @AS city_values
+@out data_replaced_city
+@end get_city_from_text
+"""
 
 def get_city_from_text(row):
     city = row['city']
 
     if type(city) != str:
         return np.nan
-        
+
     if city.strip().upper() == "REMOTE":
         return "Remote"
-    
+
     places = GeoText(city)
-    
+
     if(len(places.cities) > 0):
         return places.cities[0]
-    
+
     location = geolocator.geocode(city, exactly_one=True, addressdetails=True, timeout=10)
 
     if location != None:
@@ -314,8 +382,8 @@ def get_city_from_text(row):
             return location.raw['address']['township']
         elif "county" in location_keys:
             return location.raw['address']['county']
-        
-    return np.nan 
+
+    return np.nan
 
 
 # In[26]:
@@ -336,29 +404,36 @@ except:
     get_ipython().system('pip install pycountry')
     import pycountry
 
-    
+
+"""
+@begin get_country_from_text @desc Replaces 'country' columm values by its defined standard geographic location name
+@in data_replaced_city
+@param row @AS country_values
+@out data_replaced_country
+@end get_country_from_text
+"""
 def get_country_from_text(row):
     country = row['country']
 
     if type(country) != str:
         return np.nan
-    
+
     if country.strip().upper() == "AMERICA":
         return "United States"
-  
+
     places = GeoText(country)
-    
+
     if(len(places.countries) > 0):
         return places.countries[0]
-    
+
     location = geolocator.geocode(country, exactly_one=True, addressdetails=True, timeout=10)
 
     if location != None:
         if "country" in location.raw['address'].keys():
             country_code = location.raw['address']['country_code']
             return pycountry.countries.get(alpha_2=country_code).name
-    
-    return np.nan 
+
+    return np.nan
 
 
 # In[28]:
@@ -375,41 +450,47 @@ data['country'] = data.apply(lambda row: get_country_from_text(row), axis=1)
 
 
 try:
-    from geopy.geocoders import Nominatim   
+    from geopy.geocoders import Nominatim
 except ImportError:
     get_ipython().system('pip install geopy')
-    from geopy.geocoders import Nominatim  
-    
-    
+    from geopy.geocoders import Nominatim
+
+"""
+@begin get_state_from_text @desc Replaces 'state' columm values by its defined standard geographic location name
+@in data_replaced_country
+@param row @AS state_values
+@out data_replaced_state
+@end get_state_from_text
+"""
 def get_state_from_text(row):
     states = row['state']
     country = row['country']
     city = row['city']
-    
+
     if type(country) != str or country != "United States":
         return np.nan
-    
+
     if type(states) != str:
         return np.nan
-    
+
     if type(city) != str or city == "Remote":
         return np.nan
-    
+
     if ',' not in states:
         return states
-    
+
     states = [x.strip() for x in states.split(',')]
-    
+
     for state in states:
         lookup = f"{city}, {state}, {country}"
-        
+
         location = geolocator.geocode(lookup, exactly_one = True, addressdetails = True, timeout=10)
 
         if location != None:
             if location.raw['address']['country'] == country:
                 return location.raw['address']['state']
-        
-    return np.nan 
+
+    return np.nan
 
 
 # In[30]:
@@ -431,7 +512,7 @@ except:
     get_ipython().system('pip install pycountry-convert')
     from pycountry_convert import country_alpha2_to_continent_code, country_name_to_country_alpha2
 
-    
+
 continent_map = {
     'AF': 'Africa',
     'NA': 'North America',
@@ -441,17 +522,23 @@ continent_map = {
     'EU': 'Europe',
     'SA': 'South America',
 }
-    
-    
+
+"""
+@begin get_continent_from_country @desc Creates 'continent' attribute based standard geographic country
+@in data_replaced_state
+@param row @AS continent_values
+@out data_plus_continent
+@end get_continent_from_country
+"""
 def get_continent_from_country(row):
     country = row['country']
-    
+
     if type(country) != str:
         return np.nan
-    
+
     country_code = country_name_to_country_alpha2(country)
     continent_code = country_alpha2_to_continent_code(country_code)
-    
+
     return continent_map[continent_code]
 
 
@@ -466,13 +553,19 @@ data['continent'].value_counts()
 
 # In[33]:
 
-
+"""
+@begin get_lat_long_from_full_address @desc Creates 'lat_long' attribute based on the address
+@in data_plus_continent
+@param row @AS address_values
+@out data_plus_lat_long
+@end get_lat_long_from_full_address
+"""
 def get_lat_long_from_full_address(city, country):
     if type(city) != str or type(country) != str:
         return np.nan
-    
+
     full_address = f"{city}, {country}"
-    
+
     location = geolocator.geocode(full_address, exactly_one=True, addressdetails=True, timeout=10)
     if location != None:
         return (location.latitude, location.longitude)
@@ -494,7 +587,7 @@ data[['lat', 'long']] = pd.DataFrame(data['lat_long'].tolist(), index=data.index
 
 # # Text data
 # Let's handle the text data.
-# 
+#
 # **Text features include:**
 # - `industry`
 # - `job_title`
@@ -506,7 +599,12 @@ data[['lat', 'long']] = pd.DataFrame(data['lat_long'].tolist(), index=data.index
 
 # In[36]:
 
-
+"""
+@begin drop_salary_context_and_job_context @desc Drops 'salary_context' and 'job_context' columns
+@in data_plus_lat_long
+@out data_dropped_salary_job_ctx
+@end drop_salary_context_and_job_context
+"""
 data.drop(labels=['salary_context', 'job_context'], axis=1, inplace=True)
 
 
@@ -533,43 +631,50 @@ import itertools
 import enchant
 from textblob import TextBlob
 
-    
+
 enchant_dic = enchant.Dict("en_US")
 
-
+"""
+@begin clean_word @desc Cleans strings with a series of replacements
+@in data_dropped_salary_job_ctx
+@param word @AS word_values
+@out data_dropped_salary_job_ctx
+"""
 def clean_word(word):
         # replace & with and
         if '&' in word:
             word = word.replace('&', 'and')
-        
+
         # remove dots
         word = word.replace('.', '')
-        
+
         # remove strings in parenthesis
         word = re.sub(r"\([^()]*\)", "", word)
-            
+
         # remove all possible combinations of seniority strings
         seniority_filter = [s_map for s in ['sr', 'jr', 'mid', 'senior', 'junior', 'senor']
                             for s_map in map(''.join, itertools.product(*zip(s.upper(), s.lower())))]
         for seniority in seniority_filter:
             word = word.replace(seniority, '')
-        
+
         # remove all possible combinations of seniority strings at the end of the string
-        seniority_filter = [s_map for s in [' I', ' II', ' III', ' IV'] 
+        seniority_filter = [s_map for s in [' I', ' II', ' III', ' IV']
                             for s_map in map(''.join, itertools.product(*zip(s.upper(), s.lower())))]
         for seniority in seniority_filter:
             if word.endswith(seniority):
                 word = word.replace(seniority, '')
-        
+
         # remove numbers from the end of the string
         word = re.sub(r"\d+$", "", word)
-        
+
         # remove multiple spaces
         word = re.sub(' +', ' ', word)
         # title and strip
         word = word.title().strip()
-        
+
         return word
+
+# @end clean_word
 
 def cluster(possibilities, cutoff = 0.90, n = 10):
     possibilities_copy = possibilities.copy()
@@ -578,9 +683,9 @@ def cluster(possibilities, cutoff = 0.90, n = 10):
 
     for word in possibilities:
         word = clean_word(str(word))
-        
+
         close_matches = difflib.get_close_matches(word, possibilities_copy, n, cutoff)
-    
+
         if(len(close_matches) == 0):
             continue
 
@@ -734,7 +839,7 @@ data[['industry_clean', 'industry']][data['industry_clean'].str.upper() != data[
 
 
 # # Currency
-# Here we have a little bit more work to do. The currency of the salary is defined by the `currency` attribute, but sometimes it can be also defined by the `currency_context`. We need to clean those 2 columns and merge them into one. 
+# Here we have a little bit more work to do. The currency of the salary is defined by the `currency` attribute, but sometimes it can be also defined by the `currency_context`. We need to clean those 2 columns and merge them into one.
 
 # ## Merge columns 
 
@@ -777,12 +882,12 @@ data.drop(labels=['currency_context'], axis=1, inplace=True)
 
 def split_currencies(row):
     currency = row['currency']
-    
+
     if currency != 'AUD/NZD':
         return currency
 
     country = row['country']
-    
+
     if country == 'Australia':
         return 'AUD'
     if country == 'New Zealand':
@@ -796,7 +901,7 @@ def split_currencies(row):
 data['currency'] = data.apply(lambda row: split_currencies(row), axis=1)
 
 
-# ## Clean manually 
+# ## Clean manually
 
 # In[51]:
 
@@ -843,8 +948,8 @@ import datetime
 
 def to_USD_rate(row):
     currency = row['currency']
-    datatime = datetime.datetime(2021, 4, 27) # day of publishing the form 
-    
+    datatime = datetime.datetime(2021, 4, 27) # day of publishing the form
+
     try:
         return currency_rates.get_rate(currency, 'USD', datatime)
     except:
@@ -899,7 +1004,7 @@ for currency, rate in USD_rates_correct.items():
 
 # # Numeric data
 # Lets handle numeric data now.
-# 
+#
 # **Numeric features include:**
 # - `annual_salary`
 # - `additional_salary`
@@ -916,7 +1021,7 @@ data['annual_salary'].describe()
 
 
 def salary_to_USD(USD_rate, salary):
-    
+
     if USD_rate == np.nan:
         return np.nan
 
@@ -1231,24 +1336,6 @@ employee_table
 
 
 data[person_table_columns]
-
-
 """
-@begin Final_Project_Theory_and_Practice_of_Data_Cleaning 
-@desc Display one or more greetings to the user.
-@in data_full.csv
-@out salary_responses_clean.csv
-
-@begin column_rename
-@param colunm_name:industry
-@end column_rename
-
-@end Final_Project_Theory_and_Practice_of_Data_Cleaning
-"""
-
-"""
-@begin Final_Project_Theory_and_Practice_of_Data_Cleaning 
-@in data
-@out salary_responses_clean.csv
-@end Final_Project_Theory_and_Practice_of_Data_Cleaning
+@end clean_data_with_python
 """
