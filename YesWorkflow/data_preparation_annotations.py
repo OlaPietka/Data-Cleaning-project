@@ -33,6 +33,11 @@
 
 import pandas as pd
 import numpy as np
+import difflib
+import re
+import itertools
+import enchant
+from textblob import TextBlob
 
 FILE = 'Data/salary_responses_clean.csv'
 
@@ -246,27 +251,20 @@ data['gender'].replace({"Other or prefer not to answer": "Other"}, inplace=True)
 
 data['gender_idx'] = data['gender'].map({'Woman': 1, 'Man': 2, 'Non-binary': 3, "Other": 4})
 
-
 # In[21]:
-
 
 data[['gender', 'gender_idx']].head()
 
-
 # In[22]:
 
-
 data.info()
-
 
 # # Race
 # Values in `race` column are lists of all races that the user is identifying to (we are dealing with list of strings).
 
 # In[126]:
 
-
 data['race'].value_counts().tail()
-
 
 # Let's create some mapping so it can be easier to analyze the data.
 
@@ -302,12 +300,9 @@ def map_race_to_index(row):
 
 data['race_idx'] = data.apply(lambda row: map_race_to_index(row), axis=1)
 
-
 # In[143]:
 
-
 data['race_idx'].value_counts()
-
 
 # # Address attributes
 
@@ -315,12 +310,9 @@ data['race_idx'].value_counts()
 
 # In[23]:
 
-
 data['city'].value_counts()
 
-
 # In[24]:
-
 
 try:
     from geopy import Nominatim
@@ -330,9 +322,7 @@ except:
 
 geolocator = Nominatim(user_agent="cs513-final-project")
 
-
 # In[25]:
-
 
 try:
     from geotext import GeoText
@@ -341,13 +331,12 @@ except:
     from geotext import GeoText
 
 """
-@begin get_city_from_text @desc Replaces 'city' columm values by its defined standard geographic location name
+@begin get_city_from_text @desc Replaces 'city' columm values by its prefix followed by address type
 @in data_plus_race_idx
 @param row @AS city_values
 @out data_replaced_city
 @end get_city_from_text
 """
-
 def get_city_from_text(row):
     city = row['city']
 
@@ -385,25 +374,20 @@ def get_city_from_text(row):
 
     return np.nan
 
-
 # In[26]:
-
 
 data['city'] = data.apply(lambda row: get_city_from_text(row), axis=1)
 data['city'].value_counts()
 
-
 # ## Country
 
 # In[27]:
-
 
 try:
     import pycountry
 except:
     get_ipython().system('pip install pycountry')
     import pycountry
-
 
 """
 @begin get_country_from_text @desc Replaces 'country' columm values by its defined standard geographic location name
@@ -435,19 +419,17 @@ def get_country_from_text(row):
 
     return np.nan
 
-
 # In[28]:
-
 
 data['country'] = data.apply(lambda row: get_country_from_text(row), axis=1)
 
-
 # ## State
 
-# Next, let's examine rows with multiple `state` values and a `city` value containing only one word (not Remote). For each row, we will attempt to match the city to one of the states in the column. To do so, we will use the **geolocator** module
+# Next, let's examine rows with multiple `state` values and a `city` value containing only one word (not Remote).
+# For each row, we will attempt to match the city to one of the states in the column.
+# To do so, we will use the **geolocator** module
 
 # In[29]:
-
 
 try:
     from geopy.geocoders import Nominatim
@@ -456,9 +438,10 @@ except ImportError:
     from geopy.geocoders import Nominatim
 
 """
-@begin get_state_from_text @desc Replaces 'state' columm values by its defined standard geographic location name
+@begin get_state_from_text
+@desc Replaces and matches 'state' columm with the corresponding 'city' column
 @in data_replaced_country
-@param row @AS state_values
+@param row @AS state
 @out data_replaced_state
 @end get_state_from_text
 """
@@ -492,26 +475,21 @@ def get_state_from_text(row):
 
     return np.nan
 
-
 # In[30]:
-
 
 data['state'] = data.apply(lambda row: get_state_from_text(row), axis=1)
 data['state'].value_counts()
-
 
 # ## Continent
 # Based on country value we can add new attribue `continent`
 
 # In[31]:
 
-
 try:
     from pycountry_convert import country_alpha2_to_continent_code, country_name_to_country_alpha2
 except:
     get_ipython().system('pip install pycountry-convert')
     from pycountry_convert import country_alpha2_to_continent_code, country_name_to_country_alpha2
-
 
 continent_map = {
     'AF': 'Africa',
@@ -524,9 +502,9 @@ continent_map = {
 }
 
 """
-@begin get_continent_from_country @desc Creates 'continent' attribute based standard geographic country
+@begin get_continent_from_country @desc Creates 'continent' attribute based on the country
 @in data_replaced_state
-@param row @AS continent_values
+@param row @AS country
 @out data_plus_continent
 @end get_continent_from_country
 """
@@ -541,13 +519,10 @@ def get_continent_from_country(row):
 
     return continent_map[continent_code]
 
-
 # In[32]:
-
 
 data['continent'] = data.apply(lambda row: get_continent_from_country(row), axis=1)
 data['continent'].value_counts()
-
 
 # ## Latitude, Longitude
 
@@ -556,7 +531,8 @@ data['continent'].value_counts()
 """
 @begin get_lat_long_from_full_address @desc Creates 'lat_long' attribute based on the address
 @in data_plus_continent
-@param row @AS address_values
+@param city
+@param country
 @out data_plus_lat_long
 @end get_lat_long_from_full_address
 """
@@ -575,15 +551,11 @@ def get_lat_long_from_full_address(city, country):
 
 # In[34]:
 
-
 data['lat_long'] = data.apply(lambda row: get_lat_long_from_full_address(row['city'], row['country']), axis=1)
-
 
 # In[35]:
 
-
 data[['lat', 'long']] = pd.DataFrame(data['lat_long'].tolist(), index=data.index)
-
 
 # # Text data
 # Let's handle the text data.
@@ -607,30 +579,17 @@ data[['lat', 'long']] = pd.DataFrame(data['lat_long'].tolist(), index=data.index
 """
 data.drop(labels=['salary_context', 'job_context'], axis=1, inplace=True)
 
-
 # ## Industry and job title
 
 # In[37]:
 
-
 data['job_title'].value_counts()
-
 
 # In[38]:
 
-
 data['industry'].value_counts()
 
-
 # In[351]:
-
-
-import difflib
-import re
-import itertools
-import enchant
-from textblob import TextBlob
-
 
 enchant_dic = enchant.Dict("en_US")
 
@@ -639,6 +598,7 @@ enchant_dic = enchant.Dict("en_US")
 @in data_dropped_salary_job_ctx
 @param word @AS word_values
 @out cleaned_word_values
+@end clean_word
 """
 def clean_word(word):
         # replace & with and
@@ -674,8 +634,6 @@ def clean_word(word):
 
         return word
 
-# @end clean_word
-
 """
 @begin cluster @desc Clusterize possibilities for the job_title column
 @in data_dropped_salary_job_ctx
@@ -684,6 +642,7 @@ def clean_word(word):
 @param cutoff @AS cutoff
 @param n @AS n
 @out data_cluster_job_title
+@end cluster
 """
 def cluster(possibilities, cutoff = 0.90, n = 10):
     possibilities_copy = possibilities.copy()
@@ -706,53 +665,60 @@ def cluster(possibilities, cutoff = 0.90, n = 10):
             possibilities_copy.remove(match)
     return clusters
 
-# @end cluster
-
 # In[304]:
 
-
+"""
+@begin create_clusters_job_title @desc Creates a 'cluster_job_title' from column 'job_title' unique values
+@in data_cluster_job_title
+@param job_title
+@out clusters_job_title
+@end create_clusters_job_title
+"""
 possibilities = list([str(x) for x in data['job_title'].unique()])
-
 clusters_job_title = cluster(possibilities, 0.95)
-
 
 # In[306]:
 
-"""
-@begin create_job_title_clean @desc Creates a 'job_title_clean' from column 'job_title'
-@in data_cluster_job_title
-@out data_plus_job_title_clean
-@end create_job_title_clean
-"""
 data['job_title_clean'] = data['job_title'].replace(clusters_job_title)
-
 
 # Second round:
 
 # In[311]:
 
-
+"""
+@begin create_clusters_job_title_second @desc Creates a cluster based on possibilities for the job_title_clean column unique values
+@in data_plus_job_title_clean
+@in clusters_job_title
+@param possibilities @AS possibilities
+@param cutoff @AS cutoff
+@out clusters_job_title_second
+@end cluster_second
+"""
 possibilities = list([str(x) for x in data['job_title_clean'].unique()])
-
 clusters_job_title = cluster(possibilities, 0.95)
-
 
 # In[313]:
 
 """
-@begin create_job_title_clean_second @desc Replaces the 'job_title_clean' from column 'job_title_clean' with second word possibilities word clean and cluster
-@in data_plus_job_title_clean
+@begin create_job_title_clean_second @desc Replaces the 'job_title_clean' column values with second word possibilities word clean and cluster
+@in data_cluster_job_title
+@param job_title_clean
 @out data_replaced_job_title_clean
 @end create_job_title_clean_second
 """
 data['job_title_clean'].replace(clusters_job_title, inplace=True)
 
-
 # Third round:
 
 # In[314]:
 
-
+"""
+@begin create_job_title_clean_third @desc Replaces the 'job_title_clean' from column 'job_title_clean' with second word possibilities word clean and cluster
+@in data_replaced_job_title_clean
+@param job_title_clean
+@out data_replaced_job_title_clean_3
+@end create_job_title_clean_third
+"""
 possibilities = list([str(x) for x in data['job_title_clean'].unique()])
 
 clusters_job_title = cluster(possibilities, 0.9)
@@ -760,35 +726,63 @@ clusters_job_title = cluster(possibilities, 0.9)
 
 # In[316]:
 
-
+"""
+@begin create_job_title_clean_third @desc Replaces the 'job_title_clean' from column 'job_title_clean' with second word possibilities word clean and cluster
+@in data_replaced_job_title_clean_3
+@param job_title_clean
+@out data_replaced_job_title_clean_3
+@end create_job_title_clean_third
+"""
 data['job_title_clean'].replace(clusters_job_title, inplace=True)
 
 
 # In[327]:
 
-
 len(data['job_title_clean'].unique())
-
 
 # In[337]:
 
-
+"""
+@begin job_title_to_uppercase @desc Convert the 'job_title_clean' to uppercase.
+@in data_replaced_job_title_clean_3
+@param job_title_clean
+@param job_title
+@out data_job_title_uppercase
+@end job_title_to_uppercase
+"""
 data[['job_title_clean', 'job_title']][data['job_title_clean'].str.upper() != data['job_title'].str.upper()].head(15)
 
 
 # In[362]:
 
-
+"""
+@begin create_industry_possibilities @desc Creates a 'possibilities' list of industry unique values
+@in data_job_title_uppercase
+@out industry_possibilities
+@end create_industry_possibilities
+"""
 possibilities = list([str(x) for x in data['industry'].unique()])
 
+"""
+@begin create_cluster_industry @desc Creates a clusters_industry bases on industry unique values
+@in data_job_title_uppercase
+@in industry_possibilities
+@out data_ind
+@end create_cluster_industry
+"""
 clusters_industry = cluster(possibilities, 0.95)
 
 
 # In[363]:
 
-
+"""
+@begin create_industry_clean @desc Creates an 'industry_clean' from industry clustering
+@in clusters_industry
+@in data_job_title_uppercase
+@out data_plus_industry_clean
+@end create_industry_clean
+"""
 data['industry_clean'] = data['industry'].replace(clusters_industry)
-
 
 # In[364]:
 
