@@ -634,16 +634,6 @@ def clean_word(word):
 
         return word
 
-"""
-@begin cluster @desc Clusterize possibilities for the job_title column
-@in data_dropped_salary_job_ctx
-@in cleaned_word_values
-@param possibilities @AS possibilities
-@param cutoff @AS cutoff
-@param n @AS n
-@out data_cluster_job_title
-@end cluster
-"""
 def cluster(possibilities, cutoff = 0.90, n = 10):
     possibilities_copy = possibilities.copy()
 
