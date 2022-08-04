@@ -1,0 +1,262 @@
+
+/* Start of top-level graph */
+digraph Workflow {
+rankdir=TB
+
+/* Title for graph */
+fontname=Courier; fontsize=18; labelloc=t
+label=clean_data_with_python
+
+/* Start of double cluster for drawing box around nodes in workflow */
+subgraph cluster_workflow_box_outer { label=""; color=black; penwidth=2
+subgraph cluster_workflow_box_inner { label=""; color=white
+
+/* Style for nodes representing atomic programs in workflow */
+node[shape=box style=filled fillcolor="#CCFFCC" peripheries=1 fontname=Courier]
+
+/* Nodes representing atomic programs in workflow */
+convert_to_df [shape=record rankdir=LR label="{<f0> convert_to_df |<f1> Converts the input file to a pandas dataframe}"];
+age_range_to_min [shape=record rankdir=LR label="{<f0> age_range_to_min |<f1> Creates a new column 'age_min' that cleans dashes and strings to output a valid minimum age}"];
+age_range_to_max [shape=record rankdir=LR label="{<f0> age_range_to_max |<f1> Adjust age range to maximum}"];
+experience_range_to_min [shape=record rankdir=LR label="{<f0> experience_range_to_min |<f1> Creates a new total_experience_min column from total_experience}"];
+experience_range_to_max [shape=record rankdir=LR label="{<f0> experience_range_to_max |<f1> Creates a new total_experience_max column from total_experience}"];
+experience_current_to_min [shape=record rankdir=LR label="{<f0> experience_current_to_min |<f1> Creates a new current_experience_min column from total_experience}"];
+experience_current_to_max [shape=record rankdir=LR label="{<f0> experience_current_to_max |<f1> Creates a new current_experience_max column from total_experience}"];
+clean_education_naming [shape=record rankdir=LR label="{<f0> clean_education_naming |<f1> Replaces all graduate professional degrees with 'Professional degree' string}"];
+create_education_level [shape=record rankdir=LR label="{<f0> create_education_level |<f1> Creates a column 'education_lvl' from 'education' that assigns a numerical value to each education level}"];
+cluster_other_gender [shape=record rankdir=LR label="{<f0> cluster_other_gender |<f1> Cluster 'Other or prefer not to answer' into 'Other'}"];
+create_gender_idx [shape=record rankdir=LR label="{<f0> create_gender_idx |<f1> Creates column 'gender_idx' replacing gender with a string to integer value map}"];
+map_race_to_index [shape=record rankdir=LR label="{<f0> map_race_to_index |<f1> Creates column 'race_idx' replacing race with a string to integer value map}"];
+get_city_from_text [shape=record rankdir=LR label="{<f0> get_city_from_text |<f1> Replaces 'city' columm values by its prefix followed by address type}"];
+get_country_from_text [shape=record rankdir=LR label="{<f0> get_country_from_text |<f1> Replaces 'country' columm values by its defined standard geographic location name}"];
+get_state_from_text [shape=record rankdir=LR label="{<f0> get_state_from_text |<f1> Replaces and matches 'state' columm with the corresponding 'city' column}"];
+get_continent_from_country [shape=record rankdir=LR label="{<f0> get_continent_from_country |<f1> Creates 'continent' attribute based on the country}"];
+get_lat_long_from_full_address [shape=record rankdir=LR label="{<f0> get_lat_long_from_full_address |<f1> Creates 'lat_long' attribute based on the address}"];
+drop_salary_context_and_job_context [shape=record rankdir=LR label="{<f0> drop_salary_context_and_job_context |<f1> Drops 'salary_context' and 'job_context' columns}"];
+clean_words_clusters_job_title [shape=record rankdir=LR label="{<f0> clean_words_clusters_job_title |<f1> Cleans strings with regex, mappings and replacements}"];
+create_clusters_job_title [shape=record rankdir=LR label="{<f0> create_clusters_job_title |<f1> Creates a 'cluster_job_title' from column 'job_title' unique values}"];
+replace_job_title [shape=record rankdir=LR label="{<f0> replace_job_title |<f1> Replaces the 'job_title' column values with cluster data values}"];
+clean_words_clusters_job_title_second [shape=record rankdir=LR label="{<f0> clean_words_clusters_job_title_second |<f1> Cleans strings with regex, mappings and replacements}"];
+create_clusters_job_title_second [shape=record rankdir=LR label="{<f0> create_clusters_job_title_second |<f1> Creates a cluster based on possibilities for the job_title_clean column unique values}"];
+replace_job_title_clean [shape=record rankdir=LR label="{<f0> replace_job_title_clean |<f1> Replaces the 'job_title_clean' column values with the second clusters_job_title}"];
+clean_words_clusters_job_title_third [shape=record rankdir=LR label="{<f0> clean_words_clusters_job_title_third |<f1> Cleans strings with regex, mappings and replacements}"];
+create_job_title_clean_third [shape=record rankdir=LR label="{<f0> create_job_title_clean_third |<f1> Creates a cluster based on possibilities for the second job_title_clean column unique values}"];
+replace_job_title_clean_third [shape=record rankdir=LR label="{<f0> replace_job_title_clean_third |<f1> Replaces the 'job_title_clean' from column 'job_title_clean' with second word possibilities word clean and cluster}"];
+clean_words_industry [shape=record rankdir=LR label="{<f0> clean_words_industry |<f1> Cleans industry string using regex, mappings and replacements}"];
+create_clusters_industry [shape=record rankdir=LR label="{<f0> create_clusters_industry |<f1> Creates industry_cluster based on the 'industry' column unique values}"];
+replace_industry_clean [shape=record rankdir=LR label="{<f0> replace_industry_clean |<f1> Creates an 'industry_clean' column from 'industry' column unique values clustering}"];
+clean_words_industry_second [shape=record rankdir=LR label="{<f0> clean_words_industry_second |<f1> Cleans industry string using regex, mappings and replacements}"];
+create_clusters_industry_second [shape=record rankdir=LR label="{<f0> create_clusters_industry_second |<f1> Creates a second industry cluster based on the 'industry_clean' column unique values}"];
+replace_industry_clean_second [shape=record rankdir=LR label="{<f0> replace_industry_clean_second |<f1> Replaces 'industry_clean' column values based on industry_clean cluster}"];
+clean_words_industry_third [shape=record rankdir=LR label="{<f0> clean_words_industry_third |<f1> Cleans industry string using regex, mappings and replacements}"];
+create_clusters_industry_third [shape=record rankdir=LR label="{<f0> create_clusters_industry_third |<f1> Creates a third industry cluster based on the 'industry_clean' column unique values}"];
+replace_industry_clean_third [shape=record rankdir=LR label="{<f0> replace_industry_clean_third |<f1> Replaces 'industry_clean' column with 'clusters_industry_third' clustered values}"];
+clean_words_industry_fourth [shape=record rankdir=LR label="{<f0> clean_words_industry_fourth |<f1> Cleans industry string using regex, mappings and replacements}"];
+create_clusters_industry_fourth [shape=record rankdir=LR label="{<f0> create_clusters_industry_fourth |<f1> Creates a fourth industry cluster based on the 'industry_clean' column unique values}"];
+replace_industry_clean_fourth [shape=record rankdir=LR label="{<f0> replace_industry_clean_fourth |<f1> Replaces 'industry_clean' column with 'clusters_industry_fourth' clustered values}"];
+create_clusters_industry_fifth [shape=record rankdir=LR label="{<f0> create_clusters_industry_fifth |<f1> Creates a fifth industry cluster based on the 'industry_clean' column unique values}"];
+replace_industry_clean_fifth [shape=record rankdir=LR label="{<f0> replace_industry_clean_fifth |<f1> Replaces 'industry_clean' column with 'clusters_industry_fifth' clustered values}"];
+merge_industry_clean [shape=record rankdir=LR label="{<f0> merge_industry_clean |<f1> Merge 'industry_clean' and 'industry' using clean values}"];
+merge_currency [shape=record rankdir=LR label="{<f0> merge_currency |<f1> Merge 'currency' and 'currency_context'}"];
+clean_currency_other [shape=record rankdir=LR label="{<f0> clean_currency_other |<f1> Replace 'Other' values from 'currency' with 'currency_context' value}"];
+
+/* Style for nodes representing non-parameter data channels in workflow */
+node[shape=box style="rounded,filled" fillcolor="#FFFFCC" peripheries=1 fontname=Helvetica]
+
+/* Nodes for non-parameter data channels in workflow */
+data
+data_plus_age_min
+data_plus_age_max
+data_plus_total_experience_min
+data_plus_total_experience_max
+data_plus_current_experience_min
+data_plus_current_experience_max
+data_replaced_education_naming
+data_plus_education_lvl
+data_replaced_other_gender
+data_plus_gender_idx
+data_plus_race_idx
+data_replaced_city
+data_replaced_country
+data_replaced_state
+data_plus_continent
+data_plus_lat_long
+data_dropped_salary_job_ctx
+cw_clusters_job_title
+clusters_job_title
+data_replaced_job_title_clean
+cw_clusters_job_title_second
+clusters_job_title_second
+data_replaced_job_title_clean_second
+cw_clusters_job_title_third
+clusters_job_title_third
+data_replaced_job_title_clean_third
+cleaned_words_industry
+clusters_industry
+data_plus_industry_clean
+cleaned_words_industry_second
+clusters_industry_second
+data_industry_clean_second
+cleaned_words_industry_third
+clusters_industry_third
+data_industry_clean_third
+clusters_industry_fourth
+data_industry_clean_fourth
+cleaned_words_industry_fourth
+clusters_industry_fifth
+data_industry_clean_fifth
+data_merge_currency
+
+/* Style for nodes representing parameter channels in workflow */
+node[shape=box style="rounded,filled" fillcolor="#FCFCFC" peripheries=1 fontname=Helvetica]
+
+/* Nodes representing parameter channels in workflow */
+
+/* Edges representing connections between programs and channels */
+convert_to_df -> data
+FILE -> convert_to_df
+age_range_to_min -> data_plus_age_min
+data -> age_range_to_min
+age_range_to_max -> data_plus_age_max
+data_plus_age_min -> age_range_to_max
+experience_range_to_min -> data_plus_total_experience_min
+data_plus_age_max -> experience_range_to_min
+experience -> experience_range_to_min
+attribute -> experience_range_to_min
+experience_range_to_max -> data_plus_total_experience_max
+data_plus_total_experience_min -> experience_range_to_max
+experience -> experience_range_to_max
+attribute -> experience_range_to_max
+experience_current_to_min -> data_plus_current_experience_min
+data_plus_total_experience_max -> experience_current_to_min
+experience -> experience_current_to_min
+attribute -> experience_current_to_min
+experience_current_to_max -> data_plus_current_experience_max
+data_plus_current_experience_min -> experience_current_to_max
+experience -> experience_current_to_max
+attribute -> experience_current_to_max
+clean_education_naming -> data_replaced_education_naming
+data_plus_current_experience_max -> clean_education_naming
+create_education_level -> data_plus_education_lvl
+data_replaced_education_naming -> create_education_level
+cluster_other_gender -> data_replaced_other_gender
+data_plus_education_lvl -> cluster_other_gender
+create_gender_idx -> data_plus_gender_idx
+data_replaced_other_gender -> create_gender_idx
+map_race_to_index -> data_plus_race_idx
+data_plus_gender_idx -> map_race_to_index
+race_values -> map_race_to_index
+get_city_from_text -> data_replaced_city
+data_plus_race_idx -> get_city_from_text
+city_values -> get_city_from_text
+get_country_from_text -> data_replaced_country
+data_replaced_city -> get_country_from_text
+country_values -> get_country_from_text
+get_state_from_text -> data_replaced_state
+data_replaced_country -> get_state_from_text
+state -> get_state_from_text
+get_continent_from_country -> data_plus_continent
+data_replaced_state -> get_continent_from_country
+country -> get_continent_from_country
+get_lat_long_from_full_address -> data_plus_lat_long
+data_plus_continent -> get_lat_long_from_full_address
+city -> get_lat_long_from_full_address
+country -> get_lat_long_from_full_address
+drop_salary_context_and_job_context -> data_dropped_salary_job_ctx
+data_plus_lat_long -> drop_salary_context_and_job_context
+clean_words_clusters_job_title -> cw_clusters_job_title
+data_dropped_salary_job_ctx -> clean_words_clusters_job_title
+word_values -> clean_words_clusters_job_title
+create_clusters_job_title -> clusters_job_title
+data_dropped_salary_job_ctx -> create_clusters_job_title
+cw_clusters_job_title -> create_clusters_job_title
+job_title_possibilities -> create_clusters_job_title
+job_title_cutoff -> create_clusters_job_title
+replace_job_title -> data_replaced_job_title_clean
+data_dropped_salary_job_ctx -> replace_job_title
+clusters_job_title -> replace_job_title
+clean_words_clusters_job_title_second -> cw_clusters_job_title_second
+data_replaced_job_title_clean -> clean_words_clusters_job_title_second
+word_values -> clean_words_clusters_job_title_second
+create_clusters_job_title_second -> clusters_job_title_second
+data_replaced_job_title_clean -> create_clusters_job_title_second
+cw_clusters_job_title_second -> create_clusters_job_title_second
+job_title_possibilities -> create_clusters_job_title_second
+job_title_cutoff -> create_clusters_job_title_second
+replace_job_title_clean -> data_replaced_job_title_clean_second
+data_replaced_job_title_clean -> replace_job_title_clean
+clusters_job_title_second -> replace_job_title_clean
+clean_words_clusters_job_title_third -> cw_clusters_job_title_third
+data_replaced_job_title_clean_second -> clean_words_clusters_job_title_third
+word_values -> clean_words_clusters_job_title_third
+create_job_title_clean_third -> clusters_job_title_third
+data_replaced_job_title_clean_second -> create_job_title_clean_third
+cw_clusters_job_title_third -> create_job_title_clean_third
+job_title_possibilities -> create_job_title_clean_third
+job_title_cutoff -> create_job_title_clean_third
+replace_job_title_clean_third -> data_replaced_job_title_clean_third
+data_replaced_job_title_clean_second -> replace_job_title_clean_third
+clusters_job_title_third -> replace_job_title_clean_third
+clean_words_industry -> cleaned_words_industry
+data_replaced_job_title_clean_third -> clean_words_industry
+word_values -> clean_words_industry
+create_clusters_industry -> clusters_industry
+data_replaced_job_title_clean_third -> create_clusters_industry
+cleaned_words_industry -> create_clusters_industry
+industry_possibilities -> create_clusters_industry
+industry_cutoff -> create_clusters_industry
+replace_industry_clean -> data_plus_industry_clean
+data_replaced_job_title_clean_third -> replace_industry_clean
+clusters_industry -> replace_industry_clean
+clean_words_industry_second -> cleaned_words_industry_second
+data_plus_industry_clean -> clean_words_industry_second
+word_values -> clean_words_industry_second
+create_clusters_industry_second -> clusters_industry_second
+data_plus_industry_clean -> create_clusters_industry_second
+cleaned_words_industry_second -> create_clusters_industry_second
+industry_possibilities -> create_clusters_industry_second
+industry_cutoff -> create_clusters_industry_second
+replace_industry_clean_second -> data_industry_clean_second
+data_plus_industry_clean -> replace_industry_clean_second
+clusters_industry_second -> replace_industry_clean_second
+clean_words_industry_third -> cleaned_words_industry_third
+data_industry_clean_second -> clean_words_industry_third
+word_values -> clean_words_industry_third
+create_clusters_industry_third -> clusters_industry_third
+data_industry_clean_second -> create_clusters_industry_third
+cleaned_words_industry_third -> create_clusters_industry_third
+industry_possibilities -> create_clusters_industry_third
+industry_cutoff -> create_clusters_industry_third
+replace_industry_clean_third -> data_industry_clean_third
+data_industry_clean_second -> replace_industry_clean_third
+clusters_industry_third -> replace_industry_clean_third
+clean_words_industry_fourth -> cleaned_words_industry_fourth
+data_industry_clean_third -> clean_words_industry_fourth
+word_values -> clean_words_industry_fourth
+create_clusters_industry_fourth -> clusters_industry_fourth
+data_industry_clean_third -> create_clusters_industry_fourth
+industry_possibilities -> create_clusters_industry_fourth
+industry_cutoff -> create_clusters_industry_fourth
+replace_industry_clean_fourth -> data_industry_clean_fourth
+data_industry_clean_third -> replace_industry_clean_fourth
+clusters_industry_fourth -> replace_industry_clean_fourth
+create_clusters_industry_fifth -> clusters_industry_fifth
+data_industry_clean_fourth -> create_clusters_industry_fifth
+cleaned_words_industry_fourth -> create_clusters_industry_fifth
+industry_possibilities -> create_clusters_industry_fifth
+industry_cutoff -> create_clusters_industry_fifth
+replace_industry_clean_fifth -> data_industry_clean_fifth
+data_industry_clean_fourth -> replace_industry_clean_fifth
+clusters_industry_fifth -> replace_industry_clean_fifth
+merge_industry_clean -> merged_industry_clean
+data_industry_clean_fifth -> merge_industry_clean
+merge_currency -> data_merge_currency
+data_industry_clean_fifth -> merge_currency
+clean_currency_other -> data_clean_currency_other
+data_merge_currency -> clean_currency_other
+
+/* End of double cluster for drawing box around nodes in workflow */
+}}
+
+/* End of top-level graph */
+}
