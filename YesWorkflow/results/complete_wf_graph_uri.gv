@@ -42,6 +42,7 @@ replace_job_title_clean [shape=record rankdir=LR label="{<f0> replace_job_title_
 clean_words_clusters_job_title_third [shape=record rankdir=LR label="{<f0> clean_words_clusters_job_title_third |<f1> Cleans strings with regex, mappings and replacements}"];
 create_job_title_clean_third [shape=record rankdir=LR label="{<f0> create_job_title_clean_third |<f1> Creates a cluster based on possibilities for the second job_title_clean column unique values}"];
 replace_job_title_clean_third [shape=record rankdir=LR label="{<f0> replace_job_title_clean_third |<f1> Replaces the 'job_title_clean' from column 'job_title_clean' with second word possibilities word clean and cluster}"];
+merge_job_title [shape=record rankdir=LR label="{<f0> merge_job_title |<f1> Merge 'job_title_clean' with 'job_title' on mismatching values}"];
 clean_words_industry [shape=record rankdir=LR label="{<f0> clean_words_industry |<f1> Cleans industry string using regex, mappings and replacements}"];
 create_clusters_industry [shape=record rankdir=LR label="{<f0> create_clusters_industry |<f1> Creates industry_cluster based on the 'industry' column unique values}"];
 replace_industry_clean [shape=record rankdir=LR label="{<f0> replace_industry_clean |<f1> Creates an 'industry_clean' column from 'industry' column unique values clustering}"];
@@ -59,11 +60,38 @@ replace_industry_clean_fifth [shape=record rankdir=LR label="{<f0> replace_indus
 merge_industry_clean [shape=record rankdir=LR label="{<f0> merge_industry_clean |<f1> Merge 'industry_clean' and 'industry' using clean values}"];
 merge_currency [shape=record rankdir=LR label="{<f0> merge_currency |<f1> Merge 'currency' and 'currency_context'}"];
 clean_currency_other [shape=record rankdir=LR label="{<f0> clean_currency_other |<f1> Replace 'Other' values from 'currency' with 'currency_context' value}"];
+drop_currency_context_labels [shape=record rankdir=LR label="{<f0> drop_currency_context_labels |<f1> Drops 'currency_context' column label values}"];
+handle_aud_nzd_currency [shape=record rankdir=LR label="{<f0> handle_aud_nzd_currency |<f1> Splits 'currency' values depending on the country, AUD\: Australia, NZD\: New Zeland}"];
+replace_messy_currencies [shape=record rankdir=LR label="{<f0> replace_messy_currencies |<f1> Replaces messy currencies with the corresponding right_currency value}"];
+currency_to_upper_case [shape=record rankdir=LR label="{<f0> currency_to_upper_case |<f1> Convert currency values to uppercase}"];
+convert_to_USD_rate [shape=record rankdir=LR label="{<f0> convert_to_USD_rate |<f1> To have a consistent analysis for salary, we transform all salary values to USD currency}"];
+clean_messy_rates [shape=record rankdir=LR label="{<f0> clean_messy_rates |<f1> Clean using a dictionary of corrected USD rates}"];
+salary_to_USD [shape=record rankdir=LR label="{<f0> salary_to_USD |<f1> Convert salary to USD based salary based on each country currency rate}"];
+create_additional_salary_usd [shape=record rankdir=LR label="{<f0> create_additional_salary_usd |<f1> Creates a new column 'addtional_salary_usd' and coverting it bases on the USD rate}"];
+create_total_salary [shape=record rankdir=LR label="{<f0> create_total_salary |<f1> Creates a 'total_salary' column based on on the sum of annual_salary and additional_salary}"];
+create_total_salary_usd [shape=record rankdir=LR label="{<f0> create_total_salary_usd |<f1> Creates a 'total_salary' column based on the sum of 'additional_salary_USD' and 'annual_salary_USD'}"];
+clean_salary_usd_outliers [shape=record rankdir=LR label="{<f0> clean_salary_usd_outliers |<f1> Remove the total_salary_USD outliers}"];
+export_data_to_csv
+create_currency_table
+create_place_table
+create_position_table
+create_person_table
+create_gender_lookup_table
+create_race_lookup_table
+create_employee_table
 
 /* Style for nodes representing non-parameter data channels in workflow */
 node[shape=box style="rounded,filled" fillcolor="#FFFFCC" peripheries=1 fontname=Helvetica]
 
 /* Nodes for non-parameter data channels in workflow */
+FILE [shape=record rankdir=LR label="{<f0> FILE |<f1> file\:'Data/salary_responses_clean.csv'}"];
+currency_table
+place_table
+position_table
+person_table
+gender_lookup_table
+race_lookup_table
+employee_table
 data
 data_plus_age_min
 data_plus_age_max
@@ -91,6 +119,7 @@ data_replaced_job_title_clean_second
 cw_clusters_job_title_third
 clusters_job_title_third
 data_replaced_job_title_clean_third
+data_plus_merged_job_title
 cleaned_words_industry
 clusters_industry
 data_plus_industry_clean
@@ -105,7 +134,20 @@ data_industry_clean_fourth
 cleaned_words_industry_fourth
 clusters_industry_fifth
 data_industry_clean_fifth
-data_merge_currency
+data_plus_merged_industry_clean
+data_merged_currency
+data_clean_currency_other
+data_dropped_currency_context
+data_currency_handle_aud_nzd
+data_clean_currency
+data_uppercase_currency
+data_plus_usd_rate
+data_clean_currency_usd_rate
+data_plus_annual_salary_usd
+data_plus_additional_salary_usd
+data_plus_total_salary
+data_plus_total_salary_usd
+data_minus_salary_usd_outliers
 
 /* Style for nodes representing parameter channels in workflow */
 node[shape=box style="rounded,filled" fillcolor="#FCFCFC" peripheries=1 fontname=Helvetica]
@@ -197,11 +239,13 @@ job_title_cutoff -> create_job_title_clean_third
 replace_job_title_clean_third -> data_replaced_job_title_clean_third
 data_replaced_job_title_clean_second -> replace_job_title_clean_third
 clusters_job_title_third -> replace_job_title_clean_third
+merge_job_title -> data_plus_merged_job_title
+data_replaced_job_title_clean_third -> merge_job_title
 clean_words_industry -> cleaned_words_industry
-data_replaced_job_title_clean_third -> clean_words_industry
+data_plus_merged_job_title -> clean_words_industry
 word_values -> clean_words_industry
 create_clusters_industry -> clusters_industry
-data_replaced_job_title_clean_third -> create_clusters_industry
+data_plus_merged_job_title -> create_clusters_industry
 cleaned_words_industry -> create_clusters_industry
 industry_possibilities -> create_clusters_industry
 industry_cutoff -> create_clusters_industry
@@ -248,12 +292,55 @@ industry_cutoff -> create_clusters_industry_fifth
 replace_industry_clean_fifth -> data_industry_clean_fifth
 data_industry_clean_fourth -> replace_industry_clean_fifth
 clusters_industry_fifth -> replace_industry_clean_fifth
-merge_industry_clean -> merged_industry_clean
+merge_industry_clean -> data_plus_merged_industry_clean
 data_industry_clean_fifth -> merge_industry_clean
-merge_currency -> data_merge_currency
-data_industry_clean_fifth -> merge_currency
+merge_currency -> data_merged_currency
+data_plus_merged_industry_clean -> merge_currency
 clean_currency_other -> data_clean_currency_other
-data_merge_currency -> clean_currency_other
+data_merged_currency -> clean_currency_other
+drop_currency_context_labels -> data_dropped_currency_context
+data_clean_currency_other -> drop_currency_context_labels
+handle_aud_nzd_currency -> data_currency_handle_aud_nzd
+data_dropped_currency_context -> handle_aud_nzd_currency
+replace_messy_currencies -> data_clean_currency
+data_currency_handle_aud_nzd -> replace_messy_currencies
+messy_currencies -> replace_messy_currencies
+right_currencies -> replace_messy_currencies
+currency_to_upper_case -> data_uppercase_currency
+data_clean_currency -> currency_to_upper_case
+convert_to_USD_rate -> data_plus_usd_rate
+data_uppercase_currency -> convert_to_USD_rate
+clean_messy_rates -> data_clean_currency_usd_rate
+data_plus_usd_rate -> clean_messy_rates
+USD_rates_correct -> clean_messy_rates
+salary_to_USD -> data_plus_annual_salary_usd
+data_clean_currency_usd_rate -> salary_to_USD
+create_additional_salary_usd -> data_plus_additional_salary_usd
+data_plus_annual_salary_usd -> create_additional_salary_usd
+create_total_salary -> data_plus_total_salary
+data_plus_additional_salary_usd -> create_total_salary
+create_total_salary_usd -> data_plus_total_salary_usd
+data_plus_total_salary -> create_total_salary_usd
+clean_salary_usd_outliers -> data_minus_salary_usd_outliers
+data_plus_total_salary_usd -> clean_salary_usd_outliers
+upper_limit -> clean_salary_usd_outliers
+lower_limit -> clean_salary_usd_outliers
+export_data_to_csv -> "FILE:data_full"
+data_minus_salary_usd_outliers -> export_data_to_csv
+create_currency_table -> currency_table
+data_minus_salary_usd_outliers -> create_currency_table
+create_place_table -> place_table
+data_minus_salary_usd_outliers -> create_place_table
+create_position_table -> position_table
+data_minus_salary_usd_outliers -> create_position_table
+create_person_table -> person_table
+data_minus_salary_usd_outliers -> create_person_table
+create_gender_lookup_table -> gender_lookup_table
+data_minus_salary_usd_outliers -> create_gender_lookup_table
+create_race_lookup_table -> race_lookup_table
+data_minus_salary_usd_outliers -> create_race_lookup_table
+create_employee_table -> employee_table
+data_minus_salary_usd_outliers -> create_employee_table
 
 /* End of double cluster for drawing box around nodes in workflow */
 }}

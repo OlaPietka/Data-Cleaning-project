@@ -1,0 +1,345 @@
+
+/* Start of top-level graph */
+digraph Workflow {
+rankdir=TB
+
+/* Title for graph */
+fontname=Helvetica; fontsize=18; labelloc=t
+label=Linear_OR
+
+/* Start of double cluster for drawing box around nodes in workflow */
+subgraph cluster_workflow_box_outer { label=""; color=black; penwidth=2
+subgraph cluster_workflow_box_inner { label=""; penwidth=0
+
+/* Style for nodes representing atomic programs in workflow */
+node[shape=box style=filled fillcolor="#CCFFCC" peripheries=1 fontname=Helvetica]
+
+/* Nodes representing atomic programs in workflow */
+"core/column-rename0#" [shape=record rankdir=LR label="{<f0> core/column-rename0# |<f1> Rename column What industry do you work in? to industry}"];
+"core/column-rename1#" [shape=record rankdir=LR label="{<f0> core/column-rename1# |<f1> Rename column Job title to job_title}"];
+"core/column-rename2#" [shape=record rankdir=LR label="{<f0> core/column-rename2# |<f1> Rename column How old are you? to age}"];
+"core/column-rename3#" [shape=record rankdir=LR label="{<f0> core/column-rename3# |<f1> Rename column If your job title needs additional context, please clarify here\: to job_context}"];
+"core/column-rename4#" [shape=record rankdir=LR label="{<f0> core/column-rename4# |<f1> Rename column What is your annual salary? (You'll indicate the currency in a later question. If you are part-time or hourly, please enter an annualized equivalent -- what you would earn if you worked the job 40 hours a week, 52 weeks a year.) to annual_salary}"];
+"core/column-rename5#" [shape=record rankdir=LR label="{<f0> core/column-rename5# |<f1> Rename column How much additional monetary compensation do you get, if any (for example, bonuses or overtime in an average year)? Please only include monetary compensation here, not the value of benefits. to additional_salary}"];
+"core/column-rename6#" [shape=record rankdir=LR label="{<f0> core/column-rename6# |<f1> Rename column Please indicate the currency to currency}"];
+"core/column-rename7#" [shape=record rankdir=LR label="{<f0> core/column-rename7# |<f1> Rename column If \"Other,\" please indicate the currency here\: to currency_context}"];
+"core/column-rename8#" [shape=record rankdir=LR label="{<f0> core/column-rename8# |<f1> Rename column If your income needs additional context, please provide it here\: to salary_context}"];
+"core/column-rename9#" [shape=record rankdir=LR label="{<f0> core/column-rename9# |<f1> Rename column What country do you work in? to country}"];
+"core/column-rename10#" [shape=record rankdir=LR label="{<f0> core/column-rename10# |<f1> Rename column If you're in the U.S., what state do you work in? to state}"];
+"core/column-rename11#" [shape=record rankdir=LR label="{<f0> core/column-rename11# |<f1> Rename column What city do you work in? to city}"];
+"core/column-rename12#" [shape=record rankdir=LR label="{<f0> core/column-rename12# |<f1> Rename column How many years of professional work experience do you have overall? to total_experience}"];
+"core/column-rename13#" [shape=record rankdir=LR label="{<f0> core/column-rename13# |<f1> Rename column How many years of professional work experience do you have in your field? to current_experience}"];
+"core/column-rename14#" [shape=record rankdir=LR label="{<f0> core/column-rename14# |<f1> Rename column What is your highest level of education completed? to education}"];
+"core/column-rename15#" [shape=record rankdir=LR label="{<f0> core/column-rename15# |<f1> Rename column What is your gender? to gender}"];
+"core/column-rename16#" [shape=record rankdir=LR label="{<f0> core/column-rename16# |<f1> Rename column What is your race? (Choose all that apply.) to race}"];
+"core/mass-edit0#" [shape=record rankdir=LR label="{<f0> core/mass-edit0# |<f1> Mass edit cells in column country}"];
+"core/text-transform0#" [shape=record rankdir=LR label="{<f0> core/text-transform0# |<f1> Text transform on cells in column annual_salary using expression grel\:replace(value, \",\", \"\").toNumber()}"];
+"core/text-transform1#" [shape=record rankdir=LR label="{<f0> core/text-transform1# |<f1> Text transform on cells in column additional_salary using expression grel\:replace(value, \",\", \"\").toNumber()}"];
+"core/column-rename17#" [shape=record rankdir=LR label="{<f0> core/column-rename17# |<f1> Rename column Timestamp to timestamp}"];
+"core/mass-edit1#" [shape=record rankdir=LR label="{<f0> core/mass-edit1# |<f1> Mass edit cells in column country}"];
+"core/mass-edit2#" [shape=record rankdir=LR label="{<f0> core/mass-edit2# |<f1> Mass edit cells in column country}"];
+"core/mass-edit3#" [shape=record rankdir=LR label="{<f0> core/mass-edit3# |<f1> Mass edit cells in column country}"];
+"core/mass-edit4#" [shape=record rankdir=LR label="{<f0> core/mass-edit4# |<f1> Mass edit cells in column country}"];
+"core/mass-edit5#" [shape=record rankdir=LR label="{<f0> core/mass-edit5# |<f1> Mass edit cells in column country}"];
+"core/text-transform2#" [shape=record rankdir=LR label="{<f0> core/text-transform2# |<f1> Text transform on cells in column city using expression grel\:\"Remote\"}"];
+"core/mass-edit6#" [shape=record rankdir=LR label="{<f0> core/mass-edit6# |<f1> Mass edit cells in column gender}"];
+"core/mass-edit7#" [shape=record rankdir=LR label="{<f0> core/mass-edit7# |<f1> Mass edit cells in column gender}"];
+"core/text-transform3#" [shape=record rankdir=LR label="{<f0> core/text-transform3# |<f1> Text transform on cells in column timestamp using expression grel\:value.toDate()}"];
+"core/mass-edit8#" [shape=record rankdir=LR label="{<f0> core/mass-edit8# |<f1> Mass edit cells in column industry}"];
+"core/mass-edit9#" [shape=record rankdir=LR label="{<f0> core/mass-edit9# |<f1> Mass edit cells in column industry}"];
+"core/mass-edit10#" [shape=record rankdir=LR label="{<f0> core/mass-edit10# |<f1> Mass edit cells in column industry}"];
+"core/mass-edit11#" [shape=record rankdir=LR label="{<f0> core/mass-edit11# |<f1> Mass edit cells in column industry}"];
+"core/mass-edit12#" [shape=record rankdir=LR label="{<f0> core/mass-edit12# |<f1> Mass edit cells in column industry}"];
+"core/mass-edit13#" [shape=record rankdir=LR label="{<f0> core/mass-edit13# |<f1> Mass edit cells in column industry}"];
+"core/mass-edit14#" [shape=record rankdir=LR label="{<f0> core/mass-edit14# |<f1> Mass edit cells in column industry}"];
+"core/mass-edit15#" [shape=record rankdir=LR label="{<f0> core/mass-edit15# |<f1> Mass edit cells in column industry}"];
+"core/mass-edit16#" [shape=record rankdir=LR label="{<f0> core/mass-edit16# |<f1> Mass edit cells in column industry}"];
+"core/mass-edit17#" [shape=record rankdir=LR label="{<f0> core/mass-edit17# |<f1> Mass edit cells in column job_title}"];
+"core/mass-edit18#" [shape=record rankdir=LR label="{<f0> core/mass-edit18# |<f1> Mass edit cells in column job_title}"];
+"core/mass-edit19#" [shape=record rankdir=LR label="{<f0> core/mass-edit19# |<f1> Mass edit cells in column job_title}"];
+"core/mass-edit20#" [shape=record rankdir=LR label="{<f0> core/mass-edit20# |<f1> Mass edit cells in column job_title}"];
+"core/mass-edit21#" [shape=record rankdir=LR label="{<f0> core/mass-edit21# |<f1> Mass edit cells in column job_title}"];
+"core/mass-edit22#" [shape=record rankdir=LR label="{<f0> core/mass-edit22# |<f1> Mass edit cells in column job_title}"];
+"core/mass-edit23#" [shape=record rankdir=LR label="{<f0> core/mass-edit23# |<f1> Mass edit cells in column job_title}"];
+"core/mass-edit24#" [shape=record rankdir=LR label="{<f0> core/mass-edit24# |<f1> Mass edit cells in column job_title}"];
+"core/mass-edit25#" [shape=record rankdir=LR label="{<f0> core/mass-edit25# |<f1> Mass edit cells in column job_title}"];
+
+/* Style for nodes representing non-parameter data channels in workflow */
+node[shape=box style="rounded,filled" fillcolor="#FFFFCC" peripheries=1 fontname=Helvetica]
+
+/* Nodes for non-parameter data channels in workflow */
+table48
+table0
+table1
+table2
+table3
+table4
+table5
+table6
+table7
+table8
+table9
+table10
+table11
+table12
+table13
+table14
+table15
+table16
+table17
+table18
+table19
+table20
+table21
+table22
+table23
+table24
+table25
+table26
+table27
+table28
+table29
+table30
+table31
+table32
+table33
+table34
+table35
+table36
+table37
+table38
+table39
+table40
+table41
+table42
+table43
+table44
+table45
+table46
+table47
+
+/* Style for nodes representing parameter channels in workflow */
+node[shape=box style="rounded,filled" fillcolor="#FCFCFC" peripheries=1 fontname=Helvetica]
+
+/* Nodes representing parameter channels in workflow */
+"oldColumnName:What_industry_do_you_work_in?"
+"newColumnName:industry"
+"oldColumnName:Job_title"
+"newColumnName:job_title"
+"oldColumnName:How_old_are_you?"
+"newColumnName:age"
+"oldColumnName:If_your_job_title_needs_additional_context,_please_clarify_here:"
+"newColumnName:job_context"
+"oldColumnName:What_is_your_annual_salary?_(You'll_indicate_the_currency_in_a_later_question._If_you_are_part-time_or_hourly,_please_enter_an_annualized_equivalent_--_what_you_would_earn_if_you_worked_the_job_40_hours_a_week,_52_weeks_a_year.)"
+"newColumnName:annual_salary"
+"oldColumnName:How_much_additional_monetary_compensation_do_you_get,_if_any_(for_example,_bonuses_or_overtime_in_an_average_year)?_Please_only_include_monetary_compensation_here,_not_the_value_of_benefits."
+"newColumnName:additional_salary"
+"oldColumnName:Please_indicate_the_currency"
+"newColumnName:currency"
+"oldColumnName:If_\"Other,\"_please_indicate_the_currency_here:"
+"newColumnName:currency_context"
+"oldColumnName:If_your_income_needs_additional_context,_please_provide_it_here:"
+"newColumnName:salary_context"
+"oldColumnName:What_country_do_you_work_in?"
+"newColumnName:country"
+"oldColumnName:If_you're_in_the_U.S.,_what_state_do_you_work_in?"
+"newColumnName:state"
+"oldColumnName:What_city_do_you_work_in?"
+"newColumnName:city"
+"oldColumnName:How_many_years_of_professional_work_experience_do_you_have_overall?"
+"newColumnName:total_experience"
+"oldColumnName:How_many_years_of_professional_work_experience_do_you_have_in_your_field?"
+"newColumnName:current_experience"
+"oldColumnName:What_is_your_highest_level_of_education_completed?"
+"newColumnName:education"
+"oldColumnName:What_is_your_gender?"
+"newColumnName:gender"
+"oldColumnName:What_is_your_race?_(Choose_all_that_apply.)"
+"newColumnName:race"
+"col-name:country"
+"col-name:annual_salary"
+"expression:grel:replace(value,_\",\",_\"\").toNumber()"
+"col-name:additional_salary"
+"oldColumnName:Timestamp"
+"newColumnName:timestamp"
+"col-name:city"
+"expression:grel:\"Remote\""
+"col-name:gender"
+"col-name:timestamp"
+"expression:grel:value.toDate()"
+"col-name:industry"
+"col-name:job_title"
+
+/* Edges representing connections between programs and channels */
+"core/column-rename0#" -> table1
+"oldColumnName:What_industry_do_you_work_in?" -> "core/column-rename0#"
+"newColumnName:industry" -> "core/column-rename0#"
+table0 -> "core/column-rename0#"
+"core/column-rename1#" -> table2
+"oldColumnName:Job_title" -> "core/column-rename1#"
+"newColumnName:job_title" -> "core/column-rename1#"
+table1 -> "core/column-rename1#"
+"core/column-rename2#" -> table3
+"oldColumnName:How_old_are_you?" -> "core/column-rename2#"
+"newColumnName:age" -> "core/column-rename2#"
+table2 -> "core/column-rename2#"
+"core/column-rename3#" -> table4
+"oldColumnName:If_your_job_title_needs_additional_context,_please_clarify_here:" -> "core/column-rename3#"
+"newColumnName:job_context" -> "core/column-rename3#"
+table3 -> "core/column-rename3#"
+"core/column-rename4#" -> table5
+"oldColumnName:What_is_your_annual_salary?_(You'll_indicate_the_currency_in_a_later_question._If_you_are_part-time_or_hourly,_please_enter_an_annualized_equivalent_--_what_you_would_earn_if_you_worked_the_job_40_hours_a_week,_52_weeks_a_year.)" -> "core/column-rename4#"
+"newColumnName:annual_salary" -> "core/column-rename4#"
+table4 -> "core/column-rename4#"
+"core/column-rename5#" -> table6
+"oldColumnName:How_much_additional_monetary_compensation_do_you_get,_if_any_(for_example,_bonuses_or_overtime_in_an_average_year)?_Please_only_include_monetary_compensation_here,_not_the_value_of_benefits." -> "core/column-rename5#"
+"newColumnName:additional_salary" -> "core/column-rename5#"
+table5 -> "core/column-rename5#"
+"core/column-rename6#" -> table7
+"oldColumnName:Please_indicate_the_currency" -> "core/column-rename6#"
+"newColumnName:currency" -> "core/column-rename6#"
+table6 -> "core/column-rename6#"
+"core/column-rename7#" -> table8
+"oldColumnName:If_\"Other,\"_please_indicate_the_currency_here:" -> "core/column-rename7#"
+"newColumnName:currency_context" -> "core/column-rename7#"
+table7 -> "core/column-rename7#"
+"core/column-rename8#" -> table9
+"oldColumnName:If_your_income_needs_additional_context,_please_provide_it_here:" -> "core/column-rename8#"
+"newColumnName:salary_context" -> "core/column-rename8#"
+table8 -> "core/column-rename8#"
+"core/column-rename9#" -> table10
+"oldColumnName:What_country_do_you_work_in?" -> "core/column-rename9#"
+"newColumnName:country" -> "core/column-rename9#"
+table9 -> "core/column-rename9#"
+"core/column-rename10#" -> table11
+"oldColumnName:If_you're_in_the_U.S.,_what_state_do_you_work_in?" -> "core/column-rename10#"
+"newColumnName:state" -> "core/column-rename10#"
+table10 -> "core/column-rename10#"
+"core/column-rename11#" -> table12
+"oldColumnName:What_city_do_you_work_in?" -> "core/column-rename11#"
+"newColumnName:city" -> "core/column-rename11#"
+table11 -> "core/column-rename11#"
+"core/column-rename12#" -> table13
+"oldColumnName:How_many_years_of_professional_work_experience_do_you_have_overall?" -> "core/column-rename12#"
+"newColumnName:total_experience" -> "core/column-rename12#"
+table12 -> "core/column-rename12#"
+"core/column-rename13#" -> table14
+"oldColumnName:How_many_years_of_professional_work_experience_do_you_have_in_your_field?" -> "core/column-rename13#"
+"newColumnName:current_experience" -> "core/column-rename13#"
+table13 -> "core/column-rename13#"
+"core/column-rename14#" -> table15
+"oldColumnName:What_is_your_highest_level_of_education_completed?" -> "core/column-rename14#"
+"newColumnName:education" -> "core/column-rename14#"
+table14 -> "core/column-rename14#"
+"core/column-rename15#" -> table16
+"oldColumnName:What_is_your_gender?" -> "core/column-rename15#"
+"newColumnName:gender" -> "core/column-rename15#"
+table15 -> "core/column-rename15#"
+"core/column-rename16#" -> table17
+"oldColumnName:What_is_your_race?_(Choose_all_that_apply.)" -> "core/column-rename16#"
+"newColumnName:race" -> "core/column-rename16#"
+table16 -> "core/column-rename16#"
+"core/mass-edit0#" -> table18
+"col-name:country" -> "core/mass-edit0#"
+table17 -> "core/mass-edit0#"
+"core/text-transform0#" -> table19
+"col-name:annual_salary" -> "core/text-transform0#"
+"expression:grel:replace(value,_\",\",_\"\").toNumber()" -> "core/text-transform0#"
+table18 -> "core/text-transform0#"
+"core/text-transform1#" -> table20
+"col-name:additional_salary" -> "core/text-transform1#"
+"expression:grel:replace(value,_\",\",_\"\").toNumber()" -> "core/text-transform1#"
+table19 -> "core/text-transform1#"
+"core/column-rename17#" -> table21
+"oldColumnName:Timestamp" -> "core/column-rename17#"
+"newColumnName:timestamp" -> "core/column-rename17#"
+table20 -> "core/column-rename17#"
+"core/mass-edit1#" -> table22
+"col-name:country" -> "core/mass-edit1#"
+table21 -> "core/mass-edit1#"
+"core/mass-edit2#" -> table23
+"col-name:country" -> "core/mass-edit2#"
+table22 -> "core/mass-edit2#"
+"core/mass-edit3#" -> table24
+"col-name:country" -> "core/mass-edit3#"
+table23 -> "core/mass-edit3#"
+"core/mass-edit4#" -> table25
+"col-name:country" -> "core/mass-edit4#"
+table24 -> "core/mass-edit4#"
+"core/mass-edit5#" -> table26
+"col-name:country" -> "core/mass-edit5#"
+table25 -> "core/mass-edit5#"
+"core/text-transform2#" -> table27
+"col-name:city" -> "core/text-transform2#"
+"expression:grel:\"Remote\"" -> "core/text-transform2#"
+table26 -> "core/text-transform2#"
+"core/mass-edit6#" -> table28
+"col-name:gender" -> "core/mass-edit6#"
+table27 -> "core/mass-edit6#"
+"core/mass-edit7#" -> table29
+"col-name:gender" -> "core/mass-edit7#"
+table28 -> "core/mass-edit7#"
+"core/text-transform3#" -> table30
+"col-name:timestamp" -> "core/text-transform3#"
+"expression:grel:value.toDate()" -> "core/text-transform3#"
+table29 -> "core/text-transform3#"
+"core/mass-edit8#" -> table31
+"col-name:industry" -> "core/mass-edit8#"
+table30 -> "core/mass-edit8#"
+"core/mass-edit9#" -> table32
+"col-name:industry" -> "core/mass-edit9#"
+table31 -> "core/mass-edit9#"
+"core/mass-edit10#" -> table33
+"col-name:industry" -> "core/mass-edit10#"
+table32 -> "core/mass-edit10#"
+"core/mass-edit11#" -> table34
+"col-name:industry" -> "core/mass-edit11#"
+table33 -> "core/mass-edit11#"
+"core/mass-edit12#" -> table35
+"col-name:industry" -> "core/mass-edit12#"
+table34 -> "core/mass-edit12#"
+"core/mass-edit13#" -> table36
+"col-name:industry" -> "core/mass-edit13#"
+table35 -> "core/mass-edit13#"
+"core/mass-edit14#" -> table37
+"col-name:industry" -> "core/mass-edit14#"
+table36 -> "core/mass-edit14#"
+"core/mass-edit15#" -> table38
+"col-name:industry" -> "core/mass-edit15#"
+table37 -> "core/mass-edit15#"
+"core/mass-edit16#" -> table39
+"col-name:industry" -> "core/mass-edit16#"
+table38 -> "core/mass-edit16#"
+"core/mass-edit17#" -> table40
+"col-name:job_title" -> "core/mass-edit17#"
+table39 -> "core/mass-edit17#"
+"core/mass-edit18#" -> table41
+"col-name:job_title" -> "core/mass-edit18#"
+table40 -> "core/mass-edit18#"
+"core/mass-edit19#" -> table42
+"col-name:job_title" -> "core/mass-edit19#"
+table41 -> "core/mass-edit19#"
+"core/mass-edit20#" -> table43
+"col-name:job_title" -> "core/mass-edit20#"
+table42 -> "core/mass-edit20#"
+"core/mass-edit21#" -> table44
+"col-name:job_title" -> "core/mass-edit21#"
+table43 -> "core/mass-edit21#"
+"core/mass-edit22#" -> table45
+"col-name:job_title" -> "core/mass-edit22#"
+table44 -> "core/mass-edit22#"
+"core/mass-edit23#" -> table46
+"col-name:job_title" -> "core/mass-edit23#"
+table45 -> "core/mass-edit23#"
+"core/mass-edit24#" -> table47
+"col-name:job_title" -> "core/mass-edit24#"
+table46 -> "core/mass-edit24#"
+"core/mass-edit25#" -> table48
+"col-name:job_title" -> "core/mass-edit25#"
+table47 -> "core/mass-edit25#"
+
+/* End of double cluster for drawing box around nodes in workflow */
+}}
+
+/* End of top-level graph */
+}
