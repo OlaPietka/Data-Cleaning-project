@@ -1,0 +1,11 @@
+
+% FACT: resource(resource_id, resource_uri).
+resource(1, 'static_tweet.csv').
+
+% FACT: data_resource(data_id, resource_id).
+data_resource(1, 1).
+data_resource(2, 2).
+data_resource(3, 1).
+data_resource(12, 2).
+
+% FACT: uri_variable_value(resource_id, uri_variable_id, uri_variable_value).

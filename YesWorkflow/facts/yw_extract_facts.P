@@ -1,0 +1,397 @@
+
+% FACT: extract_source(source_id, source_path).
+extract_source(1, './script/data_preparation_annotations.py').
+
+% FACT: annotation(annotation_id, source_id, line_number, tag, keyword, value).
+annotation(1, 1, 45, 'begin', '@begin', 'clean_data_with_python').
+annotation(2, 1, 49, 'begin', '@begin', 'convert_to_df').
+annotation(3, 1, 49, 'desc', '@desc', 'Converts the input file to a pandas dataframe').
+annotation(4, 1, 50, 'in', '@in', 'FILE').
+annotation(5, 1, 50, 'uri', '@URI', 'file:'Data/salary_responses_clean.csv'').
+annotation(6, 1, 51, 'out', '@out', 'data').
+annotation(7, 1, 51, 'as', '@AS', 'data').
+annotation(8, 1, 57, 'end', '@end', 'convert_to_df').
+annotation(9, 1, 60, 'begin', '@begin', 'age_range_to_min').
+annotation(10, 1, 60, 'desc', '@desc', 'Creates a new column 'age_min' that cleans dashes and strings to output a valid minimum age').
+annotation(11, 1, 61, 'in', '@in', 'data').
+annotation(12, 1, 62, 'out', '@out', 'data_plus_age_min').
+annotation(13, 1, 62, 'desc', '@desc', 'Age min column').
+annotation(14, 1, 77, 'end', '@end', 'age_range_to_min').
+annotation(15, 1, 80, 'begin', '@begin', 'age_range_to_max').
+annotation(16, 1, 80, 'desc', '@desc', 'Adjust age range to maximum').
+annotation(17, 1, 81, 'in', '@in', 'data_plus_age_min').
+annotation(18, 1, 82, 'out', '@out', 'data_plus_age_max').
+annotation(19, 1, 97, 'end', '@end', 'age_range_to_max').
+annotation(20, 1, 110, 'begin', '@begin', 'experience_range_to_min').
+annotation(21, 1, 110, 'desc', '@desc', 'Creates a new total_experience_min column from total_experience').
+annotation(22, 1, 111, 'in', '@in', 'data_plus_age_max').
+annotation(23, 1, 112, 'param', '@param', 'experience').
+annotation(24, 1, 113, 'param', '@param', 'attribute').
+annotation(25, 1, 114, 'out', '@out', 'data_plus_total_experience_min').
+annotation(26, 1, 128, 'end', '@end', 'experience_range_to_min').
+annotation(27, 1, 131, 'begin', '@begin', 'experience_range_to_max').
+annotation(28, 1, 131, 'desc', '@desc', 'Creates a new total_experience_max column from total_experience').
+annotation(29, 1, 132, 'in', '@in', 'data_plus_total_experience_min').
+annotation(30, 1, 133, 'param', '@param', 'experience').
+annotation(31, 1, 134, 'param', '@param', 'attribute').
+annotation(32, 1, 135, 'out', '@out', 'data_plus_total_experience_max').
+annotation(33, 1, 148, 'end', '@end', 'experience_range_to_max').
+annotation(34, 1, 157, 'begin', '@begin', 'experience_current_to_min').
+annotation(35, 1, 157, 'desc', '@desc', 'Creates a new current_experience_min column from total_experience').
+annotation(36, 1, 158, 'in', '@in', 'data_plus_total_experience_max').
+annotation(37, 1, 159, 'param', '@param', 'experience').
+annotation(38, 1, 160, 'param', '@param', 'attribute').
+annotation(39, 1, 161, 'out', '@out', 'data_plus_current_experience_min').
+annotation(40, 1, 162, 'end', '@end', 'experience_current_to_min').
+annotation(41, 1, 166, 'begin', '@begin', 'experience_current_to_max').
+annotation(42, 1, 166, 'desc', '@desc', 'Creates a new current_experience_max column from total_experience').
+annotation(43, 1, 167, 'in', '@in', 'data_plus_current_experience_min').
+annotation(44, 1, 168, 'param', '@param', 'experience').
+annotation(45, 1, 169, 'param', '@param', 'attribute').
+annotation(46, 1, 170, 'out', '@out', 'data_plus_current_experience_max').
+annotation(47, 1, 171, 'end', '@end', 'experience_current_to_max').
+annotation(48, 1, 191, 'begin', '@begin', 'clean_education_naming').
+annotation(49, 1, 191, 'desc', '@desc', 'Replaces all graduate professional degrees with 'Professional degree' string').
+annotation(50, 1, 192, 'in', '@in', 'data_plus_current_experience_max').
+annotation(51, 1, 193, 'out', '@out', 'data_replaced_education_naming').
+annotation(52, 1, 194, 'end', '@end', 'clean_education_naming').
+annotation(53, 1, 204, 'begin', '@begin', 'create_education_level').
+annotation(54, 1, 204, 'desc', '@desc', 'Creates a column 'education_lvl' from 'education' that assigns a numerical value to each education level').
+annotation(55, 1, 205, 'in', '@in', 'data_replaced_education_naming').
+annotation(56, 1, 206, 'out', '@out', 'data_plus_education_lvl').
+annotation(57, 1, 207, 'end', '@end', 'create_education_level').
+annotation(58, 1, 232, 'begin', '@begin', 'cluster_other_gender').
+annotation(59, 1, 232, 'desc', '@desc', 'Cluster 'Other or prefer not to answer' into 'Other'').
+annotation(60, 1, 233, 'in', '@in', 'data_plus_education_lvl').
+annotation(61, 1, 234, 'out', '@out', 'data_replaced_other_gender').
+annotation(62, 1, 235, 'end', '@end', 'cluster_other_gender').
+annotation(63, 1, 246, 'begin', '@begin', 'create_gender_idx').
+annotation(64, 1, 246, 'desc', '@desc', 'Creates column 'gender_idx' replacing gender with a string to integer value map').
+annotation(65, 1, 247, 'in', '@in', 'data_replaced_other_gender').
+annotation(66, 1, 248, 'out', '@out', 'data_plus_gender_idx').
+annotation(67, 1, 249, 'end', '@end', 'create_gender_idx').
+annotation(68, 1, 274, 'begin', '@begin', 'map_race_to_index').
+annotation(69, 1, 274, 'desc', '@desc', 'Creates column 'race_idx' replacing race with a string to integer value map').
+annotation(70, 1, 275, 'in', '@in', 'data_plus_gender_idx').
+annotation(71, 1, 276, 'param', '@param', 'row').
+annotation(72, 1, 276, 'as', '@AS', 'race_values').
+annotation(73, 1, 277, 'out', '@out', 'data_plus_race_idx').
+annotation(74, 1, 278, 'end', '@end', 'map_race_to_index').
+annotation(75, 1, 334, 'begin', '@begin', 'get_city_from_text').
+annotation(76, 1, 334, 'desc', '@desc', 'Replaces 'city' columm values by its prefix followed by address type').
+annotation(77, 1, 335, 'in', '@in', 'data_plus_race_idx').
+annotation(78, 1, 336, 'param', '@param', 'row').
+annotation(79, 1, 336, 'as', '@AS', 'city_values').
+annotation(80, 1, 337, 'out', '@out', 'data_replaced_city').
+annotation(81, 1, 338, 'end', '@end', 'get_city_from_text').
+annotation(82, 1, 393, 'begin', '@begin', 'get_country_from_text').
+annotation(83, 1, 393, 'desc', '@desc', 'Replaces 'country' columm values by its defined standard geographic location name').
+annotation(84, 1, 394, 'in', '@in', 'data_replaced_city').
+annotation(85, 1, 395, 'param', '@param', 'row').
+annotation(86, 1, 395, 'as', '@AS', 'country_values').
+annotation(87, 1, 396, 'out', '@out', 'data_replaced_country').
+annotation(88, 1, 397, 'end', '@end', 'get_country_from_text').
+annotation(89, 1, 441, 'begin', '@begin', 'get_state_from_text').
+annotation(90, 1, 442, 'desc', '@desc', 'Replaces and matches 'state' columm with the corresponding 'city' column').
+annotation(91, 1, 443, 'in', '@in', 'data_replaced_country').
+annotation(92, 1, 444, 'param', '@param', 'row').
+annotation(93, 1, 444, 'as', '@AS', 'state').
+annotation(94, 1, 445, 'out', '@out', 'data_replaced_state').
+annotation(95, 1, 446, 'end', '@end', 'get_state_from_text').
+annotation(96, 1, 505, 'begin', '@begin', 'get_continent_from_country').
+annotation(97, 1, 505, 'desc', '@desc', 'Creates 'continent' attribute based on the country').
+annotation(98, 1, 506, 'in', '@in', 'data_replaced_state').
+annotation(99, 1, 507, 'param', '@param', 'row').
+annotation(100, 1, 507, 'as', '@AS', 'country').
+annotation(101, 1, 508, 'out', '@out', 'data_plus_continent').
+annotation(102, 1, 509, 'end', '@end', 'get_continent_from_country').
+annotation(103, 1, 532, 'begin', '@begin', 'get_lat_long_from_full_address').
+annotation(104, 1, 532, 'desc', '@desc', 'Creates 'lat_long' attribute based on the address').
+annotation(105, 1, 533, 'in', '@in', 'data_plus_continent').
+annotation(106, 1, 534, 'param', '@param', 'city').
+annotation(107, 1, 535, 'param', '@param', 'country').
+annotation(108, 1, 536, 'out', '@out', 'data_plus_lat_long').
+annotation(109, 1, 537, 'end', '@end', 'get_lat_long_from_full_address').
+annotation(110, 1, 575, 'begin', '@begin', 'drop_salary_context_and_job_context').
+annotation(111, 1, 575, 'desc', '@desc', 'Drops 'salary_context' and 'job_context' columns').
+annotation(112, 1, 576, 'in', '@in', 'data_plus_lat_long').
+annotation(113, 1, 577, 'out', '@out', 'data_dropped_salary_job_ctx').
+annotation(114, 1, 578, 'end', '@end', 'drop_salary_context_and_job_context').
+annotation(115, 1, 653, 'begin', '@begin', 'clean_words_clusters_job_title').
+annotation(116, 1, 653, 'desc', '@desc', 'Cleans strings with regex, mappings and replacements').
+annotation(117, 1, 654, 'in', '@in', 'data_dropped_salary_job_ctx').
+annotation(118, 1, 655, 'param', '@param', 'word').
+annotation(119, 1, 655, 'as', '@AS', 'word_values').
+annotation(120, 1, 656, 'out', '@out', 'cw_clusters_job_title').
+annotation(121, 1, 657, 'end', '@end', 'clean_words_clusters_job_title').
+annotation(122, 1, 660, 'begin', '@begin', 'create_clusters_job_title').
+annotation(123, 1, 660, 'desc', '@desc', 'Creates a 'cluster_job_title' from column 'job_title' unique values').
+annotation(124, 1, 661, 'in', '@in', 'data_dropped_salary_job_ctx').
+annotation(125, 1, 662, 'in', '@in', 'cw_clusters_job_title').
+annotation(126, 1, 663, 'param', '@param', 'possibilities').
+annotation(127, 1, 663, 'as', '@AS', 'job_title_possibilities').
+annotation(128, 1, 664, 'param', '@param', 'cutoff').
+annotation(129, 1, 664, 'as', '@AS', 'job_title_cutoff').
+annotation(130, 1, 665, 'out', '@out', 'clusters_job_title').
+annotation(131, 1, 666, 'end', '@end', 'create_clusters_job_title').
+annotation(132, 1, 673, 'begin', '@begin', 'replace_job_title').
+annotation(133, 1, 673, 'desc', '@desc', 'Replaces the 'job_title' column values with cluster data values').
+annotation(134, 1, 674, 'in', '@in', 'data_dropped_salary_job_ctx').
+annotation(135, 1, 675, 'in', '@in', 'clusters_job_title').
+annotation(136, 1, 676, 'out', '@out', 'data_replaced_job_title_clean').
+annotation(137, 1, 677, 'end', '@end', 'replace_job_title').
+annotation(138, 1, 686, 'begin', '@begin', 'clean_words_clusters_job_title_second').
+annotation(139, 1, 686, 'desc', '@desc', 'Cleans strings with regex, mappings and replacements').
+annotation(140, 1, 687, 'in', '@in', 'data_replaced_job_title_clean').
+annotation(141, 1, 688, 'param', '@param', 'word').
+annotation(142, 1, 688, 'as', '@AS', 'word_values').
+annotation(143, 1, 689, 'out', '@out', 'cw_clusters_job_title_second').
+annotation(144, 1, 690, 'end', '@end', 'clean_words_clusters_job_title_second').
+annotation(145, 1, 693, 'begin', '@begin', 'create_clusters_job_title_second').
+annotation(146, 1, 693, 'desc', '@desc', 'Creates a cluster based on possibilities for the job_title_clean column unique values').
+annotation(147, 1, 694, 'in', '@in', 'data_replaced_job_title_clean').
+annotation(148, 1, 695, 'in', '@in', 'cw_clusters_job_title_second').
+annotation(149, 1, 696, 'param', '@param', 'possibilities').
+annotation(150, 1, 696, 'as', '@AS', 'job_title_possibilities').
+annotation(151, 1, 697, 'param', '@param', 'cutoff').
+annotation(152, 1, 697, 'as', '@AS', 'job_title_cutoff').
+annotation(153, 1, 698, 'out', '@out', 'clusters_job_title_second').
+annotation(154, 1, 699, 'end', '@end', 'create_clusters_job_title_second').
+annotation(155, 1, 707, 'begin', '@begin', 'replace_job_title_clean').
+annotation(156, 1, 707, 'desc', '@desc', 'Replaces the 'job_title_clean' column values with the second clusters_job_title').
+annotation(157, 1, 708, 'in', '@in', 'data_replaced_job_title_clean').
+annotation(158, 1, 709, 'in', '@in', 'clusters_job_title_second').
+annotation(159, 1, 710, 'out', '@out', 'data_replaced_job_title_clean_second').
+annotation(160, 1, 711, 'end', '@end', 'replace_job_title_clean').
+annotation(161, 1, 719, 'begin', '@begin', 'clean_words_clusters_job_title_third').
+annotation(162, 1, 719, 'desc', '@desc', 'Cleans strings with regex, mappings and replacements').
+annotation(163, 1, 720, 'in', '@in', 'data_replaced_job_title_clean_second').
+annotation(164, 1, 721, 'param', '@param', 'word').
+annotation(165, 1, 721, 'as', '@AS', 'word_values').
+annotation(166, 1, 722, 'out', '@out', 'cw_clusters_job_title_third').
+annotation(167, 1, 723, 'end', '@end', 'clean_words_clusters_job_title_third').
+annotation(168, 1, 726, 'begin', '@begin', 'create_job_title_clean_third').
+annotation(169, 1, 726, 'desc', '@desc', 'Creates a cluster based on possibilities for the second job_title_clean column unique values').
+annotation(170, 1, 727, 'in', '@in', 'data_replaced_job_title_clean_second').
+annotation(171, 1, 728, 'in', '@in', 'cw_clusters_job_title_third').
+annotation(172, 1, 729, 'param', '@param', 'possibilities').
+annotation(173, 1, 729, 'as', '@AS', 'job_title_possibilities').
+annotation(174, 1, 730, 'param', '@param', 'cutoff').
+annotation(175, 1, 730, 'as', '@AS', 'job_title_cutoff').
+annotation(176, 1, 731, 'out', '@out', 'clusters_job_title_third').
+annotation(177, 1, 732, 'end', '@end', 'create_job_title_clean_third').
+annotation(178, 1, 740, 'begin', '@begin', 'replace_job_title_clean_third').
+annotation(179, 1, 740, 'desc', '@desc', 'Replaces the 'job_title_clean' from column 'job_title_clean' with second word possibilities word clean and cluster').
+annotation(180, 1, 741, 'in', '@in', 'data_replaced_job_title_clean_second').
+annotation(181, 1, 742, 'in', '@in', 'clusters_job_title_third').
+annotation(182, 1, 743, 'out', '@out', 'data_replaced_job_title_clean_third').
+annotation(183, 1, 744, 'end', '@end', 'replace_job_title_clean_third').
+annotation(184, 1, 760, 'begin', '@begin', 'clean_words_industry').
+annotation(185, 1, 760, 'desc', '@desc', 'Cleans industry string using regex, mappings and replacements').
+annotation(186, 1, 761, 'in', '@in', 'data_replaced_job_title_clean_third').
+annotation(187, 1, 762, 'param', '@param', 'word').
+annotation(188, 1, 762, 'as', '@AS', 'word_values').
+annotation(189, 1, 763, 'out', '@out', 'cleaned_words_industry').
+annotation(190, 1, 764, 'end', '@end', 'clean_words_industry').
+annotation(191, 1, 767, 'begin', '@begin', 'create_clusters_industry').
+annotation(192, 1, 767, 'desc', '@desc', 'Creates industry_cluster based on the 'industry' column unique values').
+annotation(193, 1, 768, 'in', '@in', 'data_replaced_job_title_clean_third').
+annotation(194, 1, 769, 'in', '@in', 'cleaned_words_industry').
+annotation(195, 1, 770, 'param', '@param', 'possibilities').
+annotation(196, 1, 770, 'as', '@AS', 'industry_possibilities').
+annotation(197, 1, 771, 'param', '@param', 'cutoff').
+annotation(198, 1, 771, 'as', '@AS', 'industry_cutoff').
+annotation(199, 1, 772, 'out', '@out', 'clusters_industry').
+annotation(200, 1, 773, 'end', '@end', 'create_clusters_industry').
+annotation(201, 1, 781, 'begin', '@begin', 'replace_industry_clean').
+annotation(202, 1, 781, 'desc', '@desc', 'Creates an 'industry_clean' column from 'industry' column unique values clustering').
+annotation(203, 1, 782, 'in', '@in', 'data_replaced_job_title_clean_third').
+annotation(204, 1, 783, 'in', '@in', 'clusters_industry').
+annotation(205, 1, 784, 'out', '@out', 'data_plus_industry_clean').
+annotation(206, 1, 785, 'end', '@end', 'replace_industry_clean').
+annotation(207, 1, 791, 'begin', '@begin', 'clean_words_industry_second').
+annotation(208, 1, 791, 'desc', '@desc', 'Cleans industry string using regex, mappings and replacements').
+annotation(209, 1, 792, 'in', '@in', 'data_plus_industry_clean').
+annotation(210, 1, 793, 'param', '@param', 'word').
+annotation(211, 1, 793, 'as', '@AS', 'word_values').
+annotation(212, 1, 794, 'out', '@out', 'cleaned_words_industry_second').
+annotation(213, 1, 795, 'end', '@end', 'clean_words_industry_second').
+annotation(214, 1, 798, 'begin', '@begin', 'create_clusters_industry_second').
+annotation(215, 1, 798, 'desc', '@desc', 'Creates a second industry cluster based on the 'industry_clean' column unique values').
+annotation(216, 1, 799, 'in', '@in', 'data_plus_industry_clean').
+annotation(217, 1, 800, 'in', '@in', 'cleaned_words_industry_second').
+annotation(218, 1, 801, 'param', '@param', 'possibilities').
+annotation(219, 1, 801, 'as', '@AS', 'industry_possibilities').
+annotation(220, 1, 802, 'param', '@param', 'cutoff').
+annotation(221, 1, 802, 'as', '@AS', 'industry_cutoff').
+annotation(222, 1, 803, 'out', '@out', 'clusters_industry_second').
+annotation(223, 1, 804, 'end', '@end', 'create_clusters_industry_second').
+annotation(224, 1, 811, 'begin', '@begin', 'replace_industry_clean_second').
+annotation(225, 1, 811, 'desc', '@desc', 'Replaces 'industry_clean' column values based on industry_clean cluster').
+annotation(226, 1, 812, 'in', '@in', 'data_plus_industry_clean').
+annotation(227, 1, 813, 'in', '@in', 'clusters_industry_second').
+annotation(228, 1, 814, 'out', '@out', 'data_industry_clean_second').
+annotation(229, 1, 815, 'end', '@end', 'replace_industry_clean_second').
+annotation(230, 1, 821, 'begin', '@begin', 'clean_words_industry_third').
+annotation(231, 1, 821, 'desc', '@desc', 'Cleans industry string using regex, mappings and replacements').
+annotation(232, 1, 822, 'in', '@in', 'data_industry_clean_second').
+annotation(233, 1, 823, 'param', '@param', 'word').
+annotation(234, 1, 823, 'as', '@AS', 'word_values').
+annotation(235, 1, 824, 'out', '@out', 'cleaned_words_industry_third').
+annotation(236, 1, 825, 'end', '@end', 'clean_words_industry_third').
+annotation(237, 1, 828, 'begin', '@begin', 'create_clusters_industry_third').
+annotation(238, 1, 828, 'desc', '@desc', 'Creates a third industry cluster based on the 'industry_clean' column unique values').
+annotation(239, 1, 829, 'in', '@in', 'data_industry_clean_second').
+annotation(240, 1, 830, 'in', '@in', 'cleaned_words_industry_third').
+annotation(241, 1, 831, 'param', '@param', 'possibilities').
+annotation(242, 1, 831, 'as', '@AS', 'industry_possibilities').
+annotation(243, 1, 832, 'param', '@param', 'cutoff').
+annotation(244, 1, 832, 'as', '@AS', 'industry_cutoff').
+annotation(245, 1, 833, 'out', '@out', 'clusters_industry_third').
+annotation(246, 1, 834, 'end', '@end', 'create_clusters_industry_third').
+annotation(247, 1, 841, 'begin', '@begin', 'replace_industry_clean_third').
+annotation(248, 1, 841, 'desc', '@desc', 'Replaces 'industry_clean' column with 'clusters_industry_third' clustered values').
+annotation(249, 1, 842, 'in', '@in', 'data_industry_clean_second').
+annotation(250, 1, 843, 'in', '@in', 'clusters_industry_third').
+annotation(251, 1, 844, 'out', '@out', 'data_industry_clean_third').
+annotation(252, 1, 845, 'end', '@end', 'replace_industry_clean_third').
+annotation(253, 1, 851, 'begin', '@begin', 'clean_words_industry_fourth').
+annotation(254, 1, 851, 'desc', '@desc', 'Cleans industry string using regex, mappings and replacements').
+annotation(255, 1, 852, 'in', '@in', 'data_industry_clean_third').
+annotation(256, 1, 853, 'param', '@param', 'word').
+annotation(257, 1, 853, 'as', '@AS', 'word_values').
+annotation(258, 1, 854, 'out', '@out', 'cleaned_words_industry_fourth').
+annotation(259, 1, 855, 'end', '@end', 'clean_words_industry_fourth').
+annotation(260, 1, 858, 'begin', '@begin', 'create_clusters_industry_fourth').
+annotation(261, 1, 858, 'desc', '@desc', 'Creates a fourth industry cluster based on the 'industry_clean' column unique values').
+annotation(262, 1, 859, 'in', '@in', 'data_industry_clean_third').
+annotation(263, 1, 860, 'param', '@param', 'possibilities').
+annotation(264, 1, 860, 'as', '@AS', 'industry_possibilities').
+annotation(265, 1, 861, 'param', '@param', 'cutoff').
+annotation(266, 1, 861, 'as', '@AS', 'industry_cutoff').
+annotation(267, 1, 862, 'out', '@out', 'clusters_industry_fourth').
+annotation(268, 1, 863, 'end', '@end', 'create_clusters_industry_fourth').
+annotation(269, 1, 870, 'begin', '@begin', 'replace_industry_clean_fourth').
+annotation(270, 1, 870, 'desc', '@desc', 'Replaces 'industry_clean' column with 'clusters_industry_fourth' clustered values').
+annotation(271, 1, 871, 'in', '@in', 'data_industry_clean_third').
+annotation(272, 1, 872, 'in', '@in', 'clusters_industry_fourth').
+annotation(273, 1, 873, 'out', '@out', 'data_industry_clean_fourth').
+annotation(274, 1, 874, 'end', '@end', 'replace_industry_clean_fourth').
+annotation(275, 1, 880, 'begin', '@begin', 'clean_words_industry_fourth').
+annotation(276, 1, 880, 'desc', '@desc', 'Cleans industry string using regex, mappings and replacements').
+annotation(277, 1, 881, 'in', '@in', 'data_industry_clean_third').
+annotation(278, 1, 882, 'param', '@param', 'word').
+annotation(279, 1, 882, 'as', '@AS', 'word_values').
+annotation(280, 1, 883, 'out', '@out', 'cleaned_words_industry_fourth').
+annotation(281, 1, 884, 'end', '@end', 'clean_words_industry_fourth').
+annotation(282, 1, 887, 'begin', '@begin', 'create_clusters_industry_fifth').
+annotation(283, 1, 887, 'desc', '@desc', 'Creates a fifth industry cluster based on the 'industry_clean' column unique values').
+annotation(284, 1, 888, 'in', '@in', 'data_industry_clean_fourth').
+annotation(285, 1, 889, 'in', '@in', 'cleaned_words_industry_fourth').
+annotation(286, 1, 890, 'param', '@param', 'possibilities').
+annotation(287, 1, 890, 'as', '@AS', 'industry_possibilities').
+annotation(288, 1, 891, 'param', '@param', 'cutoff').
+annotation(289, 1, 891, 'as', '@AS', 'industry_cutoff').
+annotation(290, 1, 892, 'out', '@out', 'clusters_industry_fifth').
+annotation(291, 1, 893, 'end', '@end', 'create_clusters_industry_fifth').
+annotation(292, 1, 900, 'begin', '@begin', 'replace_industry_clean_fifth').
+annotation(293, 1, 900, 'desc', '@desc', 'Replaces 'industry_clean' column with 'clusters_industry_fifth' clustered values').
+annotation(294, 1, 901, 'in', '@in', 'data_industry_clean_fourth').
+annotation(295, 1, 902, 'in', '@in', 'clusters_industry_fifth').
+annotation(296, 1, 903, 'out', '@out', 'data_industry_clean_fifth').
+annotation(297, 1, 904, 'end', '@end', 'replace_industry_clean_fifth').
+annotation(298, 1, 914, 'begin', '@begin', 'merge_industry_clean').
+annotation(299, 1, 914, 'desc', '@desc', 'Merge 'industry_clean' and 'industry' using clean values').
+annotation(300, 1, 915, 'in', '@in', 'data_industry_clean_fifth').
+annotation(301, 1, 916, 'out', '@out', 'merged_industry_clean').
+annotation(302, 1, 917, 'end', '@end', 'merge_industry_clean').
+annotation(303, 1, 928, 'begin', '@begin', 'merge_currency').
+annotation(304, 1, 928, 'desc', '@desc', 'Merge 'currency' and 'currency_context'').
+annotation(305, 1, 929, 'in', '@in', 'data_industry_clean_fifth').
+annotation(306, 1, 930, 'out', '@out', 'data_merge_currency').
+annotation(307, 1, 931, 'end', '@end', 'merge_currency').
+annotation(308, 1, 947, 'begin', '@begin', 'clean_currency_other').
+annotation(309, 1, 947, 'desc', '@desc', 'Replace 'Other' values from 'currency' with 'currency_context' value').
+annotation(310, 1, 948, 'in', '@in', 'data_merge_currency').
+annotation(311, 1, 949, 'out', '@out', 'data_clean_currency_other').
+annotation(312, 1, 950, 'end', '@end', 'clean_currency_other').
+annotation(313, 1, 1396, 'end', '@end', 'clean_data_with_python').
+
+% FACT: annotation_qualifies(qualifying_annotation_id, primary_annotation_id).
+annotation_qualifies(3, 2).
+annotation_qualifies(5, 4).
+annotation_qualifies(7, 6).
+annotation_qualifies(10, 9).
+annotation_qualifies(13, 12).
+annotation_qualifies(16, 15).
+annotation_qualifies(21, 20).
+annotation_qualifies(28, 27).
+annotation_qualifies(35, 34).
+annotation_qualifies(42, 41).
+annotation_qualifies(49, 48).
+annotation_qualifies(54, 53).
+annotation_qualifies(59, 58).
+annotation_qualifies(64, 63).
+annotation_qualifies(69, 68).
+annotation_qualifies(72, 71).
+annotation_qualifies(76, 75).
+annotation_qualifies(79, 78).
+annotation_qualifies(83, 82).
+annotation_qualifies(86, 85).
+annotation_qualifies(90, 89).
+annotation_qualifies(93, 92).
+annotation_qualifies(97, 96).
+annotation_qualifies(100, 99).
+annotation_qualifies(104, 103).
+annotation_qualifies(111, 110).
+annotation_qualifies(116, 115).
+annotation_qualifies(119, 118).
+annotation_qualifies(123, 122).
+annotation_qualifies(127, 126).
+annotation_qualifies(129, 128).
+annotation_qualifies(133, 132).
+annotation_qualifies(139, 138).
+annotation_qualifies(142, 141).
+annotation_qualifies(146, 145).
+annotation_qualifies(150, 149).
+annotation_qualifies(152, 151).
+annotation_qualifies(156, 155).
+annotation_qualifies(162, 161).
+annotation_qualifies(165, 164).
+annotation_qualifies(169, 168).
+annotation_qualifies(173, 172).
+annotation_qualifies(175, 174).
+annotation_qualifies(179, 178).
+annotation_qualifies(185, 184).
+annotation_qualifies(188, 187).
+annotation_qualifies(192, 191).
+annotation_qualifies(196, 195).
+annotation_qualifies(198, 197).
+annotation_qualifies(202, 201).
+annotation_qualifies(208, 207).
+annotation_qualifies(211, 210).
+annotation_qualifies(215, 214).
+annotation_qualifies(219, 218).
+annotation_qualifies(221, 220).
+annotation_qualifies(225, 224).
+annotation_qualifies(231, 230).
+annotation_qualifies(234, 233).
+annotation_qualifies(238, 237).
+annotation_qualifies(242, 241).
+annotation_qualifies(244, 243).
+annotation_qualifies(248, 247).
+annotation_qualifies(254, 253).
+annotation_qualifies(257, 256).
+annotation_qualifies(261, 260).
+annotation_qualifies(264, 263).
+annotation_qualifies(266, 265).
+annotation_qualifies(270, 269).
+annotation_qualifies(276, 275).
+annotation_qualifies(279, 278).
+annotation_qualifies(283, 282).
+annotation_qualifies(287, 286).
+annotation_qualifies(289, 288).
+annotation_qualifies(293, 292).
+annotation_qualifies(299, 298).
+annotation_qualifies(304, 303).
+annotation_qualifies(309, 308).
