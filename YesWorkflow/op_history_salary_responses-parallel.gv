@@ -1,0 +1,390 @@
+
+/* Start of top-level graph */
+digraph Workflow {
+rankdir=TB
+
+/* Title for graph */
+fontname=Helvetica; fontsize=18; labelloc=t
+label=Parallel_OR
+
+/* Start of double cluster for drawing box around nodes in workflow */
+subgraph cluster_workflow_box_outer { label=""; color=black; penwidth=2
+subgraph cluster_workflow_box_inner { label=""; penwidth=0
+
+/* Style for nodes representing atomic programs in workflow */
+node[shape=box style=filled fillcolor="#CCFFCC" peripheries=1 fontname=Helvetica]
+
+/* Nodes representing atomic programs in workflow */
+"core/column-rename0" [shape=record rankdir=LR label="{<f0> core/column-rename0 |<f1> Rename column What industry do you work in? to industry}"];
+"core/column-rename1" [shape=record rankdir=LR label="{<f0> core/column-rename1 |<f1> Rename column Job title to job_title}"];
+"core/column-rename2" [shape=record rankdir=LR label="{<f0> core/column-rename2 |<f1> Rename column How old are you? to age}"];
+"core/column-rename3" [shape=record rankdir=LR label="{<f0> core/column-rename3 |<f1> Rename column If your job title needs additional context, please clarify here\: to job_context}"];
+"core/column-rename4" [shape=record rankdir=LR label="{<f0> core/column-rename4 |<f1> Rename column What is your annual salary? (You'll indicate the currency in a later question. If you are part-time or hourly, please enter an annualized equivalent -- what you would earn if you worked the job 40 hours a week, 52 weeks a year.) to annual_salary}"];
+"core/column-rename5" [shape=record rankdir=LR label="{<f0> core/column-rename5 |<f1> Rename column How much additional monetary compensation do you get, if any (for example, bonuses or overtime in an average year)? Please only include monetary compensation here, not the value of benefits. to additional_salary}"];
+"core/column-rename6" [shape=record rankdir=LR label="{<f0> core/column-rename6 |<f1> Rename column Please indicate the currency to currency}"];
+"core/column-rename7" [shape=record rankdir=LR label="{<f0> core/column-rename7 |<f1> Rename column If \"Other,\" please indicate the currency here\: to currency_context}"];
+"core/column-rename8" [shape=record rankdir=LR label="{<f0> core/column-rename8 |<f1> Rename column If your income needs additional context, please provide it here\: to salary_context}"];
+"core/column-rename9" [shape=record rankdir=LR label="{<f0> core/column-rename9 |<f1> Rename column What country do you work in? to country}"];
+"core/column-rename10" [shape=record rankdir=LR label="{<f0> core/column-rename10 |<f1> Rename column If you're in the U.S., what state do you work in? to state}"];
+"core/column-rename11" [shape=record rankdir=LR label="{<f0> core/column-rename11 |<f1> Rename column What city do you work in? to city}"];
+"core/column-rename12" [shape=record rankdir=LR label="{<f0> core/column-rename12 |<f1> Rename column How many years of professional work experience do you have overall? to total_experience}"];
+"core/column-rename13" [shape=record rankdir=LR label="{<f0> core/column-rename13 |<f1> Rename column How many years of professional work experience do you have in your field? to current_experience}"];
+"core/column-rename14" [shape=record rankdir=LR label="{<f0> core/column-rename14 |<f1> Rename column What is your highest level of education completed? to education}"];
+"core/column-rename15" [shape=record rankdir=LR label="{<f0> core/column-rename15 |<f1> Rename column What is your gender? to gender}"];
+"core/column-rename16" [shape=record rankdir=LR label="{<f0> core/column-rename16 |<f1> Rename column What is your race? (Choose all that apply.) to race}"];
+"core/mass-edit17" [shape=record rankdir=LR label="{<f0> core/mass-edit17 |<f1> Mass edit cells in column country}"];
+"core/text-transform18" [shape=record rankdir=LR label="{<f0> core/text-transform18 |<f1> Text transform on cells in column annual_salary using expression grel\:replace(value, \",\", \"\").toNumber()}"];
+"core/text-transform19" [shape=record rankdir=LR label="{<f0> core/text-transform19 |<f1> Text transform on cells in column additional_salary using expression grel\:replace(value, \",\", \"\").toNumber()}"];
+"core/column-rename20" [shape=record rankdir=LR label="{<f0> core/column-rename20 |<f1> Rename column Timestamp to timestamp}"];
+"core/mass-edit21" [shape=record rankdir=LR label="{<f0> core/mass-edit21 |<f1> Mass edit cells in column country}"];
+"core/mass-edit22" [shape=record rankdir=LR label="{<f0> core/mass-edit22 |<f1> Mass edit cells in column country}"];
+"core/mass-edit23" [shape=record rankdir=LR label="{<f0> core/mass-edit23 |<f1> Mass edit cells in column country}"];
+"core/mass-edit24" [shape=record rankdir=LR label="{<f0> core/mass-edit24 |<f1> Mass edit cells in column country}"];
+"core/mass-edit25" [shape=record rankdir=LR label="{<f0> core/mass-edit25 |<f1> Mass edit cells in column country}"];
+"core/text-transform26" [shape=record rankdir=LR label="{<f0> core/text-transform26 |<f1> Text transform on cells in column city using expression grel\:\"Remote\"}"];
+"core/mass-edit27" [shape=record rankdir=LR label="{<f0> core/mass-edit27 |<f1> Mass edit cells in column gender}"];
+"core/mass-edit28" [shape=record rankdir=LR label="{<f0> core/mass-edit28 |<f1> Mass edit cells in column gender}"];
+"core/text-transform29" [shape=record rankdir=LR label="{<f0> core/text-transform29 |<f1> Text transform on cells in column timestamp using expression grel\:value.toDate()}"];
+"core/mass-edit30" [shape=record rankdir=LR label="{<f0> core/mass-edit30 |<f1> Mass edit cells in column industry}"];
+"core/mass-edit31" [shape=record rankdir=LR label="{<f0> core/mass-edit31 |<f1> Mass edit cells in column industry}"];
+"core/mass-edit32" [shape=record rankdir=LR label="{<f0> core/mass-edit32 |<f1> Mass edit cells in column industry}"];
+"core/mass-edit33" [shape=record rankdir=LR label="{<f0> core/mass-edit33 |<f1> Mass edit cells in column industry}"];
+"core/mass-edit34" [shape=record rankdir=LR label="{<f0> core/mass-edit34 |<f1> Mass edit cells in column industry}"];
+"core/mass-edit35" [shape=record rankdir=LR label="{<f0> core/mass-edit35 |<f1> Mass edit cells in column industry}"];
+"core/mass-edit36" [shape=record rankdir=LR label="{<f0> core/mass-edit36 |<f1> Mass edit cells in column industry}"];
+"core/mass-edit37" [shape=record rankdir=LR label="{<f0> core/mass-edit37 |<f1> Mass edit cells in column industry}"];
+"core/mass-edit38" [shape=record rankdir=LR label="{<f0> core/mass-edit38 |<f1> Mass edit cells in column industry}"];
+"core/mass-edit39" [shape=record rankdir=LR label="{<f0> core/mass-edit39 |<f1> Mass edit cells in column job_title}"];
+"core/mass-edit40" [shape=record rankdir=LR label="{<f0> core/mass-edit40 |<f1> Mass edit cells in column job_title}"];
+"core/mass-edit41" [shape=record rankdir=LR label="{<f0> core/mass-edit41 |<f1> Mass edit cells in column job_title}"];
+"core/mass-edit42" [shape=record rankdir=LR label="{<f0> core/mass-edit42 |<f1> Mass edit cells in column job_title}"];
+"core/mass-edit43" [shape=record rankdir=LR label="{<f0> core/mass-edit43 |<f1> Mass edit cells in column job_title}"];
+"core/mass-edit44" [shape=record rankdir=LR label="{<f0> core/mass-edit44 |<f1> Mass edit cells in column job_title}"];
+"core/mass-edit45" [shape=record rankdir=LR label="{<f0> core/mass-edit45 |<f1> Mass edit cells in column job_title}"];
+"core/mass-edit46" [shape=record rankdir=LR label="{<f0> core/mass-edit46 |<f1> Mass edit cells in column job_title}"];
+"core/mass-edit47" [shape=record rankdir=LR label="{<f0> core/mass-edit47 |<f1> Mass edit cells in column job_title}"];
+CombineDataCleaningChanges
+
+/* Style for nodes representing non-parameter data channels in workflow */
+node[shape=box style="rounded,filled" fillcolor="#FFFFCC" peripheries=1 fontname=Helvetica]
+
+/* Nodes for non-parameter data channels in workflow */
+CleanData
+"What_industry_do_you_work_in?"
+Job_title
+"How_old_are_you?"
+"If_your_job_title_needs_additional_context,_please_clarify_here:"
+"What_is_your_annual_salary?_(You'll_indicate_the_currency_in_a_later_question._If_you_are_part-time_or_hourly,_please_enter_an_annualized_equivalent_--_what_you_would_earn_if_you_worked_the_job_40_hours_a_week,_52_weeks_a_year.)"
+"How_much_additional_monetary_compensation_do_you_get,_if_any_(for_example,_bonuses_or_overtime_in_an_average_year)?_Please_only_include_monetary_compensation_here,_not_the_value_of_benefits."
+Please_indicate_the_currency
+"If_\"Other,\"_please_indicate_the_currency_here:"
+"If_your_income_needs_additional_context,_please_provide_it_here:"
+"What_country_do_you_work_in?"
+"If_you're_in_the_U.S.,_what_state_do_you_work_in?"
+"What_city_do_you_work_in?"
+"How_many_years_of_professional_work_experience_do_you_have_overall?"
+"How_many_years_of_professional_work_experience_do_you_have_in_your_field?"
+"What_is_your_highest_level_of_education_completed?"
+"What_is_your_gender?"
+"What_is_your_race?_(Choose_all_that_apply.)"
+country
+annual_salary
+additional_salary
+Timestamp
+country_1
+country_2
+country_3
+country_4
+country_5
+city
+gender
+gender_1
+timestamp
+industry
+industry_1
+industry_2
+industry_3
+industry_4
+industry_5
+industry_6
+industry_7
+industry_8
+job_title
+job_title_1
+job_title_2
+job_title_3
+job_title_4
+job_title_5
+job_title_6
+job_title_7
+job_title_8
+industry_9
+job_title_9
+age
+job_context
+annual_salary_1
+additional_salary_1
+currency
+currency_context
+salary_context
+country_6
+state
+city_1
+total_experience
+current_experience
+education
+gender_2
+race
+timestamp_1
+
+/* Style for nodes representing parameter channels in workflow */
+node[shape=box style="rounded,filled" fillcolor="#FCFCFC" peripheries=1 fontname=Helvetica]
+
+/* Nodes representing parameter channels in workflow */
+"oldColumnName:What_industry_do_you_work_in?"
+"newColumnName:industry"
+"oldColumnName:Job_title"
+"newColumnName:job_title"
+"oldColumnName:How_old_are_you?"
+"newColumnName:age"
+"oldColumnName:If_your_job_title_needs_additional_context,_please_clarify_here:"
+"newColumnName:job_context"
+"oldColumnName:What_is_your_annual_salary?_(You'll_indicate_the_currency_in_a_later_question._If_you_are_part-time_or_hourly,_please_enter_an_annualized_equivalent_--_what_you_would_earn_if_you_worked_the_job_40_hours_a_week,_52_weeks_a_year.)"
+"newColumnName:annual_salary"
+"oldColumnName:How_much_additional_monetary_compensation_do_you_get,_if_any_(for_example,_bonuses_or_overtime_in_an_average_year)?_Please_only_include_monetary_compensation_here,_not_the_value_of_benefits."
+"newColumnName:additional_salary"
+"oldColumnName:Please_indicate_the_currency"
+"newColumnName:currency"
+"oldColumnName:If_\"Other,\"_please_indicate_the_currency_here:"
+"newColumnName:currency_context"
+"oldColumnName:If_your_income_needs_additional_context,_please_provide_it_here:"
+"newColumnName:salary_context"
+"oldColumnName:What_country_do_you_work_in?"
+"newColumnName:country"
+"oldColumnName:If_you're_in_the_U.S.,_what_state_do_you_work_in?"
+"newColumnName:state"
+"oldColumnName:What_city_do_you_work_in?"
+"newColumnName:city"
+"oldColumnName:How_many_years_of_professional_work_experience_do_you_have_overall?"
+"newColumnName:total_experience"
+"oldColumnName:How_many_years_of_professional_work_experience_do_you_have_in_your_field?"
+"newColumnName:current_experience"
+"oldColumnName:What_is_your_highest_level_of_education_completed?"
+"newColumnName:education"
+"oldColumnName:What_is_your_gender?"
+"newColumnName:gender"
+"oldColumnName:What_is_your_race?_(Choose_all_that_apply.)"
+"newColumnName:race"
+"expression:value"
+"expression:grel:replace(value,_\",\",_\"\").toNumber()"
+"oldColumnName:Timestamp"
+"newColumnName:timestamp"
+"expression:grel:\"Remote\""
+"expression:grel:value.toDate()"
+
+/* Edges representing connections between programs and channels */
+"core/column-rename0" -> industry
+"oldColumnName:What_industry_do_you_work_in?" -> "core/column-rename0"
+"newColumnName:industry" -> "core/column-rename0"
+"What_industry_do_you_work_in?" -> "core/column-rename0"
+"core/column-rename1" -> job_title
+"oldColumnName:Job_title" -> "core/column-rename1"
+"newColumnName:job_title" -> "core/column-rename1"
+Job_title -> "core/column-rename1"
+"core/column-rename2" -> age
+"oldColumnName:How_old_are_you?" -> "core/column-rename2"
+"newColumnName:age" -> "core/column-rename2"
+"How_old_are_you?" -> "core/column-rename2"
+"core/column-rename3" -> job_context
+"oldColumnName:If_your_job_title_needs_additional_context,_please_clarify_here:" -> "core/column-rename3"
+"newColumnName:job_context" -> "core/column-rename3"
+"If_your_job_title_needs_additional_context,_please_clarify_here:" -> "core/column-rename3"
+"core/column-rename4" -> annual_salary
+"oldColumnName:What_is_your_annual_salary?_(You'll_indicate_the_currency_in_a_later_question._If_you_are_part-time_or_hourly,_please_enter_an_annualized_equivalent_--_what_you_would_earn_if_you_worked_the_job_40_hours_a_week,_52_weeks_a_year.)" -> "core/column-rename4"
+"newColumnName:annual_salary" -> "core/column-rename4"
+"What_is_your_annual_salary?_(You'll_indicate_the_currency_in_a_later_question._If_you_are_part-time_or_hourly,_please_enter_an_annualized_equivalent_--_what_you_would_earn_if_you_worked_the_job_40_hours_a_week,_52_weeks_a_year.)" -> "core/column-rename4"
+"core/column-rename5" -> additional_salary
+"oldColumnName:How_much_additional_monetary_compensation_do_you_get,_if_any_(for_example,_bonuses_or_overtime_in_an_average_year)?_Please_only_include_monetary_compensation_here,_not_the_value_of_benefits." -> "core/column-rename5"
+"newColumnName:additional_salary" -> "core/column-rename5"
+"How_much_additional_monetary_compensation_do_you_get,_if_any_(for_example,_bonuses_or_overtime_in_an_average_year)?_Please_only_include_monetary_compensation_here,_not_the_value_of_benefits." -> "core/column-rename5"
+"core/column-rename6" -> currency
+"oldColumnName:Please_indicate_the_currency" -> "core/column-rename6"
+"newColumnName:currency" -> "core/column-rename6"
+Please_indicate_the_currency -> "core/column-rename6"
+"core/column-rename7" -> currency_context
+"oldColumnName:If_\"Other,\"_please_indicate_the_currency_here:" -> "core/column-rename7"
+"newColumnName:currency_context" -> "core/column-rename7"
+"If_\"Other,\"_please_indicate_the_currency_here:" -> "core/column-rename7"
+"core/column-rename8" -> salary_context
+"oldColumnName:If_your_income_needs_additional_context,_please_provide_it_here:" -> "core/column-rename8"
+"newColumnName:salary_context" -> "core/column-rename8"
+"If_your_income_needs_additional_context,_please_provide_it_here:" -> "core/column-rename8"
+"core/column-rename9" -> country
+"oldColumnName:What_country_do_you_work_in?" -> "core/column-rename9"
+"newColumnName:country" -> "core/column-rename9"
+"What_country_do_you_work_in?" -> "core/column-rename9"
+"core/column-rename10" -> state
+"oldColumnName:If_you're_in_the_U.S.,_what_state_do_you_work_in?" -> "core/column-rename10"
+"newColumnName:state" -> "core/column-rename10"
+"If_you're_in_the_U.S.,_what_state_do_you_work_in?" -> "core/column-rename10"
+"core/column-rename11" -> city
+"oldColumnName:What_city_do_you_work_in?" -> "core/column-rename11"
+"newColumnName:city" -> "core/column-rename11"
+"What_city_do_you_work_in?" -> "core/column-rename11"
+"core/column-rename12" -> total_experience
+"oldColumnName:How_many_years_of_professional_work_experience_do_you_have_overall?" -> "core/column-rename12"
+"newColumnName:total_experience" -> "core/column-rename12"
+"How_many_years_of_professional_work_experience_do_you_have_overall?" -> "core/column-rename12"
+"core/column-rename13" -> current_experience
+"oldColumnName:How_many_years_of_professional_work_experience_do_you_have_in_your_field?" -> "core/column-rename13"
+"newColumnName:current_experience" -> "core/column-rename13"
+"How_many_years_of_professional_work_experience_do_you_have_in_your_field?" -> "core/column-rename13"
+"core/column-rename14" -> education
+"oldColumnName:What_is_your_highest_level_of_education_completed?" -> "core/column-rename14"
+"newColumnName:education" -> "core/column-rename14"
+"What_is_your_highest_level_of_education_completed?" -> "core/column-rename14"
+"core/column-rename15" -> gender
+"oldColumnName:What_is_your_gender?" -> "core/column-rename15"
+"newColumnName:gender" -> "core/column-rename15"
+"What_is_your_gender?" -> "core/column-rename15"
+"core/column-rename16" -> race
+"oldColumnName:What_is_your_race?_(Choose_all_that_apply.)" -> "core/column-rename16"
+"newColumnName:race" -> "core/column-rename16"
+"What_is_your_race?_(Choose_all_that_apply.)" -> "core/column-rename16"
+"core/mass-edit17" -> country_1
+"expression:value" -> "core/mass-edit17"
+country -> "core/mass-edit17"
+"core/text-transform18" -> annual_salary_1
+"expression:grel:replace(value,_\",\",_\"\").toNumber()" -> "core/text-transform18"
+annual_salary -> "core/text-transform18"
+"core/text-transform19" -> additional_salary_1
+"expression:grel:replace(value,_\",\",_\"\").toNumber()" -> "core/text-transform19"
+additional_salary -> "core/text-transform19"
+"core/column-rename20" -> timestamp
+"oldColumnName:Timestamp" -> "core/column-rename20"
+"newColumnName:timestamp" -> "core/column-rename20"
+Timestamp -> "core/column-rename20"
+"core/mass-edit21" -> country_2
+"expression:value" -> "core/mass-edit21"
+country_1 -> "core/mass-edit21"
+"core/mass-edit22" -> country_3
+"expression:value" -> "core/mass-edit22"
+country_2 -> "core/mass-edit22"
+"core/mass-edit23" -> country_4
+"expression:value" -> "core/mass-edit23"
+country_3 -> "core/mass-edit23"
+"core/mass-edit24" -> country_5
+"expression:value" -> "core/mass-edit24"
+country_4 -> "core/mass-edit24"
+"core/mass-edit25" -> country_6
+"expression:value" -> "core/mass-edit25"
+country_5 -> "core/mass-edit25"
+"core/text-transform26" -> city_1
+"expression:grel:\"Remote\"" -> "core/text-transform26"
+city -> "core/text-transform26"
+"core/mass-edit27" -> gender_1
+"expression:value" -> "core/mass-edit27"
+gender -> "core/mass-edit27"
+"core/mass-edit28" -> gender_2
+"expression:value" -> "core/mass-edit28"
+gender_1 -> "core/mass-edit28"
+"core/text-transform29" -> timestamp_1
+"expression:grel:value.toDate()" -> "core/text-transform29"
+timestamp -> "core/text-transform29"
+"core/mass-edit30" -> industry_1
+"expression:value" -> "core/mass-edit30"
+industry -> "core/mass-edit30"
+"core/mass-edit31" -> industry_2
+"expression:value" -> "core/mass-edit31"
+industry_1 -> "core/mass-edit31"
+"core/mass-edit32" -> industry_3
+"expression:value" -> "core/mass-edit32"
+industry_2 -> "core/mass-edit32"
+"core/mass-edit33" -> industry_4
+"expression:value" -> "core/mass-edit33"
+industry_3 -> "core/mass-edit33"
+"core/mass-edit34" -> industry_5
+"expression:value" -> "core/mass-edit34"
+industry_4 -> "core/mass-edit34"
+"core/mass-edit35" -> industry_6
+"expression:value" -> "core/mass-edit35"
+industry_5 -> "core/mass-edit35"
+"core/mass-edit36" -> industry_7
+"expression:value" -> "core/mass-edit36"
+industry_6 -> "core/mass-edit36"
+"core/mass-edit37" -> industry_8
+"expression:value" -> "core/mass-edit37"
+industry_7 -> "core/mass-edit37"
+"core/mass-edit38" -> industry_9
+"expression:value" -> "core/mass-edit38"
+industry_8 -> "core/mass-edit38"
+"core/mass-edit39" -> job_title_1
+"expression:value" -> "core/mass-edit39"
+job_title -> "core/mass-edit39"
+"core/mass-edit40" -> job_title_2
+"expression:value" -> "core/mass-edit40"
+job_title_1 -> "core/mass-edit40"
+"core/mass-edit41" -> job_title_3
+"expression:value" -> "core/mass-edit41"
+job_title_2 -> "core/mass-edit41"
+"core/mass-edit42" -> job_title_4
+"expression:value" -> "core/mass-edit42"
+job_title_3 -> "core/mass-edit42"
+"core/mass-edit43" -> job_title_5
+"expression:value" -> "core/mass-edit43"
+job_title_4 -> "core/mass-edit43"
+"core/mass-edit44" -> job_title_6
+"expression:value" -> "core/mass-edit44"
+job_title_5 -> "core/mass-edit44"
+"core/mass-edit45" -> job_title_7
+"expression:value" -> "core/mass-edit45"
+job_title_6 -> "core/mass-edit45"
+"core/mass-edit46" -> job_title_8
+"expression:value" -> "core/mass-edit46"
+job_title_7 -> "core/mass-edit46"
+"core/mass-edit47" -> job_title_9
+"expression:value" -> "core/mass-edit47"
+job_title_8 -> "core/mass-edit47"
+CombineDataCleaningChanges -> CleanData
+"What_industry_do_you_work_in?" -> CombineDataCleaningChanges
+industry_9 -> CombineDataCleaningChanges
+Job_title -> CombineDataCleaningChanges
+job_title_9 -> CombineDataCleaningChanges
+"How_old_are_you?" -> CombineDataCleaningChanges
+age -> CombineDataCleaningChanges
+"If_your_job_title_needs_additional_context,_please_clarify_here:" -> CombineDataCleaningChanges
+job_context -> CombineDataCleaningChanges
+"What_is_your_annual_salary?_(You'll_indicate_the_currency_in_a_later_question._If_you_are_part-time_or_hourly,_please_enter_an_annualized_equivalent_--_what_you_would_earn_if_you_worked_the_job_40_hours_a_week,_52_weeks_a_year.)" -> CombineDataCleaningChanges
+annual_salary_1 -> CombineDataCleaningChanges
+"How_much_additional_monetary_compensation_do_you_get,_if_any_(for_example,_bonuses_or_overtime_in_an_average_year)?_Please_only_include_monetary_compensation_here,_not_the_value_of_benefits." -> CombineDataCleaningChanges
+additional_salary_1 -> CombineDataCleaningChanges
+Please_indicate_the_currency -> CombineDataCleaningChanges
+currency -> CombineDataCleaningChanges
+"If_\"Other,\"_please_indicate_the_currency_here:" -> CombineDataCleaningChanges
+currency_context -> CombineDataCleaningChanges
+"If_your_income_needs_additional_context,_please_provide_it_here:" -> CombineDataCleaningChanges
+salary_context -> CombineDataCleaningChanges
+"What_country_do_you_work_in?" -> CombineDataCleaningChanges
+country_6 -> CombineDataCleaningChanges
+"If_you're_in_the_U.S.,_what_state_do_you_work_in?" -> CombineDataCleaningChanges
+state -> CombineDataCleaningChanges
+"What_city_do_you_work_in?" -> CombineDataCleaningChanges
+city_1 -> CombineDataCleaningChanges
+"How_many_years_of_professional_work_experience_do_you_have_overall?" -> CombineDataCleaningChanges
+total_experience -> CombineDataCleaningChanges
+"How_many_years_of_professional_work_experience_do_you_have_in_your_field?" -> CombineDataCleaningChanges
+current_experience -> CombineDataCleaningChanges
+"What_is_your_highest_level_of_education_completed?" -> CombineDataCleaningChanges
+education -> CombineDataCleaningChanges
+"What_is_your_gender?" -> CombineDataCleaningChanges
+gender_2 -> CombineDataCleaningChanges
+"What_is_your_race?_(Choose_all_that_apply.)" -> CombineDataCleaningChanges
+race -> CombineDataCleaningChanges
+Timestamp -> CombineDataCleaningChanges
+timestamp_1 -> CombineDataCleaningChanges
+
+/* End of double cluster for drawing box around nodes in workflow */
+}}
+
+/* End of top-level graph */
+}
