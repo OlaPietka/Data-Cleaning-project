@@ -43,6 +43,15 @@ FILE = 'Data/salary_responses_clean.csv'
 
 """
 @begin clean_data_with_python
+@in FILE @URI file:'Data/salary_responses_clean.csv'
+@out FILE @URI file:'Data/data_full.csv'
+@out currency_table
+@out place_table
+@out position_table
+@out person_table
+@out gender_lookup_table
+@out race_lookup_table
+@out employee_table
 """
 
 """
@@ -750,7 +759,12 @@ data['job_title_clean'].replace(clusters_job_title, inplace=True)
 len(data['job_title_clean'].unique())
 
 # In[337]:
-
+"""
+@begin merge_job_title @desc Merge 'job_title_clean' with 'job_title' on mismatching values
+@in data_replaced_job_title_clean_third
+@out data_plus_merged_job_title
+@end merge_job_title
+"""
 data[['job_title_clean', 'job_title']][data['job_title_clean'].str.upper() != data['job_title'].str.upper()].head(15)
 
 # ## Industry
@@ -758,14 +772,14 @@ data[['job_title_clean', 'job_title']][data['job_title_clean'].str.upper() != da
 # In[362]:
 """
 @begin clean_words_industry @desc Cleans industry string using regex, mappings and replacements
-@in data_replaced_job_title_clean_third
+@in data_plus_merged_job_title
 @param word @AS word_values
 @out cleaned_words_industry
 @end clean_words_industry
 """
 """
 @begin create_clusters_industry @desc Creates industry_cluster based on the 'industry' column unique values
-@in data_replaced_job_title_clean_third
+@in data_plus_merged_job_title
 @in cleaned_words_industry
 @param possibilities @AS industry_possibilities
 @param cutoff @AS industry_cutoff
@@ -913,7 +927,7 @@ len(data['industry_clean'].unique())
 """
 @begin merge_industry_clean @desc Merge 'industry_clean' and 'industry' using clean values
 @in data_industry_clean_fifth
-@out merged_industry_clean
+@out data_plus_merged_industry_clean
 @end merge_industry_clean
 """
 data[['industry_clean', 'industry']][data['industry_clean'].str.upper() != data['industry'].str.upper()].head(15)
@@ -926,8 +940,8 @@ data[['industry_clean', 'industry']][data['industry_clean'].str.upper() != data[
 # In[44]:
 """
 @begin merge_currency @desc Merge 'currency' and 'currency_context'
-@in data_industry_clean_fifth
-@out data_merge_currency
+@in data_plus_merged_industry_clean
+@out data_merged_currency
 @end merge_currency
 """
 data[['currency', 'currency_context']]
@@ -945,14 +959,19 @@ data['currency_context'].value_counts()
 # In[47]:
 """
 @begin clean_currency_other @desc Replace 'Other' values from 'currency' with 'currency_context' value
-@in data_merge_currency
+@in data_merged_currency
 @out data_clean_currency_other
 @end clean_currency_other
 """
 data['currency'] = np.where(data["currency"] == "Other", data['currency_context'], data["currency"])
 
 # In[48]:
-
+"""
+@begin drop_currency_context_labels @desc Drops 'currency_context' column label values
+@in data_clean_currency_other
+@out data_dropped_currency_context
+@end drop_currency_context_labels
+"""
 data.drop(labels=['currency_context'], axis=1, inplace=True)
 
 # ## Handle AUD/NZD values
@@ -974,7 +993,12 @@ def split_currencies(row):
     return np.nan
 
 # In[50]:
-
+"""
+@begin handle_aud_nzd_currency @desc Splits 'currency' values depending on the country, AUD: Australia, NZD: New Zeland
+@in data_dropped_currency_context
+@out data_currency_handle_aud_nzd
+@end handle_aud_nzd_currency
+"""
 data['currency'] = data.apply(lambda row: split_currencies(row), axis=1)
 
 # ## Clean manually
@@ -988,10 +1012,24 @@ data['currency'][data['currency'].str.len() > 3].value_counts()
 messy_currencies = data['currency'][data['currency'].str.len() > 3].to_list() + ['BR$', 'ARP']
 right_currencies = ['ARP', 'INR', 'BRL', 'MXN', 'USD', 'PLN', 'CZK', 'NOK', 'ILS', 'USD', 'NIS', 'RMB', 'TWD', 'PHP', 'KRW', 'IDR', 'ILS', 'DKK', 'RMB', 'AUD', 'PLN', 'PHP', 'AUD', np.nan, 'ARS', 'ILS', 'PHP', 'ARP', 'PHP', 'INR', 'DKK', 'KRW', 'EUR', 'SGD', 'MXN', 'THB', 'THB', 'HRK', 'PLN', 'INR', 'SGD', 'BRL', 'ARS']
 
+"""
+@begin replace_messy_currencies @desc Replaces messy currencies with the corresponding right_currency value
+@in data_currency_handle_aud_nzd
+@param messy_currencies
+@param right_currencies
+@out data_clean_currency
+@end replace_messy_currencies
+"""
 data['currency'] = data['currency'].replace(messy_currencies, right_currencies)
 
 # In[71]:
 
+"""
+@begin currency_to_upper_case @desc Convert currency values to uppercase
+@in data_clean_currency
+@out data_uppercase_currency
+@end currency_to_upper_case
+"""
 data['currency'] = data['currency'].str.upper()
 
 # ## USD rate
@@ -1020,7 +1058,12 @@ def to_USD_rate(row):
         return np.nan
 
 # In[428]:
-
+"""
+@begin convert_to_USD_rate @desc To have a consistent analysis for salary, we transform all salary values to USD currency
+@in data_uppercase_currency
+@out data_plus_usd_rate
+@end convert_to_USD_rate
+"""
 data['USD_rate'] = data.apply(lambda row: to_USD_rate(row), axis=1)
 
 # In[429]:
@@ -1030,7 +1073,13 @@ data[['currency', 'USD_rate']]
 # ## Clean manually
 
 # In[433]:
-
+"""
+@begin clean_messy_rates @desc Clean using a dictionary of corrected USD rates
+@in data_plus_usd_rate
+@param USD_rates_correct
+@out data_clean_currency_usd_rate
+@end clean_messy_rates
+"""
 messy_rates = data['currency'][~data['USD_rate'].notna()].unique()
 
 USD_rates_correct = {
@@ -1057,7 +1106,6 @@ USD_rates_correct = {
 for currency, rate in USD_rates_correct.items():
     data.loc[data.currency == currency, 'USD_rate'] = rate
 
-
 # # Numeric data
 # Lets handle numeric data now.
 #
@@ -1075,7 +1123,12 @@ data['annual_salary'].describe()
 
 # In[62]:
 
-
+"""
+@begin salary_to_USD @desc Convert salary to USD based salary based on each country currency rate
+@in data_clean_currency_usd_rate
+@out data_plus_annual_salary_usd
+@end salary_to_USD
+"""
 def salary_to_USD(USD_rate, salary):
 
     if USD_rate == np.nan:
@@ -1086,36 +1139,41 @@ def salary_to_USD(USD_rate, salary):
 
 # In[63]:
 
-
 data['annual_salary_USD'] = data.apply(lambda row: salary_to_USD(row['USD_rate'], row['annual_salary']), axis=1)
 
-
 # ## Additional salary
-
 # In[64]:
-
-
+"""
+@begin create_additional_salary_usd @desc Creates a new column 'addtional_salary_usd' and coverting it bases on the USD rate
+@in data_plus_annual_salary_usd
+@out data_plus_additional_salary_usd
+@end create_additional_salary_usd
+"""
 data['additional_salary_USD'] = data.apply(lambda row: salary_to_USD(row['USD_rate'], row['additional_salary']), axis=1)
-
 
 # ## Total salary
 
 # In[542]:
-
-
+"""
+@begin create_total_salary @desc Creates a 'total_salary' column based on on the sum of annual_salary and additional_salary
+@in data_plus_additional_salary_usd
+@out data_plus_total_salary
+@end create_total_salary
+"""
 data['total_salary'] = data[['additional_salary', 'annual_salary']].sum(axis=1)
 
-
 # In[65]:
-
-
+"""
+@begin create_total_salary_usd @desc Creates a 'total_salary' column based on the sum of 'additional_salary_USD' and 'annual_salary_USD'
+@in data_plus_total_salary
+@out data_plus_total_salary_usd
+@end create_total_salary_usd
+"""
 data['total_salary_USD'] = data[['additional_salary_USD', 'annual_salary_USD']].sum(axis=1)
-
 
 # ## Clean outliers
 
 # In[97]:
-
 
 fig = plt.figure(figsize=(10,5))
 sns.boxplot(data.total_salary_USD)
@@ -1123,9 +1181,7 @@ plt.title('Box Plot', fontsize=15)
 plt.xlabel('Total salary in USD', fontsize=14)
 plt.show()
 
-
 # In[102]:
-
 
 # calculate upper and lower limits
 upper_limit = data.total_salary_USD.mean() + 3 * data.total_salary_USD.std()
@@ -1134,16 +1190,19 @@ lower_limit = data.total_salary_USD.mean() -3 * data.total_salary_USD.std()
 # show outliers
 data[~((data.total_salary_USD < upper_limit) & (data.total_salary_USD > lower_limit))]
 
-
 # In[105]:
-
-
+"""
+@begin clean_salary_usd_outliers @desc Remove the total_salary_USD outliers
+@in data_plus_total_salary_usd
+@param upper_limit
+@param lower_limit
+@out data_minus_salary_usd_outliers
+@end clean_salary_usd_outliers
+"""
 # remove outliers
 data = data.drop(data[~((data.total_salary_USD < upper_limit) & (data.total_salary_USD > lower_limit))].index)
 
-
 # In[106]:
-
 
 fig = plt.figure(figsize=(10,5))
 sns.boxplot(data.total_salary_USD)
@@ -1151,183 +1210,178 @@ plt.title('Box Plot', fontsize=15)
 plt.xlabel('Total salary in USD', fontsize=14)
 plt.show()
 
-
 # # Indexing
 # We are forced to treat each record separately.
 
 # In[586]:
 
-
 data['index'] = data.index
-
 
 # # Export data
 
 # In[792]:
 
-
 data.info()
 
-
 # In[793]:
-
-
+"""
+@begin export_data_to_csv
+@in data_minus_salary_usd_outliers
+@out FILE:data_full
+@end export_data_to_csv
+"""
 data.to_csv("Data/data_full.csv", index=False)
-
 
 # ## Currency table
 # ![image.png](attachment:image.png)
 
+"""
+@begin create_currency_table
+@in data_minus_salary_usd_outliers
+@out currency_table
+@end create_currency_table
+"""
 # In[681]:
-
 
 currency_table = data[['currency', 'USD_rate']].copy()
 
-
 # In[682]:
-
 
 currency_table = currency_table.drop_duplicates()
 
-
 # In[683]:
-
 
 currency_table['currency_ID'] = range(1, len(currency_table) + 1)
 
-
 # In[684]:
 
-
 currency_table.head()
-
 
 # ## Place table
 # ![image.png](attachment:image.png)
 
+"""
+@begin create_place_table
+@in data_minus_salary_usd_outliers
+@out place_table
+@end create_place_table
+"""
 # In[685]:
-
 
 place_table = data[['continent', 'country', 'state', 'city', 'lat', 'long']].copy()
 
-
 # In[686]:
-
 
 place_table = place_table.drop_duplicates()
 
-
 # In[687]:
-
 
 place_table['place_ID'] = range(1, len(place_table) + 1)
 
-
 # In[688]:
 
-
 place_table.head()
-
 
 # ## Position table
 # ![image.png](attachment:image.png)
 
+"""
+@begin create_position_table
+@in data_minus_salary_usd_outliers
+@out position_table
+@end create_position_table
+"""
 # In[689]:
-
 
 position_table = data[['job_title_clean', 'industry_clean']].copy()
 
-
 # In[690]:
-
 
 position_table = position_table.rename(columns={"job_title_clean": "job_title", "industry_clean": "industry"})
 
-
 # In[691]:
-
 
 position_table = position_table.drop_duplicates()
 
-
 # In[692]:
-
 
 position_table['position_ID'] = range(1, len(position_table) + 1)
 
-
 # In[693]:
 
-
 position_table.head()
-
 
 # ## Person table
 # ![image.png](attachment:image.png)
 
+"""
+@begin create_person_table
+@in data_minus_salary_usd_outliers
+@out person_table
+@end create_person_table
+"""
 # In[694]:
-
 
 person_table = data[['gender_idx', 'race_idx', 'education_lvl', 'age', 'age_min', 'age_max', 'total_experience', 'total_experience_min', 'total_experience_max', 'current_experience', 'current_experience_min', 'current_experience_max']].copy()
 
-
 # In[695]:
-
 
 person_table = person_table.drop_duplicates()
 
-
 # In[696]:
-
 
 person_table['person_ID'] = range(1, len(person_table) + 1)
 
-
 # In[697]:
-
 
 person_table.head()
 
-
 # ### Gender lookup table
 
+"""
+@begin create_gender_lookup_table
+@in data_minus_salary_usd_outliers
+@out gender_lookup_table
+@end create_gender_lookup_table
+"""
 # In[698]:
-
 
 gender_lookup_table = pd.DataFrame({"Name": ['Woman', 'Man', 'Non-binary', 'Other'], "Index": [1, 2, 3, 4]})
 
-
 # In[699]:
-
 
 gender_lookup_table.head()
 
-
 # ### Race lookup table
 
+"""
+@begin create_race_lookup_table
+@in data_minus_salary_usd_outliers
+@out race_lookup_table
+@end create_race_lookup_table
+"""
 # In[700]:
-
 
 race_lookup_table = pd.DataFrame({"Name": list(race_map.keys()), "Index": list(race_map.values())})
 
-
 # In[701]:
 
-
 race_lookup_table
-
 
 # ## Employee table
 # ![image.png](attachment:image.png)
 
+"""
+@begin create_employee_table
+@in data_minus_salary_usd_outliers
+@out employee_table
+@end create_employee_table
+"""
 # In[765]:
-
 
 employee_table = pd.DataFrame()
 
-
 # In[789]:
-
 
 def to_index(row, table, columns, id_column):
     mask = pd.DataFrame(table[columns] == row[columns])
@@ -1335,61 +1389,40 @@ def to_index(row, table, columns, id_column):
     print(table[results])
     return table[results][id_column]
 
-
 # In[790]:
 
-
 person_table_columns = ['gender_idx', 'race_idx', 'education_lvl', 'age', 'age_min', 'age_max', 'total_experience', 'total_experience_min', 'total_experience_max', 'current_experience', 'current_experience_min', 'current_experience_max']
-
 employee_table['person_ID'] = data.head(20).apply(lambda row: to_index(row, person_table, person_table_columns, 'person_ID'), axis=1)
-
 
 # In[791]:
 
-
 employee_table
-
 
 # In[779]:
 
-
 position_table_columns = ['job_title', 'industry']
-
 employee_table['position_ID'] = data.apply(lambda row: to_index(row, position_table, position_table_columns, 'position_ID'), axis=1)
 
-
 # In[ ]:
-
 
 place_table_columns = ['continent', 'country', 'state', 'city', 'lat', 'long']
-
 employee_table['place_ID'] = data.apply(lambda row: to_index(row, place_table, place_table_columns, 'place_ID'), axis=1)
 
-
 # In[ ]:
-
 
 currency_table_columns = ['currency', 'USD_rate']
-
 employee_table['currency_ID'] = data.apply(lambda row: to_index(row, currency_table, currency_table_columns, 'currency_ID'), axis=1)
 
-
 # In[ ]:
-
 
 salary_columns = ['annual_salary', 'annual_salary_USD', 'additional_salary', 'additional_salary_USD', 'total_salary', 'total_salary_USD']
-
 employee_table[salary_columns] = data[salary_columns].copy()
 
-
 # In[ ]:
-
 
 employee_table
 
-
 # In[555]:
-
 
 data[person_table_columns]
 """

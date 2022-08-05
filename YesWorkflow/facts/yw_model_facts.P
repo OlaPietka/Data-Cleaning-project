@@ -1,51 +1,71 @@
 
 % FACT: program(program_id, program_name, qualified_program_name, begin_annotation_id, end_annotation_id).
-program(1, 'clean_data_with_python', 'clean_data_with_python', 1, 313).
-program(2, 'convert_to_df', 'clean_data_with_python.convert_to_df', 2, 8).
-program(3, 'age_range_to_min', 'clean_data_with_python.age_range_to_min', 9, 14).
-program(4, 'age_range_to_max', 'clean_data_with_python.age_range_to_max', 15, 19).
-program(5, 'experience_range_to_min', 'clean_data_with_python.experience_range_to_min', 20, 26).
-program(6, 'experience_range_to_max', 'clean_data_with_python.experience_range_to_max', 27, 33).
-program(7, 'experience_current_to_min', 'clean_data_with_python.experience_current_to_min', 34, 40).
-program(8, 'experience_current_to_max', 'clean_data_with_python.experience_current_to_max', 41, 47).
-program(9, 'clean_education_naming', 'clean_data_with_python.clean_education_naming', 48, 52).
-program(10, 'create_education_level', 'clean_data_with_python.create_education_level', 53, 57).
-program(11, 'cluster_other_gender', 'clean_data_with_python.cluster_other_gender', 58, 62).
-program(12, 'create_gender_idx', 'clean_data_with_python.create_gender_idx', 63, 67).
-program(13, 'map_race_to_index', 'clean_data_with_python.map_race_to_index', 68, 74).
-program(14, 'get_city_from_text', 'clean_data_with_python.get_city_from_text', 75, 81).
-program(15, 'get_country_from_text', 'clean_data_with_python.get_country_from_text', 82, 88).
-program(16, 'get_state_from_text', 'clean_data_with_python.get_state_from_text', 89, 95).
-program(17, 'get_continent_from_country', 'clean_data_with_python.get_continent_from_country', 96, 102).
-program(18, 'get_lat_long_from_full_address', 'clean_data_with_python.get_lat_long_from_full_address', 103, 109).
-program(19, 'drop_salary_context_and_job_context', 'clean_data_with_python.drop_salary_context_and_job_context', 110, 114).
-program(20, 'clean_words_clusters_job_title', 'clean_data_with_python.clean_words_clusters_job_title', 115, 121).
-program(21, 'create_clusters_job_title', 'clean_data_with_python.create_clusters_job_title', 122, 131).
-program(22, 'replace_job_title', 'clean_data_with_python.replace_job_title', 132, 137).
-program(23, 'clean_words_clusters_job_title_second', 'clean_data_with_python.clean_words_clusters_job_title_second', 138, 144).
-program(24, 'create_clusters_job_title_second', 'clean_data_with_python.create_clusters_job_title_second', 145, 154).
-program(25, 'replace_job_title_clean', 'clean_data_with_python.replace_job_title_clean', 155, 160).
-program(26, 'clean_words_clusters_job_title_third', 'clean_data_with_python.clean_words_clusters_job_title_third', 161, 167).
-program(27, 'create_job_title_clean_third', 'clean_data_with_python.create_job_title_clean_third', 168, 177).
-program(28, 'replace_job_title_clean_third', 'clean_data_with_python.replace_job_title_clean_third', 178, 183).
-program(29, 'clean_words_industry', 'clean_data_with_python.clean_words_industry', 184, 190).
-program(30, 'create_clusters_industry', 'clean_data_with_python.create_clusters_industry', 191, 200).
-program(31, 'replace_industry_clean', 'clean_data_with_python.replace_industry_clean', 201, 206).
-program(32, 'clean_words_industry_second', 'clean_data_with_python.clean_words_industry_second', 207, 213).
-program(33, 'create_clusters_industry_second', 'clean_data_with_python.create_clusters_industry_second', 214, 223).
-program(34, 'replace_industry_clean_second', 'clean_data_with_python.replace_industry_clean_second', 224, 229).
-program(35, 'clean_words_industry_third', 'clean_data_with_python.clean_words_industry_third', 230, 236).
-program(36, 'create_clusters_industry_third', 'clean_data_with_python.create_clusters_industry_third', 237, 246).
-program(37, 'replace_industry_clean_third', 'clean_data_with_python.replace_industry_clean_third', 247, 252).
-program(38, 'clean_words_industry_fourth', 'clean_data_with_python.clean_words_industry_fourth', 253, 259).
-program(39, 'create_clusters_industry_fourth', 'clean_data_with_python.create_clusters_industry_fourth', 260, 268).
-program(40, 'replace_industry_clean_fourth', 'clean_data_with_python.replace_industry_clean_fourth', 269, 274).
-program(41, 'clean_words_industry_fourth', 'clean_data_with_python.clean_words_industry_fourth', 275, 281).
-program(42, 'create_clusters_industry_fifth', 'clean_data_with_python.create_clusters_industry_fifth', 282, 291).
-program(43, 'replace_industry_clean_fifth', 'clean_data_with_python.replace_industry_clean_fifth', 292, 297).
-program(44, 'merge_industry_clean', 'clean_data_with_python.merge_industry_clean', 298, 302).
-program(45, 'merge_currency', 'clean_data_with_python.merge_currency', 303, 307).
-program(46, 'clean_currency_other', 'clean_data_with_python.clean_currency_other', 308, 312).
+program(1, 'clean_data_with_python', 'clean_data_with_python', 1, 421).
+program(2, 'convert_to_df', 'clean_data_with_python.convert_to_df', 13, 19).
+program(3, 'age_range_to_min', 'clean_data_with_python.age_range_to_min', 20, 25).
+program(4, 'age_range_to_max', 'clean_data_with_python.age_range_to_max', 26, 30).
+program(5, 'experience_range_to_min', 'clean_data_with_python.experience_range_to_min', 31, 37).
+program(6, 'experience_range_to_max', 'clean_data_with_python.experience_range_to_max', 38, 44).
+program(7, 'experience_current_to_min', 'clean_data_with_python.experience_current_to_min', 45, 51).
+program(8, 'experience_current_to_max', 'clean_data_with_python.experience_current_to_max', 52, 58).
+program(9, 'clean_education_naming', 'clean_data_with_python.clean_education_naming', 59, 63).
+program(10, 'create_education_level', 'clean_data_with_python.create_education_level', 64, 68).
+program(11, 'cluster_other_gender', 'clean_data_with_python.cluster_other_gender', 69, 73).
+program(12, 'create_gender_idx', 'clean_data_with_python.create_gender_idx', 74, 78).
+program(13, 'map_race_to_index', 'clean_data_with_python.map_race_to_index', 79, 85).
+program(14, 'get_city_from_text', 'clean_data_with_python.get_city_from_text', 86, 92).
+program(15, 'get_country_from_text', 'clean_data_with_python.get_country_from_text', 93, 99).
+program(16, 'get_state_from_text', 'clean_data_with_python.get_state_from_text', 100, 106).
+program(17, 'get_continent_from_country', 'clean_data_with_python.get_continent_from_country', 107, 113).
+program(18, 'get_lat_long_from_full_address', 'clean_data_with_python.get_lat_long_from_full_address', 114, 120).
+program(19, 'drop_salary_context_and_job_context', 'clean_data_with_python.drop_salary_context_and_job_context', 121, 125).
+program(20, 'clean_words_clusters_job_title', 'clean_data_with_python.clean_words_clusters_job_title', 126, 132).
+program(21, 'create_clusters_job_title', 'clean_data_with_python.create_clusters_job_title', 133, 142).
+program(22, 'replace_job_title', 'clean_data_with_python.replace_job_title', 143, 148).
+program(23, 'clean_words_clusters_job_title_second', 'clean_data_with_python.clean_words_clusters_job_title_second', 149, 155).
+program(24, 'create_clusters_job_title_second', 'clean_data_with_python.create_clusters_job_title_second', 156, 165).
+program(25, 'replace_job_title_clean', 'clean_data_with_python.replace_job_title_clean', 166, 171).
+program(26, 'clean_words_clusters_job_title_third', 'clean_data_with_python.clean_words_clusters_job_title_third', 172, 178).
+program(27, 'create_job_title_clean_third', 'clean_data_with_python.create_job_title_clean_third', 179, 188).
+program(28, 'replace_job_title_clean_third', 'clean_data_with_python.replace_job_title_clean_third', 189, 194).
+program(29, 'merge_job_title', 'clean_data_with_python.merge_job_title', 195, 199).
+program(30, 'clean_words_industry', 'clean_data_with_python.clean_words_industry', 200, 206).
+program(31, 'create_clusters_industry', 'clean_data_with_python.create_clusters_industry', 207, 216).
+program(32, 'replace_industry_clean', 'clean_data_with_python.replace_industry_clean', 217, 222).
+program(33, 'clean_words_industry_second', 'clean_data_with_python.clean_words_industry_second', 223, 229).
+program(34, 'create_clusters_industry_second', 'clean_data_with_python.create_clusters_industry_second', 230, 239).
+program(35, 'replace_industry_clean_second', 'clean_data_with_python.replace_industry_clean_second', 240, 245).
+program(36, 'clean_words_industry_third', 'clean_data_with_python.clean_words_industry_third', 246, 252).
+program(37, 'create_clusters_industry_third', 'clean_data_with_python.create_clusters_industry_third', 253, 262).
+program(38, 'replace_industry_clean_third', 'clean_data_with_python.replace_industry_clean_third', 263, 268).
+program(39, 'clean_words_industry_fourth', 'clean_data_with_python.clean_words_industry_fourth', 269, 275).
+program(40, 'create_clusters_industry_fourth', 'clean_data_with_python.create_clusters_industry_fourth', 276, 284).
+program(41, 'replace_industry_clean_fourth', 'clean_data_with_python.replace_industry_clean_fourth', 285, 290).
+program(42, 'clean_words_industry_fourth', 'clean_data_with_python.clean_words_industry_fourth', 291, 297).
+program(43, 'create_clusters_industry_fifth', 'clean_data_with_python.create_clusters_industry_fifth', 298, 307).
+program(44, 'replace_industry_clean_fifth', 'clean_data_with_python.replace_industry_clean_fifth', 308, 313).
+program(45, 'merge_industry_clean', 'clean_data_with_python.merge_industry_clean', 314, 318).
+program(46, 'merge_currency', 'clean_data_with_python.merge_currency', 319, 323).
+program(47, 'clean_currency_other', 'clean_data_with_python.clean_currency_other', 324, 328).
+program(48, 'drop_currency_context_labels', 'clean_data_with_python.drop_currency_context_labels', 329, 333).
+program(49, 'handle_aud_nzd_currency', 'clean_data_with_python.handle_aud_nzd_currency', 334, 338).
+program(50, 'replace_messy_currencies', 'clean_data_with_python.replace_messy_currencies', 339, 345).
+program(51, 'currency_to_upper_case', 'clean_data_with_python.currency_to_upper_case', 346, 350).
+program(52, 'convert_to_USD_rate', 'clean_data_with_python.convert_to_USD_rate', 351, 355).
+program(53, 'clean_messy_rates', 'clean_data_with_python.clean_messy_rates', 356, 361).
+program(54, 'salary_to_USD', 'clean_data_with_python.salary_to_USD', 362, 366).
+program(55, 'create_additional_salary_usd', 'clean_data_with_python.create_additional_salary_usd', 367, 371).
+program(56, 'create_total_salary', 'clean_data_with_python.create_total_salary', 372, 376).
+program(57, 'create_total_salary_usd', 'clean_data_with_python.create_total_salary_usd', 377, 381).
+program(58, 'clean_salary_usd_outliers', 'clean_data_with_python.clean_salary_usd_outliers', 382, 388).
+program(59, 'export_data_to_csv', 'clean_data_with_python.export_data_to_csv', 389, 392).
+program(60, 'create_currency_table', 'clean_data_with_python.create_currency_table', 393, 396).
+program(61, 'create_place_table', 'clean_data_with_python.create_place_table', 397, 400).
+program(62, 'create_position_table', 'clean_data_with_python.create_position_table', 401, 404).
+program(63, 'create_person_table', 'clean_data_with_python.create_person_table', 405, 408).
+program(64, 'create_gender_lookup_table', 'clean_data_with_python.create_gender_lookup_table', 409, 412).
+program(65, 'create_race_lookup_table', 'clean_data_with_python.create_race_lookup_table', 413, 416).
+program(66, 'create_employee_table', 'clean_data_with_python.create_employee_table', 417, 420).
 
 % FACT: workflow(program_id).
 workflow(1).
@@ -98,172 +118,243 @@ has_subprogram(1, 43).
 has_subprogram(1, 44).
 has_subprogram(1, 45).
 has_subprogram(1, 46).
+has_subprogram(1, 47).
+has_subprogram(1, 48).
+has_subprogram(1, 49).
+has_subprogram(1, 50).
+has_subprogram(1, 51).
+has_subprogram(1, 52).
+has_subprogram(1, 53).
+has_subprogram(1, 54).
+has_subprogram(1, 55).
+has_subprogram(1, 56).
+has_subprogram(1, 57).
+has_subprogram(1, 58).
+has_subprogram(1, 59).
+has_subprogram(1, 60).
+has_subprogram(1, 61).
+has_subprogram(1, 62).
+has_subprogram(1, 63).
+has_subprogram(1, 64).
+has_subprogram(1, 65).
+has_subprogram(1, 66).
 
 % FACT: port(port_id, port_type, port_name, qualified_port_name, port_annotation_id, data_id).
-port(1, 'in', 'FILE', 'clean_data_with_python.convert_to_df<-FILE', 4, 1).
-port(2, 'out', 'data', 'clean_data_with_python.convert_to_df->data', 6, 2).
-port(3, 'in', 'data', 'clean_data_with_python.age_range_to_min<-data', 11, 2).
-port(4, 'out', 'data_plus_age_min', 'clean_data_with_python.age_range_to_min->data_plus_age_min', 12, 3).
-port(5, 'in', 'data_plus_age_min', 'clean_data_with_python.age_range_to_max<-data_plus_age_min', 17, 3).
-port(6, 'out', 'data_plus_age_max', 'clean_data_with_python.age_range_to_max->data_plus_age_max', 18, 4).
-port(7, 'in', 'data_plus_age_max', 'clean_data_with_python.experience_range_to_min<-data_plus_age_max', 22, 4).
-port(8, 'param', 'experience', 'clean_data_with_python.experience_range_to_min<-experience', 23, 5).
-port(9, 'param', 'attribute', 'clean_data_with_python.experience_range_to_min<-attribute', 24, 6).
-port(10, 'out', 'data_plus_total_experience_min', 'clean_data_with_python.experience_range_to_min->data_plus_total_experience_min', 25, 7).
-port(11, 'in', 'data_plus_total_experience_min', 'clean_data_with_python.experience_range_to_max<-data_plus_total_experience_min', 29, 7).
-port(12, 'param', 'experience', 'clean_data_with_python.experience_range_to_max<-experience', 30, 5).
-port(13, 'param', 'attribute', 'clean_data_with_python.experience_range_to_max<-attribute', 31, 6).
-port(14, 'out', 'data_plus_total_experience_max', 'clean_data_with_python.experience_range_to_max->data_plus_total_experience_max', 32, 8).
-port(15, 'in', 'data_plus_total_experience_max', 'clean_data_with_python.experience_current_to_min<-data_plus_total_experience_max', 36, 8).
-port(16, 'param', 'experience', 'clean_data_with_python.experience_current_to_min<-experience', 37, 5).
-port(17, 'param', 'attribute', 'clean_data_with_python.experience_current_to_min<-attribute', 38, 6).
-port(18, 'out', 'data_plus_current_experience_min', 'clean_data_with_python.experience_current_to_min->data_plus_current_experience_min', 39, 9).
-port(19, 'in', 'data_plus_current_experience_min', 'clean_data_with_python.experience_current_to_max<-data_plus_current_experience_min', 43, 9).
-port(20, 'param', 'experience', 'clean_data_with_python.experience_current_to_max<-experience', 44, 5).
-port(21, 'param', 'attribute', 'clean_data_with_python.experience_current_to_max<-attribute', 45, 6).
-port(22, 'out', 'data_plus_current_experience_max', 'clean_data_with_python.experience_current_to_max->data_plus_current_experience_max', 46, 10).
-port(23, 'in', 'data_plus_current_experience_max', 'clean_data_with_python.clean_education_naming<-data_plus_current_experience_max', 50, 10).
-port(24, 'out', 'data_replaced_education_naming', 'clean_data_with_python.clean_education_naming->data_replaced_education_naming', 51, 11).
-port(25, 'in', 'data_replaced_education_naming', 'clean_data_with_python.create_education_level<-data_replaced_education_naming', 55, 11).
-port(26, 'out', 'data_plus_education_lvl', 'clean_data_with_python.create_education_level->data_plus_education_lvl', 56, 12).
-port(27, 'in', 'data_plus_education_lvl', 'clean_data_with_python.cluster_other_gender<-data_plus_education_lvl', 60, 12).
-port(28, 'out', 'data_replaced_other_gender', 'clean_data_with_python.cluster_other_gender->data_replaced_other_gender', 61, 13).
-port(29, 'in', 'data_replaced_other_gender', 'clean_data_with_python.create_gender_idx<-data_replaced_other_gender', 65, 13).
-port(30, 'out', 'data_plus_gender_idx', 'clean_data_with_python.create_gender_idx->data_plus_gender_idx', 66, 14).
-port(31, 'in', 'data_plus_gender_idx', 'clean_data_with_python.map_race_to_index<-data_plus_gender_idx', 70, 14).
-port(32, 'param', 'row', 'clean_data_with_python.map_race_to_index<-row', 71, 15).
-port(33, 'out', 'data_plus_race_idx', 'clean_data_with_python.map_race_to_index->data_plus_race_idx', 73, 16).
-port(34, 'in', 'data_plus_race_idx', 'clean_data_with_python.get_city_from_text<-data_plus_race_idx', 77, 16).
-port(35, 'param', 'row', 'clean_data_with_python.get_city_from_text<-row', 78, 17).
-port(36, 'out', 'data_replaced_city', 'clean_data_with_python.get_city_from_text->data_replaced_city', 80, 18).
-port(37, 'in', 'data_replaced_city', 'clean_data_with_python.get_country_from_text<-data_replaced_city', 84, 18).
-port(38, 'param', 'row', 'clean_data_with_python.get_country_from_text<-row', 85, 19).
-port(39, 'out', 'data_replaced_country', 'clean_data_with_python.get_country_from_text->data_replaced_country', 87, 20).
-port(40, 'in', 'data_replaced_country', 'clean_data_with_python.get_state_from_text<-data_replaced_country', 91, 20).
-port(41, 'param', 'row', 'clean_data_with_python.get_state_from_text<-row', 92, 21).
-port(42, 'out', 'data_replaced_state', 'clean_data_with_python.get_state_from_text->data_replaced_state', 94, 22).
-port(43, 'in', 'data_replaced_state', 'clean_data_with_python.get_continent_from_country<-data_replaced_state', 98, 22).
-port(44, 'param', 'row', 'clean_data_with_python.get_continent_from_country<-row', 99, 23).
-port(45, 'out', 'data_plus_continent', 'clean_data_with_python.get_continent_from_country->data_plus_continent', 101, 24).
-port(46, 'in', 'data_plus_continent', 'clean_data_with_python.get_lat_long_from_full_address<-data_plus_continent', 105, 24).
-port(47, 'param', 'city', 'clean_data_with_python.get_lat_long_from_full_address<-city', 106, 25).
-port(48, 'param', 'country', 'clean_data_with_python.get_lat_long_from_full_address<-country', 107, 23).
-port(49, 'out', 'data_plus_lat_long', 'clean_data_with_python.get_lat_long_from_full_address->data_plus_lat_long', 108, 26).
-port(50, 'in', 'data_plus_lat_long', 'clean_data_with_python.drop_salary_context_and_job_context<-data_plus_lat_long', 112, 26).
-port(51, 'out', 'data_dropped_salary_job_ctx', 'clean_data_with_python.drop_salary_context_and_job_context->data_dropped_salary_job_ctx', 113, 27).
-port(52, 'in', 'data_dropped_salary_job_ctx', 'clean_data_with_python.clean_words_clusters_job_title<-data_dropped_salary_job_ctx', 117, 27).
-port(53, 'param', 'word', 'clean_data_with_python.clean_words_clusters_job_title<-word', 118, 28).
-port(54, 'out', 'cw_clusters_job_title', 'clean_data_with_python.clean_words_clusters_job_title->cw_clusters_job_title', 120, 29).
-port(55, 'in', 'data_dropped_salary_job_ctx', 'clean_data_with_python.create_clusters_job_title<-data_dropped_salary_job_ctx', 124, 27).
-port(56, 'in', 'cw_clusters_job_title', 'clean_data_with_python.create_clusters_job_title<-cw_clusters_job_title', 125, 29).
-port(57, 'param', 'possibilities', 'clean_data_with_python.create_clusters_job_title<-possibilities', 126, 30).
-port(58, 'param', 'cutoff', 'clean_data_with_python.create_clusters_job_title<-cutoff', 128, 31).
-port(59, 'out', 'clusters_job_title', 'clean_data_with_python.create_clusters_job_title->clusters_job_title', 130, 32).
-port(60, 'in', 'data_dropped_salary_job_ctx', 'clean_data_with_python.replace_job_title<-data_dropped_salary_job_ctx', 134, 27).
-port(61, 'in', 'clusters_job_title', 'clean_data_with_python.replace_job_title<-clusters_job_title', 135, 32).
-port(62, 'out', 'data_replaced_job_title_clean', 'clean_data_with_python.replace_job_title->data_replaced_job_title_clean', 136, 33).
-port(63, 'in', 'data_replaced_job_title_clean', 'clean_data_with_python.clean_words_clusters_job_title_second<-data_replaced_job_title_clean', 140, 33).
-port(64, 'param', 'word', 'clean_data_with_python.clean_words_clusters_job_title_second<-word', 141, 28).
-port(65, 'out', 'cw_clusters_job_title_second', 'clean_data_with_python.clean_words_clusters_job_title_second->cw_clusters_job_title_second', 143, 34).
-port(66, 'in', 'data_replaced_job_title_clean', 'clean_data_with_python.create_clusters_job_title_second<-data_replaced_job_title_clean', 147, 33).
-port(67, 'in', 'cw_clusters_job_title_second', 'clean_data_with_python.create_clusters_job_title_second<-cw_clusters_job_title_second', 148, 34).
-port(68, 'param', 'possibilities', 'clean_data_with_python.create_clusters_job_title_second<-possibilities', 149, 30).
-port(69, 'param', 'cutoff', 'clean_data_with_python.create_clusters_job_title_second<-cutoff', 151, 31).
-port(70, 'out', 'clusters_job_title_second', 'clean_data_with_python.create_clusters_job_title_second->clusters_job_title_second', 153, 35).
-port(71, 'in', 'data_replaced_job_title_clean', 'clean_data_with_python.replace_job_title_clean<-data_replaced_job_title_clean', 157, 33).
-port(72, 'in', 'clusters_job_title_second', 'clean_data_with_python.replace_job_title_clean<-clusters_job_title_second', 158, 35).
-port(73, 'out', 'data_replaced_job_title_clean_second', 'clean_data_with_python.replace_job_title_clean->data_replaced_job_title_clean_second', 159, 36).
-port(74, 'in', 'data_replaced_job_title_clean_second', 'clean_data_with_python.clean_words_clusters_job_title_third<-data_replaced_job_title_clean_second', 163, 36).
-port(75, 'param', 'word', 'clean_data_with_python.clean_words_clusters_job_title_third<-word', 164, 28).
-port(76, 'out', 'cw_clusters_job_title_third', 'clean_data_with_python.clean_words_clusters_job_title_third->cw_clusters_job_title_third', 166, 37).
-port(77, 'in', 'data_replaced_job_title_clean_second', 'clean_data_with_python.create_job_title_clean_third<-data_replaced_job_title_clean_second', 170, 36).
-port(78, 'in', 'cw_clusters_job_title_third', 'clean_data_with_python.create_job_title_clean_third<-cw_clusters_job_title_third', 171, 37).
-port(79, 'param', 'possibilities', 'clean_data_with_python.create_job_title_clean_third<-possibilities', 172, 30).
-port(80, 'param', 'cutoff', 'clean_data_with_python.create_job_title_clean_third<-cutoff', 174, 31).
-port(81, 'out', 'clusters_job_title_third', 'clean_data_with_python.create_job_title_clean_third->clusters_job_title_third', 176, 38).
-port(82, 'in', 'data_replaced_job_title_clean_second', 'clean_data_with_python.replace_job_title_clean_third<-data_replaced_job_title_clean_second', 180, 36).
-port(83, 'in', 'clusters_job_title_third', 'clean_data_with_python.replace_job_title_clean_third<-clusters_job_title_third', 181, 38).
-port(84, 'out', 'data_replaced_job_title_clean_third', 'clean_data_with_python.replace_job_title_clean_third->data_replaced_job_title_clean_third', 182, 39).
-port(85, 'in', 'data_replaced_job_title_clean_third', 'clean_data_with_python.clean_words_industry<-data_replaced_job_title_clean_third', 186, 39).
-port(86, 'param', 'word', 'clean_data_with_python.clean_words_industry<-word', 187, 28).
-port(87, 'out', 'cleaned_words_industry', 'clean_data_with_python.clean_words_industry->cleaned_words_industry', 189, 40).
-port(88, 'in', 'data_replaced_job_title_clean_third', 'clean_data_with_python.create_clusters_industry<-data_replaced_job_title_clean_third', 193, 39).
-port(89, 'in', 'cleaned_words_industry', 'clean_data_with_python.create_clusters_industry<-cleaned_words_industry', 194, 40).
-port(90, 'param', 'possibilities', 'clean_data_with_python.create_clusters_industry<-possibilities', 195, 41).
-port(91, 'param', 'cutoff', 'clean_data_with_python.create_clusters_industry<-cutoff', 197, 42).
-port(92, 'out', 'clusters_industry', 'clean_data_with_python.create_clusters_industry->clusters_industry', 199, 43).
-port(93, 'in', 'data_replaced_job_title_clean_third', 'clean_data_with_python.replace_industry_clean<-data_replaced_job_title_clean_third', 203, 39).
-port(94, 'in', 'clusters_industry', 'clean_data_with_python.replace_industry_clean<-clusters_industry', 204, 43).
-port(95, 'out', 'data_plus_industry_clean', 'clean_data_with_python.replace_industry_clean->data_plus_industry_clean', 205, 44).
-port(96, 'in', 'data_plus_industry_clean', 'clean_data_with_python.clean_words_industry_second<-data_plus_industry_clean', 209, 44).
-port(97, 'param', 'word', 'clean_data_with_python.clean_words_industry_second<-word', 210, 28).
-port(98, 'out', 'cleaned_words_industry_second', 'clean_data_with_python.clean_words_industry_second->cleaned_words_industry_second', 212, 45).
-port(99, 'in', 'data_plus_industry_clean', 'clean_data_with_python.create_clusters_industry_second<-data_plus_industry_clean', 216, 44).
-port(100, 'in', 'cleaned_words_industry_second', 'clean_data_with_python.create_clusters_industry_second<-cleaned_words_industry_second', 217, 45).
-port(101, 'param', 'possibilities', 'clean_data_with_python.create_clusters_industry_second<-possibilities', 218, 41).
-port(102, 'param', 'cutoff', 'clean_data_with_python.create_clusters_industry_second<-cutoff', 220, 42).
-port(103, 'out', 'clusters_industry_second', 'clean_data_with_python.create_clusters_industry_second->clusters_industry_second', 222, 46).
-port(104, 'in', 'data_plus_industry_clean', 'clean_data_with_python.replace_industry_clean_second<-data_plus_industry_clean', 226, 44).
-port(105, 'in', 'clusters_industry_second', 'clean_data_with_python.replace_industry_clean_second<-clusters_industry_second', 227, 46).
-port(106, 'out', 'data_industry_clean_second', 'clean_data_with_python.replace_industry_clean_second->data_industry_clean_second', 228, 47).
-port(107, 'in', 'data_industry_clean_second', 'clean_data_with_python.clean_words_industry_third<-data_industry_clean_second', 232, 47).
-port(108, 'param', 'word', 'clean_data_with_python.clean_words_industry_third<-word', 233, 28).
-port(109, 'out', 'cleaned_words_industry_third', 'clean_data_with_python.clean_words_industry_third->cleaned_words_industry_third', 235, 48).
-port(110, 'in', 'data_industry_clean_second', 'clean_data_with_python.create_clusters_industry_third<-data_industry_clean_second', 239, 47).
-port(111, 'in', 'cleaned_words_industry_third', 'clean_data_with_python.create_clusters_industry_third<-cleaned_words_industry_third', 240, 48).
-port(112, 'param', 'possibilities', 'clean_data_with_python.create_clusters_industry_third<-possibilities', 241, 41).
-port(113, 'param', 'cutoff', 'clean_data_with_python.create_clusters_industry_third<-cutoff', 243, 42).
-port(114, 'out', 'clusters_industry_third', 'clean_data_with_python.create_clusters_industry_third->clusters_industry_third', 245, 49).
-port(115, 'in', 'data_industry_clean_second', 'clean_data_with_python.replace_industry_clean_third<-data_industry_clean_second', 249, 47).
-port(116, 'in', 'clusters_industry_third', 'clean_data_with_python.replace_industry_clean_third<-clusters_industry_third', 250, 49).
-port(117, 'out', 'data_industry_clean_third', 'clean_data_with_python.replace_industry_clean_third->data_industry_clean_third', 251, 50).
-port(118, 'in', 'data_industry_clean_third', 'clean_data_with_python.clean_words_industry_fourth<-data_industry_clean_third', 255, 50).
-port(119, 'param', 'word', 'clean_data_with_python.clean_words_industry_fourth<-word', 256, 28).
-port(120, 'out', 'cleaned_words_industry_fourth', 'clean_data_with_python.clean_words_industry_fourth->cleaned_words_industry_fourth', 258, 51).
-port(121, 'in', 'data_industry_clean_third', 'clean_data_with_python.create_clusters_industry_fourth<-data_industry_clean_third', 262, 50).
-port(122, 'param', 'possibilities', 'clean_data_with_python.create_clusters_industry_fourth<-possibilities', 263, 41).
-port(123, 'param', 'cutoff', 'clean_data_with_python.create_clusters_industry_fourth<-cutoff', 265, 42).
-port(124, 'out', 'clusters_industry_fourth', 'clean_data_with_python.create_clusters_industry_fourth->clusters_industry_fourth', 267, 52).
-port(125, 'in', 'data_industry_clean_third', 'clean_data_with_python.replace_industry_clean_fourth<-data_industry_clean_third', 271, 50).
-port(126, 'in', 'clusters_industry_fourth', 'clean_data_with_python.replace_industry_clean_fourth<-clusters_industry_fourth', 272, 52).
-port(127, 'out', 'data_industry_clean_fourth', 'clean_data_with_python.replace_industry_clean_fourth->data_industry_clean_fourth', 273, 53).
-port(128, 'in', 'data_industry_clean_third', 'clean_data_with_python.clean_words_industry_fourth<-data_industry_clean_third', 277, 50).
-port(129, 'param', 'word', 'clean_data_with_python.clean_words_industry_fourth<-word', 278, 28).
-port(130, 'out', 'cleaned_words_industry_fourth', 'clean_data_with_python.clean_words_industry_fourth->cleaned_words_industry_fourth', 280, 51).
-port(131, 'in', 'data_industry_clean_fourth', 'clean_data_with_python.create_clusters_industry_fifth<-data_industry_clean_fourth', 284, 53).
-port(132, 'in', 'cleaned_words_industry_fourth', 'clean_data_with_python.create_clusters_industry_fifth<-cleaned_words_industry_fourth', 285, 51).
-port(133, 'param', 'possibilities', 'clean_data_with_python.create_clusters_industry_fifth<-possibilities', 286, 41).
-port(134, 'param', 'cutoff', 'clean_data_with_python.create_clusters_industry_fifth<-cutoff', 288, 42).
-port(135, 'out', 'clusters_industry_fifth', 'clean_data_with_python.create_clusters_industry_fifth->clusters_industry_fifth', 290, 54).
-port(136, 'in', 'data_industry_clean_fourth', 'clean_data_with_python.replace_industry_clean_fifth<-data_industry_clean_fourth', 294, 53).
-port(137, 'in', 'clusters_industry_fifth', 'clean_data_with_python.replace_industry_clean_fifth<-clusters_industry_fifth', 295, 54).
-port(138, 'out', 'data_industry_clean_fifth', 'clean_data_with_python.replace_industry_clean_fifth->data_industry_clean_fifth', 296, 55).
-port(139, 'in', 'data_industry_clean_fifth', 'clean_data_with_python.merge_industry_clean<-data_industry_clean_fifth', 300, 55).
-port(140, 'out', 'merged_industry_clean', 'clean_data_with_python.merge_industry_clean->merged_industry_clean', 301, 56).
-port(141, 'in', 'data_industry_clean_fifth', 'clean_data_with_python.merge_currency<-data_industry_clean_fifth', 305, 55).
-port(142, 'out', 'data_merge_currency', 'clean_data_with_python.merge_currency->data_merge_currency', 306, 57).
-port(143, 'in', 'data_merge_currency', 'clean_data_with_python.clean_currency_other<-data_merge_currency', 310, 57).
-port(144, 'out', 'data_clean_currency_other', 'clean_data_with_python.clean_currency_other->data_clean_currency_other', 311, 58).
+port(1, 'in', 'FILE', 'clean_data_with_python<-FILE', 2, 1).
+port(2, 'out', 'FILE', 'clean_data_with_python->FILE', 4, 1).
+port(3, 'out', 'currency_table', 'clean_data_with_python->currency_table', 6, 2).
+port(4, 'out', 'place_table', 'clean_data_with_python->place_table', 7, 3).
+port(5, 'out', 'position_table', 'clean_data_with_python->position_table', 8, 4).
+port(6, 'out', 'person_table', 'clean_data_with_python->person_table', 9, 5).
+port(7, 'out', 'gender_lookup_table', 'clean_data_with_python->gender_lookup_table', 10, 6).
+port(8, 'out', 'race_lookup_table', 'clean_data_with_python->race_lookup_table', 11, 7).
+port(9, 'out', 'employee_table', 'clean_data_with_python->employee_table', 12, 8).
+port(10, 'in', 'FILE', 'clean_data_with_python.convert_to_df<-FILE', 15, 9).
+port(11, 'out', 'data', 'clean_data_with_python.convert_to_df->data', 17, 10).
+port(12, 'in', 'data', 'clean_data_with_python.age_range_to_min<-data', 22, 10).
+port(13, 'out', 'data_plus_age_min', 'clean_data_with_python.age_range_to_min->data_plus_age_min', 23, 11).
+port(14, 'in', 'data_plus_age_min', 'clean_data_with_python.age_range_to_max<-data_plus_age_min', 28, 11).
+port(15, 'out', 'data_plus_age_max', 'clean_data_with_python.age_range_to_max->data_plus_age_max', 29, 12).
+port(16, 'in', 'data_plus_age_max', 'clean_data_with_python.experience_range_to_min<-data_plus_age_max', 33, 12).
+port(17, 'param', 'experience', 'clean_data_with_python.experience_range_to_min<-experience', 34, 13).
+port(18, 'param', 'attribute', 'clean_data_with_python.experience_range_to_min<-attribute', 35, 14).
+port(19, 'out', 'data_plus_total_experience_min', 'clean_data_with_python.experience_range_to_min->data_plus_total_experience_min', 36, 15).
+port(20, 'in', 'data_plus_total_experience_min', 'clean_data_with_python.experience_range_to_max<-data_plus_total_experience_min', 40, 15).
+port(21, 'param', 'experience', 'clean_data_with_python.experience_range_to_max<-experience', 41, 13).
+port(22, 'param', 'attribute', 'clean_data_with_python.experience_range_to_max<-attribute', 42, 14).
+port(23, 'out', 'data_plus_total_experience_max', 'clean_data_with_python.experience_range_to_max->data_plus_total_experience_max', 43, 16).
+port(24, 'in', 'data_plus_total_experience_max', 'clean_data_with_python.experience_current_to_min<-data_plus_total_experience_max', 47, 16).
+port(25, 'param', 'experience', 'clean_data_with_python.experience_current_to_min<-experience', 48, 13).
+port(26, 'param', 'attribute', 'clean_data_with_python.experience_current_to_min<-attribute', 49, 14).
+port(27, 'out', 'data_plus_current_experience_min', 'clean_data_with_python.experience_current_to_min->data_plus_current_experience_min', 50, 17).
+port(28, 'in', 'data_plus_current_experience_min', 'clean_data_with_python.experience_current_to_max<-data_plus_current_experience_min', 54, 17).
+port(29, 'param', 'experience', 'clean_data_with_python.experience_current_to_max<-experience', 55, 13).
+port(30, 'param', 'attribute', 'clean_data_with_python.experience_current_to_max<-attribute', 56, 14).
+port(31, 'out', 'data_plus_current_experience_max', 'clean_data_with_python.experience_current_to_max->data_plus_current_experience_max', 57, 18).
+port(32, 'in', 'data_plus_current_experience_max', 'clean_data_with_python.clean_education_naming<-data_plus_current_experience_max', 61, 18).
+port(33, 'out', 'data_replaced_education_naming', 'clean_data_with_python.clean_education_naming->data_replaced_education_naming', 62, 19).
+port(34, 'in', 'data_replaced_education_naming', 'clean_data_with_python.create_education_level<-data_replaced_education_naming', 66, 19).
+port(35, 'out', 'data_plus_education_lvl', 'clean_data_with_python.create_education_level->data_plus_education_lvl', 67, 20).
+port(36, 'in', 'data_plus_education_lvl', 'clean_data_with_python.cluster_other_gender<-data_plus_education_lvl', 71, 20).
+port(37, 'out', 'data_replaced_other_gender', 'clean_data_with_python.cluster_other_gender->data_replaced_other_gender', 72, 21).
+port(38, 'in', 'data_replaced_other_gender', 'clean_data_with_python.create_gender_idx<-data_replaced_other_gender', 76, 21).
+port(39, 'out', 'data_plus_gender_idx', 'clean_data_with_python.create_gender_idx->data_plus_gender_idx', 77, 22).
+port(40, 'in', 'data_plus_gender_idx', 'clean_data_with_python.map_race_to_index<-data_plus_gender_idx', 81, 22).
+port(41, 'param', 'row', 'clean_data_with_python.map_race_to_index<-row', 82, 23).
+port(42, 'out', 'data_plus_race_idx', 'clean_data_with_python.map_race_to_index->data_plus_race_idx', 84, 24).
+port(43, 'in', 'data_plus_race_idx', 'clean_data_with_python.get_city_from_text<-data_plus_race_idx', 88, 24).
+port(44, 'param', 'row', 'clean_data_with_python.get_city_from_text<-row', 89, 25).
+port(45, 'out', 'data_replaced_city', 'clean_data_with_python.get_city_from_text->data_replaced_city', 91, 26).
+port(46, 'in', 'data_replaced_city', 'clean_data_with_python.get_country_from_text<-data_replaced_city', 95, 26).
+port(47, 'param', 'row', 'clean_data_with_python.get_country_from_text<-row', 96, 27).
+port(48, 'out', 'data_replaced_country', 'clean_data_with_python.get_country_from_text->data_replaced_country', 98, 28).
+port(49, 'in', 'data_replaced_country', 'clean_data_with_python.get_state_from_text<-data_replaced_country', 102, 28).
+port(50, 'param', 'row', 'clean_data_with_python.get_state_from_text<-row', 103, 29).
+port(51, 'out', 'data_replaced_state', 'clean_data_with_python.get_state_from_text->data_replaced_state', 105, 30).
+port(52, 'in', 'data_replaced_state', 'clean_data_with_python.get_continent_from_country<-data_replaced_state', 109, 30).
+port(53, 'param', 'row', 'clean_data_with_python.get_continent_from_country<-row', 110, 31).
+port(54, 'out', 'data_plus_continent', 'clean_data_with_python.get_continent_from_country->data_plus_continent', 112, 32).
+port(55, 'in', 'data_plus_continent', 'clean_data_with_python.get_lat_long_from_full_address<-data_plus_continent', 116, 32).
+port(56, 'param', 'city', 'clean_data_with_python.get_lat_long_from_full_address<-city', 117, 33).
+port(57, 'param', 'country', 'clean_data_with_python.get_lat_long_from_full_address<-country', 118, 31).
+port(58, 'out', 'data_plus_lat_long', 'clean_data_with_python.get_lat_long_from_full_address->data_plus_lat_long', 119, 34).
+port(59, 'in', 'data_plus_lat_long', 'clean_data_with_python.drop_salary_context_and_job_context<-data_plus_lat_long', 123, 34).
+port(60, 'out', 'data_dropped_salary_job_ctx', 'clean_data_with_python.drop_salary_context_and_job_context->data_dropped_salary_job_ctx', 124, 35).
+port(61, 'in', 'data_dropped_salary_job_ctx', 'clean_data_with_python.clean_words_clusters_job_title<-data_dropped_salary_job_ctx', 128, 35).
+port(62, 'param', 'word', 'clean_data_with_python.clean_words_clusters_job_title<-word', 129, 36).
+port(63, 'out', 'cw_clusters_job_title', 'clean_data_with_python.clean_words_clusters_job_title->cw_clusters_job_title', 131, 37).
+port(64, 'in', 'data_dropped_salary_job_ctx', 'clean_data_with_python.create_clusters_job_title<-data_dropped_salary_job_ctx', 135, 35).
+port(65, 'in', 'cw_clusters_job_title', 'clean_data_with_python.create_clusters_job_title<-cw_clusters_job_title', 136, 37).
+port(66, 'param', 'possibilities', 'clean_data_with_python.create_clusters_job_title<-possibilities', 137, 38).
+port(67, 'param', 'cutoff', 'clean_data_with_python.create_clusters_job_title<-cutoff', 139, 39).
+port(68, 'out', 'clusters_job_title', 'clean_data_with_python.create_clusters_job_title->clusters_job_title', 141, 40).
+port(69, 'in', 'data_dropped_salary_job_ctx', 'clean_data_with_python.replace_job_title<-data_dropped_salary_job_ctx', 145, 35).
+port(70, 'in', 'clusters_job_title', 'clean_data_with_python.replace_job_title<-clusters_job_title', 146, 40).
+port(71, 'out', 'data_replaced_job_title_clean', 'clean_data_with_python.replace_job_title->data_replaced_job_title_clean', 147, 41).
+port(72, 'in', 'data_replaced_job_title_clean', 'clean_data_with_python.clean_words_clusters_job_title_second<-data_replaced_job_title_clean', 151, 41).
+port(73, 'param', 'word', 'clean_data_with_python.clean_words_clusters_job_title_second<-word', 152, 36).
+port(74, 'out', 'cw_clusters_job_title_second', 'clean_data_with_python.clean_words_clusters_job_title_second->cw_clusters_job_title_second', 154, 42).
+port(75, 'in', 'data_replaced_job_title_clean', 'clean_data_with_python.create_clusters_job_title_second<-data_replaced_job_title_clean', 158, 41).
+port(76, 'in', 'cw_clusters_job_title_second', 'clean_data_with_python.create_clusters_job_title_second<-cw_clusters_job_title_second', 159, 42).
+port(77, 'param', 'possibilities', 'clean_data_with_python.create_clusters_job_title_second<-possibilities', 160, 38).
+port(78, 'param', 'cutoff', 'clean_data_with_python.create_clusters_job_title_second<-cutoff', 162, 39).
+port(79, 'out', 'clusters_job_title_second', 'clean_data_with_python.create_clusters_job_title_second->clusters_job_title_second', 164, 43).
+port(80, 'in', 'data_replaced_job_title_clean', 'clean_data_with_python.replace_job_title_clean<-data_replaced_job_title_clean', 168, 41).
+port(81, 'in', 'clusters_job_title_second', 'clean_data_with_python.replace_job_title_clean<-clusters_job_title_second', 169, 43).
+port(82, 'out', 'data_replaced_job_title_clean_second', 'clean_data_with_python.replace_job_title_clean->data_replaced_job_title_clean_second', 170, 44).
+port(83, 'in', 'data_replaced_job_title_clean_second', 'clean_data_with_python.clean_words_clusters_job_title_third<-data_replaced_job_title_clean_second', 174, 44).
+port(84, 'param', 'word', 'clean_data_with_python.clean_words_clusters_job_title_third<-word', 175, 36).
+port(85, 'out', 'cw_clusters_job_title_third', 'clean_data_with_python.clean_words_clusters_job_title_third->cw_clusters_job_title_third', 177, 45).
+port(86, 'in', 'data_replaced_job_title_clean_second', 'clean_data_with_python.create_job_title_clean_third<-data_replaced_job_title_clean_second', 181, 44).
+port(87, 'in', 'cw_clusters_job_title_third', 'clean_data_with_python.create_job_title_clean_third<-cw_clusters_job_title_third', 182, 45).
+port(88, 'param', 'possibilities', 'clean_data_with_python.create_job_title_clean_third<-possibilities', 183, 38).
+port(89, 'param', 'cutoff', 'clean_data_with_python.create_job_title_clean_third<-cutoff', 185, 39).
+port(90, 'out', 'clusters_job_title_third', 'clean_data_with_python.create_job_title_clean_third->clusters_job_title_third', 187, 46).
+port(91, 'in', 'data_replaced_job_title_clean_second', 'clean_data_with_python.replace_job_title_clean_third<-data_replaced_job_title_clean_second', 191, 44).
+port(92, 'in', 'clusters_job_title_third', 'clean_data_with_python.replace_job_title_clean_third<-clusters_job_title_third', 192, 46).
+port(93, 'out', 'data_replaced_job_title_clean_third', 'clean_data_with_python.replace_job_title_clean_third->data_replaced_job_title_clean_third', 193, 47).
+port(94, 'in', 'data_replaced_job_title_clean_third', 'clean_data_with_python.merge_job_title<-data_replaced_job_title_clean_third', 197, 47).
+port(95, 'out', 'data_plus_merged_job_title', 'clean_data_with_python.merge_job_title->data_plus_merged_job_title', 198, 48).
+port(96, 'in', 'data_plus_merged_job_title', 'clean_data_with_python.clean_words_industry<-data_plus_merged_job_title', 202, 48).
+port(97, 'param', 'word', 'clean_data_with_python.clean_words_industry<-word', 203, 36).
+port(98, 'out', 'cleaned_words_industry', 'clean_data_with_python.clean_words_industry->cleaned_words_industry', 205, 49).
+port(99, 'in', 'data_plus_merged_job_title', 'clean_data_with_python.create_clusters_industry<-data_plus_merged_job_title', 209, 48).
+port(100, 'in', 'cleaned_words_industry', 'clean_data_with_python.create_clusters_industry<-cleaned_words_industry', 210, 49).
+port(101, 'param', 'possibilities', 'clean_data_with_python.create_clusters_industry<-possibilities', 211, 50).
+port(102, 'param', 'cutoff', 'clean_data_with_python.create_clusters_industry<-cutoff', 213, 51).
+port(103, 'out', 'clusters_industry', 'clean_data_with_python.create_clusters_industry->clusters_industry', 215, 52).
+port(104, 'in', 'data_replaced_job_title_clean_third', 'clean_data_with_python.replace_industry_clean<-data_replaced_job_title_clean_third', 219, 47).
+port(105, 'in', 'clusters_industry', 'clean_data_with_python.replace_industry_clean<-clusters_industry', 220, 52).
+port(106, 'out', 'data_plus_industry_clean', 'clean_data_with_python.replace_industry_clean->data_plus_industry_clean', 221, 53).
+port(107, 'in', 'data_plus_industry_clean', 'clean_data_with_python.clean_words_industry_second<-data_plus_industry_clean', 225, 53).
+port(108, 'param', 'word', 'clean_data_with_python.clean_words_industry_second<-word', 226, 36).
+port(109, 'out', 'cleaned_words_industry_second', 'clean_data_with_python.clean_words_industry_second->cleaned_words_industry_second', 228, 54).
+port(110, 'in', 'data_plus_industry_clean', 'clean_data_with_python.create_clusters_industry_second<-data_plus_industry_clean', 232, 53).
+port(111, 'in', 'cleaned_words_industry_second', 'clean_data_with_python.create_clusters_industry_second<-cleaned_words_industry_second', 233, 54).
+port(112, 'param', 'possibilities', 'clean_data_with_python.create_clusters_industry_second<-possibilities', 234, 50).
+port(113, 'param', 'cutoff', 'clean_data_with_python.create_clusters_industry_second<-cutoff', 236, 51).
+port(114, 'out', 'clusters_industry_second', 'clean_data_with_python.create_clusters_industry_second->clusters_industry_second', 238, 55).
+port(115, 'in', 'data_plus_industry_clean', 'clean_data_with_python.replace_industry_clean_second<-data_plus_industry_clean', 242, 53).
+port(116, 'in', 'clusters_industry_second', 'clean_data_with_python.replace_industry_clean_second<-clusters_industry_second', 243, 55).
+port(117, 'out', 'data_industry_clean_second', 'clean_data_with_python.replace_industry_clean_second->data_industry_clean_second', 244, 56).
+port(118, 'in', 'data_industry_clean_second', 'clean_data_with_python.clean_words_industry_third<-data_industry_clean_second', 248, 56).
+port(119, 'param', 'word', 'clean_data_with_python.clean_words_industry_third<-word', 249, 36).
+port(120, 'out', 'cleaned_words_industry_third', 'clean_data_with_python.clean_words_industry_third->cleaned_words_industry_third', 251, 57).
+port(121, 'in', 'data_industry_clean_second', 'clean_data_with_python.create_clusters_industry_third<-data_industry_clean_second', 255, 56).
+port(122, 'in', 'cleaned_words_industry_third', 'clean_data_with_python.create_clusters_industry_third<-cleaned_words_industry_third', 256, 57).
+port(123, 'param', 'possibilities', 'clean_data_with_python.create_clusters_industry_third<-possibilities', 257, 50).
+port(124, 'param', 'cutoff', 'clean_data_with_python.create_clusters_industry_third<-cutoff', 259, 51).
+port(125, 'out', 'clusters_industry_third', 'clean_data_with_python.create_clusters_industry_third->clusters_industry_third', 261, 58).
+port(126, 'in', 'data_industry_clean_second', 'clean_data_with_python.replace_industry_clean_third<-data_industry_clean_second', 265, 56).
+port(127, 'in', 'clusters_industry_third', 'clean_data_with_python.replace_industry_clean_third<-clusters_industry_third', 266, 58).
+port(128, 'out', 'data_industry_clean_third', 'clean_data_with_python.replace_industry_clean_third->data_industry_clean_third', 267, 59).
+port(129, 'in', 'data_industry_clean_third', 'clean_data_with_python.clean_words_industry_fourth<-data_industry_clean_third', 271, 59).
+port(130, 'param', 'word', 'clean_data_with_python.clean_words_industry_fourth<-word', 272, 36).
+port(131, 'out', 'cleaned_words_industry_fourth', 'clean_data_with_python.clean_words_industry_fourth->cleaned_words_industry_fourth', 274, 60).
+port(132, 'in', 'data_industry_clean_third', 'clean_data_with_python.create_clusters_industry_fourth<-data_industry_clean_third', 278, 59).
+port(133, 'param', 'possibilities', 'clean_data_with_python.create_clusters_industry_fourth<-possibilities', 279, 50).
+port(134, 'param', 'cutoff', 'clean_data_with_python.create_clusters_industry_fourth<-cutoff', 281, 51).
+port(135, 'out', 'clusters_industry_fourth', 'clean_data_with_python.create_clusters_industry_fourth->clusters_industry_fourth', 283, 61).
+port(136, 'in', 'data_industry_clean_third', 'clean_data_with_python.replace_industry_clean_fourth<-data_industry_clean_third', 287, 59).
+port(137, 'in', 'clusters_industry_fourth', 'clean_data_with_python.replace_industry_clean_fourth<-clusters_industry_fourth', 288, 61).
+port(138, 'out', 'data_industry_clean_fourth', 'clean_data_with_python.replace_industry_clean_fourth->data_industry_clean_fourth', 289, 62).
+port(139, 'in', 'data_industry_clean_third', 'clean_data_with_python.clean_words_industry_fourth<-data_industry_clean_third', 293, 59).
+port(140, 'param', 'word', 'clean_data_with_python.clean_words_industry_fourth<-word', 294, 36).
+port(141, 'out', 'cleaned_words_industry_fourth', 'clean_data_with_python.clean_words_industry_fourth->cleaned_words_industry_fourth', 296, 60).
+port(142, 'in', 'data_industry_clean_fourth', 'clean_data_with_python.create_clusters_industry_fifth<-data_industry_clean_fourth', 300, 62).
+port(143, 'in', 'cleaned_words_industry_fourth', 'clean_data_with_python.create_clusters_industry_fifth<-cleaned_words_industry_fourth', 301, 60).
+port(144, 'param', 'possibilities', 'clean_data_with_python.create_clusters_industry_fifth<-possibilities', 302, 50).
+port(145, 'param', 'cutoff', 'clean_data_with_python.create_clusters_industry_fifth<-cutoff', 304, 51).
+port(146, 'out', 'clusters_industry_fifth', 'clean_data_with_python.create_clusters_industry_fifth->clusters_industry_fifth', 306, 63).
+port(147, 'in', 'data_industry_clean_fourth', 'clean_data_with_python.replace_industry_clean_fifth<-data_industry_clean_fourth', 310, 62).
+port(148, 'in', 'clusters_industry_fifth', 'clean_data_with_python.replace_industry_clean_fifth<-clusters_industry_fifth', 311, 63).
+port(149, 'out', 'data_industry_clean_fifth', 'clean_data_with_python.replace_industry_clean_fifth->data_industry_clean_fifth', 312, 64).
+port(150, 'in', 'data_industry_clean_fifth', 'clean_data_with_python.merge_industry_clean<-data_industry_clean_fifth', 316, 64).
+port(151, 'out', 'data_plus_merged_industry_clean', 'clean_data_with_python.merge_industry_clean->data_plus_merged_industry_clean', 317, 65).
+port(152, 'in', 'data_plus_merged_industry_clean', 'clean_data_with_python.merge_currency<-data_plus_merged_industry_clean', 321, 65).
+port(153, 'out', 'data_merged_currency', 'clean_data_with_python.merge_currency->data_merged_currency', 322, 66).
+port(154, 'in', 'data_merged_currency', 'clean_data_with_python.clean_currency_other<-data_merged_currency', 326, 66).
+port(155, 'out', 'data_clean_currency_other', 'clean_data_with_python.clean_currency_other->data_clean_currency_other', 327, 67).
+port(156, 'in', 'data_clean_currency_other', 'clean_data_with_python.drop_currency_context_labels<-data_clean_currency_other', 331, 67).
+port(157, 'out', 'data_dropped_currency_context', 'clean_data_with_python.drop_currency_context_labels->data_dropped_currency_context', 332, 68).
+port(158, 'in', 'data_dropped_currency_context', 'clean_data_with_python.handle_aud_nzd_currency<-data_dropped_currency_context', 336, 68).
+port(159, 'out', 'data_currency_handle_aud_nzd', 'clean_data_with_python.handle_aud_nzd_currency->data_currency_handle_aud_nzd', 337, 69).
+port(160, 'in', 'data_currency_handle_aud_nzd', 'clean_data_with_python.replace_messy_currencies<-data_currency_handle_aud_nzd', 341, 69).
+port(161, 'param', 'messy_currencies', 'clean_data_with_python.replace_messy_currencies<-messy_currencies', 342, 70).
+port(162, 'param', 'right_currencies', 'clean_data_with_python.replace_messy_currencies<-right_currencies', 343, 71).
+port(163, 'out', 'data_clean_currency', 'clean_data_with_python.replace_messy_currencies->data_clean_currency', 344, 72).
+port(164, 'in', 'data_clean_currency', 'clean_data_with_python.currency_to_upper_case<-data_clean_currency', 348, 72).
+port(165, 'out', 'data_uppercase_currency', 'clean_data_with_python.currency_to_upper_case->data_uppercase_currency', 349, 73).
+port(166, 'in', 'data_uppercase_currency', 'clean_data_with_python.convert_to_USD_rate<-data_uppercase_currency', 353, 73).
+port(167, 'out', 'data_plus_usd_rate', 'clean_data_with_python.convert_to_USD_rate->data_plus_usd_rate', 354, 74).
+port(168, 'in', 'data_plus_usd_rate', 'clean_data_with_python.clean_messy_rates<-data_plus_usd_rate', 358, 74).
+port(169, 'param', 'USD_rates_correct', 'clean_data_with_python.clean_messy_rates<-USD_rates_correct', 359, 75).
+port(170, 'out', 'data_clean_currency_usd_rate', 'clean_data_with_python.clean_messy_rates->data_clean_currency_usd_rate', 360, 76).
+port(171, 'in', 'data_clean_currency_usd_rate', 'clean_data_with_python.salary_to_USD<-data_clean_currency_usd_rate', 364, 76).
+port(172, 'out', 'data_plus_annual_salary_usd', 'clean_data_with_python.salary_to_USD->data_plus_annual_salary_usd', 365, 77).
+port(173, 'in', 'data_plus_annual_salary_usd', 'clean_data_with_python.create_additional_salary_usd<-data_plus_annual_salary_usd', 369, 77).
+port(174, 'out', 'data_plus_additional_salary_usd', 'clean_data_with_python.create_additional_salary_usd->data_plus_additional_salary_usd', 370, 78).
+port(175, 'in', 'data_plus_additional_salary_usd', 'clean_data_with_python.create_total_salary<-data_plus_additional_salary_usd', 374, 78).
+port(176, 'out', 'data_plus_total_salary', 'clean_data_with_python.create_total_salary->data_plus_total_salary', 375, 79).
+port(177, 'in', 'data_plus_total_salary', 'clean_data_with_python.create_total_salary_usd<-data_plus_total_salary', 379, 79).
+port(178, 'out', 'data_plus_total_salary_usd', 'clean_data_with_python.create_total_salary_usd->data_plus_total_salary_usd', 380, 80).
+port(179, 'in', 'data_plus_total_salary_usd', 'clean_data_with_python.clean_salary_usd_outliers<-data_plus_total_salary_usd', 384, 80).
+port(180, 'param', 'upper_limit', 'clean_data_with_python.clean_salary_usd_outliers<-upper_limit', 385, 81).
+port(181, 'param', 'lower_limit', 'clean_data_with_python.clean_salary_usd_outliers<-lower_limit', 386, 82).
+port(182, 'out', 'data_minus_salary_usd_outliers', 'clean_data_with_python.clean_salary_usd_outliers->data_minus_salary_usd_outliers', 387, 83).
+port(183, 'in', 'data_minus_salary_usd_outliers', 'clean_data_with_python.export_data_to_csv<-data_minus_salary_usd_outliers', 390, 83).
+port(184, 'out', 'FILE:data_full', 'clean_data_with_python.export_data_to_csv->FILE:data_full', 391, 84).
+port(185, 'in', 'data_minus_salary_usd_outliers', 'clean_data_with_python.create_currency_table<-data_minus_salary_usd_outliers', 394, 83).
+port(186, 'out', 'currency_table', 'clean_data_with_python.create_currency_table->currency_table', 395, 85).
+port(187, 'in', 'data_minus_salary_usd_outliers', 'clean_data_with_python.create_place_table<-data_minus_salary_usd_outliers', 398, 83).
+port(188, 'out', 'place_table', 'clean_data_with_python.create_place_table->place_table', 399, 86).
+port(189, 'in', 'data_minus_salary_usd_outliers', 'clean_data_with_python.create_position_table<-data_minus_salary_usd_outliers', 402, 83).
+port(190, 'out', 'position_table', 'clean_data_with_python.create_position_table->position_table', 403, 87).
+port(191, 'in', 'data_minus_salary_usd_outliers', 'clean_data_with_python.create_person_table<-data_minus_salary_usd_outliers', 406, 83).
+port(192, 'out', 'person_table', 'clean_data_with_python.create_person_table->person_table', 407, 88).
+port(193, 'in', 'data_minus_salary_usd_outliers', 'clean_data_with_python.create_gender_lookup_table<-data_minus_salary_usd_outliers', 410, 83).
+port(194, 'out', 'gender_lookup_table', 'clean_data_with_python.create_gender_lookup_table->gender_lookup_table', 411, 89).
+port(195, 'in', 'data_minus_salary_usd_outliers', 'clean_data_with_python.create_race_lookup_table<-data_minus_salary_usd_outliers', 414, 83).
+port(196, 'out', 'race_lookup_table', 'clean_data_with_python.create_race_lookup_table->race_lookup_table', 415, 90).
+port(197, 'in', 'data_minus_salary_usd_outliers', 'clean_data_with_python.create_employee_table<-data_minus_salary_usd_outliers', 418, 83).
+port(198, 'out', 'employee_table', 'clean_data_with_python.create_employee_table->employee_table', 419, 91).
 
 % FACT: port_alias(port_id, alias).
-port_alias(2, 'data').
-port_alias(32, 'race_values').
-port_alias(35, 'city_values').
-port_alias(38, 'country_values').
-port_alias(41, 'state').
-port_alias(44, 'country').
-port_alias(53, 'word_values').
-port_alias(57, 'job_title_possibilities').
-port_alias(58, 'job_title_cutoff').
-port_alias(64, 'word_values').
-port_alias(68, 'job_title_possibilities').
-port_alias(69, 'job_title_cutoff').
-port_alias(75, 'word_values').
-port_alias(79, 'job_title_possibilities').
-port_alias(80, 'job_title_cutoff').
-port_alias(86, 'word_values').
-port_alias(90, 'industry_possibilities').
-port_alias(91, 'industry_cutoff').
+port_alias(11, 'data').
+port_alias(41, 'race_values').
+port_alias(44, 'city_values').
+port_alias(47, 'country_values').
+port_alias(50, 'state').
+port_alias(53, 'country').
+port_alias(62, 'word_values').
+port_alias(66, 'job_title_possibilities').
+port_alias(67, 'job_title_cutoff').
+port_alias(73, 'word_values').
+port_alias(77, 'job_title_possibilities').
+port_alias(78, 'job_title_cutoff').
+port_alias(84, 'word_values').
+port_alias(88, 'job_title_possibilities').
+port_alias(89, 'job_title_cutoff').
 port_alias(97, 'word_values').
 port_alias(101, 'industry_possibilities').
 port_alias(102, 'industry_cutoff').
@@ -271,407 +362,616 @@ port_alias(108, 'word_values').
 port_alias(112, 'industry_possibilities').
 port_alias(113, 'industry_cutoff').
 port_alias(119, 'word_values').
-port_alias(122, 'industry_possibilities').
-port_alias(123, 'industry_cutoff').
-port_alias(129, 'word_values').
+port_alias(123, 'industry_possibilities').
+port_alias(124, 'industry_cutoff').
+port_alias(130, 'word_values').
 port_alias(133, 'industry_possibilities').
 port_alias(134, 'industry_cutoff').
+port_alias(140, 'word_values').
+port_alias(144, 'industry_possibilities').
+port_alias(145, 'industry_cutoff').
 
 % FACT: port_uri_template(port_id, uri).
 port_uri_template(1, 'file:'Data/salary_responses_clean.csv'').
+port_uri_template(2, 'file:'Data/data_full.csv'').
+port_uri_template(10, 'file:'Data/salary_responses_clean.csv'').
 
 % FACT: has_in_port(block_id, port_id).
-has_in_port(2, 1).
-has_in_port(3, 3).
-has_in_port(4, 5).
-has_in_port(5, 7).
-has_in_port(5, 8).
-has_in_port(5, 9).
-has_in_port(6, 11).
-has_in_port(6, 12).
-has_in_port(6, 13).
-has_in_port(7, 15).
-has_in_port(7, 16).
-has_in_port(7, 17).
-has_in_port(8, 19).
-has_in_port(8, 20).
-has_in_port(8, 21).
-has_in_port(9, 23).
-has_in_port(10, 25).
-has_in_port(11, 27).
-has_in_port(12, 29).
-has_in_port(13, 31).
-has_in_port(13, 32).
-has_in_port(14, 34).
-has_in_port(14, 35).
-has_in_port(15, 37).
-has_in_port(15, 38).
-has_in_port(16, 40).
-has_in_port(16, 41).
-has_in_port(17, 43).
-has_in_port(17, 44).
-has_in_port(18, 46).
-has_in_port(18, 47).
-has_in_port(18, 48).
-has_in_port(19, 50).
-has_in_port(20, 52).
-has_in_port(20, 53).
-has_in_port(21, 55).
-has_in_port(21, 56).
-has_in_port(21, 57).
-has_in_port(21, 58).
-has_in_port(22, 60).
-has_in_port(22, 61).
-has_in_port(23, 63).
-has_in_port(23, 64).
-has_in_port(24, 66).
-has_in_port(24, 67).
-has_in_port(24, 68).
-has_in_port(24, 69).
-has_in_port(25, 71).
-has_in_port(25, 72).
-has_in_port(26, 74).
-has_in_port(26, 75).
-has_in_port(27, 77).
-has_in_port(27, 78).
-has_in_port(27, 79).
-has_in_port(27, 80).
-has_in_port(28, 82).
-has_in_port(28, 83).
-has_in_port(29, 85).
-has_in_port(29, 86).
-has_in_port(30, 88).
-has_in_port(30, 89).
-has_in_port(30, 90).
-has_in_port(30, 91).
-has_in_port(31, 93).
-has_in_port(31, 94).
-has_in_port(32, 96).
-has_in_port(32, 97).
-has_in_port(33, 99).
-has_in_port(33, 100).
-has_in_port(33, 101).
-has_in_port(33, 102).
-has_in_port(34, 104).
-has_in_port(34, 105).
-has_in_port(35, 107).
-has_in_port(35, 108).
-has_in_port(36, 110).
-has_in_port(36, 111).
-has_in_port(36, 112).
-has_in_port(36, 113).
-has_in_port(37, 115).
-has_in_port(37, 116).
-has_in_port(38, 118).
-has_in_port(38, 119).
-has_in_port(39, 121).
-has_in_port(39, 122).
-has_in_port(39, 123).
-has_in_port(40, 125).
-has_in_port(40, 126).
-has_in_port(41, 128).
-has_in_port(41, 129).
-has_in_port(42, 131).
-has_in_port(42, 132).
-has_in_port(42, 133).
-has_in_port(42, 134).
-has_in_port(43, 136).
-has_in_port(43, 137).
-has_in_port(44, 139).
-has_in_port(45, 141).
-has_in_port(46, 143).
+has_in_port(1, 1).
+has_in_port(2, 10).
+has_in_port(3, 12).
+has_in_port(4, 14).
+has_in_port(5, 16).
+has_in_port(5, 17).
+has_in_port(5, 18).
+has_in_port(6, 20).
+has_in_port(6, 21).
+has_in_port(6, 22).
+has_in_port(7, 24).
+has_in_port(7, 25).
+has_in_port(7, 26).
+has_in_port(8, 28).
+has_in_port(8, 29).
+has_in_port(8, 30).
+has_in_port(9, 32).
+has_in_port(10, 34).
+has_in_port(11, 36).
+has_in_port(12, 38).
+has_in_port(13, 40).
+has_in_port(13, 41).
+has_in_port(14, 43).
+has_in_port(14, 44).
+has_in_port(15, 46).
+has_in_port(15, 47).
+has_in_port(16, 49).
+has_in_port(16, 50).
+has_in_port(17, 52).
+has_in_port(17, 53).
+has_in_port(18, 55).
+has_in_port(18, 56).
+has_in_port(18, 57).
+has_in_port(19, 59).
+has_in_port(20, 61).
+has_in_port(20, 62).
+has_in_port(21, 64).
+has_in_port(21, 65).
+has_in_port(21, 66).
+has_in_port(21, 67).
+has_in_port(22, 69).
+has_in_port(22, 70).
+has_in_port(23, 72).
+has_in_port(23, 73).
+has_in_port(24, 75).
+has_in_port(24, 76).
+has_in_port(24, 77).
+has_in_port(24, 78).
+has_in_port(25, 80).
+has_in_port(25, 81).
+has_in_port(26, 83).
+has_in_port(26, 84).
+has_in_port(27, 86).
+has_in_port(27, 87).
+has_in_port(27, 88).
+has_in_port(27, 89).
+has_in_port(28, 91).
+has_in_port(28, 92).
+has_in_port(29, 94).
+has_in_port(30, 96).
+has_in_port(30, 97).
+has_in_port(31, 99).
+has_in_port(31, 100).
+has_in_port(31, 101).
+has_in_port(31, 102).
+has_in_port(32, 104).
+has_in_port(32, 105).
+has_in_port(33, 107).
+has_in_port(33, 108).
+has_in_port(34, 110).
+has_in_port(34, 111).
+has_in_port(34, 112).
+has_in_port(34, 113).
+has_in_port(35, 115).
+has_in_port(35, 116).
+has_in_port(36, 118).
+has_in_port(36, 119).
+has_in_port(37, 121).
+has_in_port(37, 122).
+has_in_port(37, 123).
+has_in_port(37, 124).
+has_in_port(38, 126).
+has_in_port(38, 127).
+has_in_port(39, 129).
+has_in_port(39, 130).
+has_in_port(40, 132).
+has_in_port(40, 133).
+has_in_port(40, 134).
+has_in_port(41, 136).
+has_in_port(41, 137).
+has_in_port(42, 139).
+has_in_port(42, 140).
+has_in_port(43, 142).
+has_in_port(43, 143).
+has_in_port(43, 144).
+has_in_port(43, 145).
+has_in_port(44, 147).
+has_in_port(44, 148).
+has_in_port(45, 150).
+has_in_port(46, 152).
+has_in_port(47, 154).
+has_in_port(48, 156).
+has_in_port(49, 158).
+has_in_port(50, 160).
+has_in_port(50, 161).
+has_in_port(50, 162).
+has_in_port(51, 164).
+has_in_port(52, 166).
+has_in_port(53, 168).
+has_in_port(53, 169).
+has_in_port(54, 171).
+has_in_port(55, 173).
+has_in_port(56, 175).
+has_in_port(57, 177).
+has_in_port(58, 179).
+has_in_port(58, 180).
+has_in_port(58, 181).
+has_in_port(59, 183).
+has_in_port(60, 185).
+has_in_port(61, 187).
+has_in_port(62, 189).
+has_in_port(63, 191).
+has_in_port(64, 193).
+has_in_port(65, 195).
+has_in_port(66, 197).
 
 % FACT: has_out_port(block_id, port_id).
-has_out_port(2, 2).
-has_out_port(3, 4).
-has_out_port(4, 6).
-has_out_port(5, 10).
-has_out_port(6, 14).
-has_out_port(7, 18).
-has_out_port(8, 22).
-has_out_port(9, 24).
-has_out_port(10, 26).
-has_out_port(11, 28).
-has_out_port(12, 30).
-has_out_port(13, 33).
-has_out_port(14, 36).
-has_out_port(15, 39).
-has_out_port(16, 42).
-has_out_port(17, 45).
-has_out_port(18, 49).
-has_out_port(19, 51).
-has_out_port(20, 54).
-has_out_port(21, 59).
-has_out_port(22, 62).
-has_out_port(23, 65).
-has_out_port(24, 70).
-has_out_port(25, 73).
-has_out_port(26, 76).
-has_out_port(27, 81).
-has_out_port(28, 84).
-has_out_port(29, 87).
-has_out_port(30, 92).
-has_out_port(31, 95).
-has_out_port(32, 98).
-has_out_port(33, 103).
-has_out_port(34, 106).
-has_out_port(35, 109).
-has_out_port(36, 114).
-has_out_port(37, 117).
-has_out_port(38, 120).
-has_out_port(39, 124).
-has_out_port(40, 127).
-has_out_port(41, 130).
-has_out_port(42, 135).
-has_out_port(43, 138).
-has_out_port(44, 140).
-has_out_port(45, 142).
-has_out_port(46, 144).
+has_out_port(1, 2).
+has_out_port(1, 3).
+has_out_port(1, 4).
+has_out_port(1, 5).
+has_out_port(1, 6).
+has_out_port(1, 7).
+has_out_port(1, 8).
+has_out_port(1, 9).
+has_out_port(2, 11).
+has_out_port(3, 13).
+has_out_port(4, 15).
+has_out_port(5, 19).
+has_out_port(6, 23).
+has_out_port(7, 27).
+has_out_port(8, 31).
+has_out_port(9, 33).
+has_out_port(10, 35).
+has_out_port(11, 37).
+has_out_port(12, 39).
+has_out_port(13, 42).
+has_out_port(14, 45).
+has_out_port(15, 48).
+has_out_port(16, 51).
+has_out_port(17, 54).
+has_out_port(18, 58).
+has_out_port(19, 60).
+has_out_port(20, 63).
+has_out_port(21, 68).
+has_out_port(22, 71).
+has_out_port(23, 74).
+has_out_port(24, 79).
+has_out_port(25, 82).
+has_out_port(26, 85).
+has_out_port(27, 90).
+has_out_port(28, 93).
+has_out_port(29, 95).
+has_out_port(30, 98).
+has_out_port(31, 103).
+has_out_port(32, 106).
+has_out_port(33, 109).
+has_out_port(34, 114).
+has_out_port(35, 117).
+has_out_port(36, 120).
+has_out_port(37, 125).
+has_out_port(38, 128).
+has_out_port(39, 131).
+has_out_port(40, 135).
+has_out_port(41, 138).
+has_out_port(42, 141).
+has_out_port(43, 146).
+has_out_port(44, 149).
+has_out_port(45, 151).
+has_out_port(46, 153).
+has_out_port(47, 155).
+has_out_port(48, 157).
+has_out_port(49, 159).
+has_out_port(50, 163).
+has_out_port(51, 165).
+has_out_port(52, 167).
+has_out_port(53, 170).
+has_out_port(54, 172).
+has_out_port(55, 174).
+has_out_port(56, 176).
+has_out_port(57, 178).
+has_out_port(58, 182).
+has_out_port(59, 184).
+has_out_port(60, 186).
+has_out_port(61, 188).
+has_out_port(62, 190).
+has_out_port(63, 192).
+has_out_port(64, 194).
+has_out_port(65, 196).
+has_out_port(66, 198).
 
 % FACT: data(data_id, data_name, qualified_data_name).
-data(1, 'FILE', 'clean_data_with_python[FILE]').
-data(2, 'data', 'clean_data_with_python[data]').
-data(3, 'data_plus_age_min', 'clean_data_with_python[data_plus_age_min]').
-data(4, 'data_plus_age_max', 'clean_data_with_python[data_plus_age_max]').
-data(5, 'experience', 'clean_data_with_python[experience]').
-data(6, 'attribute', 'clean_data_with_python[attribute]').
-data(7, 'data_plus_total_experience_min', 'clean_data_with_python[data_plus_total_experience_min]').
-data(8, 'data_plus_total_experience_max', 'clean_data_with_python[data_plus_total_experience_max]').
-data(9, 'data_plus_current_experience_min', 'clean_data_with_python[data_plus_current_experience_min]').
-data(10, 'data_plus_current_experience_max', 'clean_data_with_python[data_plus_current_experience_max]').
-data(11, 'data_replaced_education_naming', 'clean_data_with_python[data_replaced_education_naming]').
-data(12, 'data_plus_education_lvl', 'clean_data_with_python[data_plus_education_lvl]').
-data(13, 'data_replaced_other_gender', 'clean_data_with_python[data_replaced_other_gender]').
-data(14, 'data_plus_gender_idx', 'clean_data_with_python[data_plus_gender_idx]').
-data(15, 'race_values', 'clean_data_with_python[race_values]').
-data(16, 'data_plus_race_idx', 'clean_data_with_python[data_plus_race_idx]').
-data(17, 'city_values', 'clean_data_with_python[city_values]').
-data(18, 'data_replaced_city', 'clean_data_with_python[data_replaced_city]').
-data(19, 'country_values', 'clean_data_with_python[country_values]').
-data(20, 'data_replaced_country', 'clean_data_with_python[data_replaced_country]').
-data(21, 'state', 'clean_data_with_python[state]').
-data(22, 'data_replaced_state', 'clean_data_with_python[data_replaced_state]').
-data(23, 'country', 'clean_data_with_python[country]').
-data(24, 'data_plus_continent', 'clean_data_with_python[data_plus_continent]').
-data(25, 'city', 'clean_data_with_python[city]').
-data(26, 'data_plus_lat_long', 'clean_data_with_python[data_plus_lat_long]').
-data(27, 'data_dropped_salary_job_ctx', 'clean_data_with_python[data_dropped_salary_job_ctx]').
-data(28, 'word_values', 'clean_data_with_python[word_values]').
-data(29, 'cw_clusters_job_title', 'clean_data_with_python[cw_clusters_job_title]').
-data(30, 'job_title_possibilities', 'clean_data_with_python[job_title_possibilities]').
-data(31, 'job_title_cutoff', 'clean_data_with_python[job_title_cutoff]').
-data(32, 'clusters_job_title', 'clean_data_with_python[clusters_job_title]').
-data(33, 'data_replaced_job_title_clean', 'clean_data_with_python[data_replaced_job_title_clean]').
-data(34, 'cw_clusters_job_title_second', 'clean_data_with_python[cw_clusters_job_title_second]').
-data(35, 'clusters_job_title_second', 'clean_data_with_python[clusters_job_title_second]').
-data(36, 'data_replaced_job_title_clean_second', 'clean_data_with_python[data_replaced_job_title_clean_second]').
-data(37, 'cw_clusters_job_title_third', 'clean_data_with_python[cw_clusters_job_title_third]').
-data(38, 'clusters_job_title_third', 'clean_data_with_python[clusters_job_title_third]').
-data(39, 'data_replaced_job_title_clean_third', 'clean_data_with_python[data_replaced_job_title_clean_third]').
-data(40, 'cleaned_words_industry', 'clean_data_with_python[cleaned_words_industry]').
-data(41, 'industry_possibilities', 'clean_data_with_python[industry_possibilities]').
-data(42, 'industry_cutoff', 'clean_data_with_python[industry_cutoff]').
-data(43, 'clusters_industry', 'clean_data_with_python[clusters_industry]').
-data(44, 'data_plus_industry_clean', 'clean_data_with_python[data_plus_industry_clean]').
-data(45, 'cleaned_words_industry_second', 'clean_data_with_python[cleaned_words_industry_second]').
-data(46, 'clusters_industry_second', 'clean_data_with_python[clusters_industry_second]').
-data(47, 'data_industry_clean_second', 'clean_data_with_python[data_industry_clean_second]').
-data(48, 'cleaned_words_industry_third', 'clean_data_with_python[cleaned_words_industry_third]').
-data(49, 'clusters_industry_third', 'clean_data_with_python[clusters_industry_third]').
-data(50, 'data_industry_clean_third', 'clean_data_with_python[data_industry_clean_third]').
-data(51, 'cleaned_words_industry_fourth', 'clean_data_with_python[cleaned_words_industry_fourth]').
-data(52, 'clusters_industry_fourth', 'clean_data_with_python[clusters_industry_fourth]').
-data(53, 'data_industry_clean_fourth', 'clean_data_with_python[data_industry_clean_fourth]').
-data(54, 'clusters_industry_fifth', 'clean_data_with_python[clusters_industry_fifth]').
-data(55, 'data_industry_clean_fifth', 'clean_data_with_python[data_industry_clean_fifth]').
-data(56, 'merged_industry_clean', 'clean_data_with_python[merged_industry_clean]').
-data(57, 'data_merge_currency', 'clean_data_with_python[data_merge_currency]').
-data(58, 'data_clean_currency_other', 'clean_data_with_python[data_clean_currency_other]').
+data(1, 'FILE', '[FILE]').
+data(2, 'currency_table', '[currency_table]').
+data(3, 'place_table', '[place_table]').
+data(4, 'position_table', '[position_table]').
+data(5, 'person_table', '[person_table]').
+data(6, 'gender_lookup_table', '[gender_lookup_table]').
+data(7, 'race_lookup_table', '[race_lookup_table]').
+data(8, 'employee_table', '[employee_table]').
+data(9, 'FILE', 'clean_data_with_python[FILE]').
+data(10, 'data', 'clean_data_with_python[data]').
+data(11, 'data_plus_age_min', 'clean_data_with_python[data_plus_age_min]').
+data(12, 'data_plus_age_max', 'clean_data_with_python[data_plus_age_max]').
+data(13, 'experience', 'clean_data_with_python[experience]').
+data(14, 'attribute', 'clean_data_with_python[attribute]').
+data(15, 'data_plus_total_experience_min', 'clean_data_with_python[data_plus_total_experience_min]').
+data(16, 'data_plus_total_experience_max', 'clean_data_with_python[data_plus_total_experience_max]').
+data(17, 'data_plus_current_experience_min', 'clean_data_with_python[data_plus_current_experience_min]').
+data(18, 'data_plus_current_experience_max', 'clean_data_with_python[data_plus_current_experience_max]').
+data(19, 'data_replaced_education_naming', 'clean_data_with_python[data_replaced_education_naming]').
+data(20, 'data_plus_education_lvl', 'clean_data_with_python[data_plus_education_lvl]').
+data(21, 'data_replaced_other_gender', 'clean_data_with_python[data_replaced_other_gender]').
+data(22, 'data_plus_gender_idx', 'clean_data_with_python[data_plus_gender_idx]').
+data(23, 'race_values', 'clean_data_with_python[race_values]').
+data(24, 'data_plus_race_idx', 'clean_data_with_python[data_plus_race_idx]').
+data(25, 'city_values', 'clean_data_with_python[city_values]').
+data(26, 'data_replaced_city', 'clean_data_with_python[data_replaced_city]').
+data(27, 'country_values', 'clean_data_with_python[country_values]').
+data(28, 'data_replaced_country', 'clean_data_with_python[data_replaced_country]').
+data(29, 'state', 'clean_data_with_python[state]').
+data(30, 'data_replaced_state', 'clean_data_with_python[data_replaced_state]').
+data(31, 'country', 'clean_data_with_python[country]').
+data(32, 'data_plus_continent', 'clean_data_with_python[data_plus_continent]').
+data(33, 'city', 'clean_data_with_python[city]').
+data(34, 'data_plus_lat_long', 'clean_data_with_python[data_plus_lat_long]').
+data(35, 'data_dropped_salary_job_ctx', 'clean_data_with_python[data_dropped_salary_job_ctx]').
+data(36, 'word_values', 'clean_data_with_python[word_values]').
+data(37, 'cw_clusters_job_title', 'clean_data_with_python[cw_clusters_job_title]').
+data(38, 'job_title_possibilities', 'clean_data_with_python[job_title_possibilities]').
+data(39, 'job_title_cutoff', 'clean_data_with_python[job_title_cutoff]').
+data(40, 'clusters_job_title', 'clean_data_with_python[clusters_job_title]').
+data(41, 'data_replaced_job_title_clean', 'clean_data_with_python[data_replaced_job_title_clean]').
+data(42, 'cw_clusters_job_title_second', 'clean_data_with_python[cw_clusters_job_title_second]').
+data(43, 'clusters_job_title_second', 'clean_data_with_python[clusters_job_title_second]').
+data(44, 'data_replaced_job_title_clean_second', 'clean_data_with_python[data_replaced_job_title_clean_second]').
+data(45, 'cw_clusters_job_title_third', 'clean_data_with_python[cw_clusters_job_title_third]').
+data(46, 'clusters_job_title_third', 'clean_data_with_python[clusters_job_title_third]').
+data(47, 'data_replaced_job_title_clean_third', 'clean_data_with_python[data_replaced_job_title_clean_third]').
+data(48, 'data_plus_merged_job_title', 'clean_data_with_python[data_plus_merged_job_title]').
+data(49, 'cleaned_words_industry', 'clean_data_with_python[cleaned_words_industry]').
+data(50, 'industry_possibilities', 'clean_data_with_python[industry_possibilities]').
+data(51, 'industry_cutoff', 'clean_data_with_python[industry_cutoff]').
+data(52, 'clusters_industry', 'clean_data_with_python[clusters_industry]').
+data(53, 'data_plus_industry_clean', 'clean_data_with_python[data_plus_industry_clean]').
+data(54, 'cleaned_words_industry_second', 'clean_data_with_python[cleaned_words_industry_second]').
+data(55, 'clusters_industry_second', 'clean_data_with_python[clusters_industry_second]').
+data(56, 'data_industry_clean_second', 'clean_data_with_python[data_industry_clean_second]').
+data(57, 'cleaned_words_industry_third', 'clean_data_with_python[cleaned_words_industry_third]').
+data(58, 'clusters_industry_third', 'clean_data_with_python[clusters_industry_third]').
+data(59, 'data_industry_clean_third', 'clean_data_with_python[data_industry_clean_third]').
+data(60, 'cleaned_words_industry_fourth', 'clean_data_with_python[cleaned_words_industry_fourth]').
+data(61, 'clusters_industry_fourth', 'clean_data_with_python[clusters_industry_fourth]').
+data(62, 'data_industry_clean_fourth', 'clean_data_with_python[data_industry_clean_fourth]').
+data(63, 'clusters_industry_fifth', 'clean_data_with_python[clusters_industry_fifth]').
+data(64, 'data_industry_clean_fifth', 'clean_data_with_python[data_industry_clean_fifth]').
+data(65, 'data_plus_merged_industry_clean', 'clean_data_with_python[data_plus_merged_industry_clean]').
+data(66, 'data_merged_currency', 'clean_data_with_python[data_merged_currency]').
+data(67, 'data_clean_currency_other', 'clean_data_with_python[data_clean_currency_other]').
+data(68, 'data_dropped_currency_context', 'clean_data_with_python[data_dropped_currency_context]').
+data(69, 'data_currency_handle_aud_nzd', 'clean_data_with_python[data_currency_handle_aud_nzd]').
+data(70, 'messy_currencies', 'clean_data_with_python[messy_currencies]').
+data(71, 'right_currencies', 'clean_data_with_python[right_currencies]').
+data(72, 'data_clean_currency', 'clean_data_with_python[data_clean_currency]').
+data(73, 'data_uppercase_currency', 'clean_data_with_python[data_uppercase_currency]').
+data(74, 'data_plus_usd_rate', 'clean_data_with_python[data_plus_usd_rate]').
+data(75, 'USD_rates_correct', 'clean_data_with_python[USD_rates_correct]').
+data(76, 'data_clean_currency_usd_rate', 'clean_data_with_python[data_clean_currency_usd_rate]').
+data(77, 'data_plus_annual_salary_usd', 'clean_data_with_python[data_plus_annual_salary_usd]').
+data(78, 'data_plus_additional_salary_usd', 'clean_data_with_python[data_plus_additional_salary_usd]').
+data(79, 'data_plus_total_salary', 'clean_data_with_python[data_plus_total_salary]').
+data(80, 'data_plus_total_salary_usd', 'clean_data_with_python[data_plus_total_salary_usd]').
+data(81, 'upper_limit', 'clean_data_with_python[upper_limit]').
+data(82, 'lower_limit', 'clean_data_with_python[lower_limit]').
+data(83, 'data_minus_salary_usd_outliers', 'clean_data_with_python[data_minus_salary_usd_outliers]').
+data(84, 'FILE:data_full', 'clean_data_with_python[FILE:data_full]').
+data(85, 'currency_table', 'clean_data_with_python[currency_table]').
+data(86, 'place_table', 'clean_data_with_python[place_table]').
+data(87, 'position_table', 'clean_data_with_python[position_table]').
+data(88, 'person_table', 'clean_data_with_python[person_table]').
+data(89, 'gender_lookup_table', 'clean_data_with_python[gender_lookup_table]').
+data(90, 'race_lookup_table', 'clean_data_with_python[race_lookup_table]').
+data(91, 'employee_table', 'clean_data_with_python[employee_table]').
 
 % FACT: channel(channel_id, data_id).
-channel(1, 2).
-channel(2, 3).
-channel(3, 4).
-channel(4, 7).
-channel(5, 8).
-channel(6, 9).
-channel(7, 10).
-channel(8, 11).
-channel(9, 12).
-channel(10, 13).
-channel(11, 14).
-channel(12, 16).
-channel(13, 18).
-channel(14, 20).
-channel(15, 22).
-channel(16, 24).
-channel(17, 26).
-channel(18, 27).
-channel(19, 27).
-channel(20, 27).
-channel(21, 29).
-channel(22, 32).
-channel(23, 33).
-channel(24, 33).
-channel(25, 33).
+channel(1, 1).
+channel(2, 9).
+channel(3, 2).
+channel(4, 3).
+channel(5, 4).
+channel(6, 5).
+channel(7, 6).
+channel(8, 7).
+channel(9, 8).
+channel(10, 10).
+channel(11, 11).
+channel(12, 12).
+channel(13, 15).
+channel(14, 16).
+channel(15, 17).
+channel(16, 18).
+channel(17, 19).
+channel(18, 20).
+channel(19, 21).
+channel(20, 22).
+channel(21, 24).
+channel(22, 26).
+channel(23, 28).
+channel(24, 30).
+channel(25, 32).
 channel(26, 34).
 channel(27, 35).
-channel(28, 36).
-channel(29, 36).
-channel(30, 36).
-channel(31, 37).
-channel(32, 38).
-channel(33, 39).
-channel(34, 39).
-channel(35, 39).
-channel(36, 40).
-channel(37, 43).
+channel(28, 35).
+channel(29, 35).
+channel(30, 37).
+channel(31, 40).
+channel(32, 41).
+channel(33, 41).
+channel(34, 41).
+channel(35, 42).
+channel(36, 43).
+channel(37, 44).
 channel(38, 44).
 channel(39, 44).
-channel(40, 44).
-channel(41, 45).
-channel(42, 46).
+channel(40, 45).
+channel(41, 46).
+channel(42, 47).
 channel(43, 47).
-channel(44, 47).
-channel(45, 47).
-channel(46, 48).
-channel(47, 49).
-channel(48, 50).
-channel(49, 50).
-channel(50, 50).
-channel(51, 50).
-channel(52, 52).
-channel(53, 53).
-channel(54, 53).
-channel(55, 51).
-channel(56, 54).
-channel(57, 55).
-channel(58, 55).
-channel(59, 57).
+channel(44, 48).
+channel(45, 48).
+channel(46, 49).
+channel(47, 52).
+channel(48, 53).
+channel(49, 53).
+channel(50, 53).
+channel(51, 54).
+channel(52, 55).
+channel(53, 56).
+channel(54, 56).
+channel(55, 56).
+channel(56, 57).
+channel(57, 58).
+channel(58, 59).
+channel(59, 59).
+channel(60, 59).
+channel(61, 59).
+channel(62, 61).
+channel(63, 62).
+channel(64, 62).
+channel(65, 60).
+channel(66, 63).
+channel(67, 64).
+channel(68, 65).
+channel(69, 66).
+channel(70, 67).
+channel(71, 68).
+channel(72, 69).
+channel(73, 72).
+channel(74, 73).
+channel(75, 74).
+channel(76, 76).
+channel(77, 77).
+channel(78, 78).
+channel(79, 79).
+channel(80, 80).
+channel(81, 83).
+channel(82, 83).
+channel(83, 83).
+channel(84, 83).
+channel(85, 83).
+channel(86, 83).
+channel(87, 83).
+channel(88, 83).
+channel(89, 1).
+channel(90, 1).
+channel(91, 1).
+channel(92, 85).
+channel(93, 86).
+channel(94, 87).
+channel(95, 88).
+channel(96, 89).
+channel(97, 90).
+channel(98, 91).
 
 % FACT: port_connects_to_channel(port_id, channel_id).
-port_connects_to_channel(2, 1).
-port_connects_to_channel(3, 1).
-port_connects_to_channel(4, 2).
-port_connects_to_channel(5, 2).
-port_connects_to_channel(6, 3).
-port_connects_to_channel(7, 3).
-port_connects_to_channel(10, 4).
-port_connects_to_channel(11, 4).
-port_connects_to_channel(14, 5).
-port_connects_to_channel(15, 5).
-port_connects_to_channel(18, 6).
-port_connects_to_channel(19, 6).
-port_connects_to_channel(22, 7).
-port_connects_to_channel(23, 7).
-port_connects_to_channel(24, 8).
-port_connects_to_channel(25, 8).
-port_connects_to_channel(26, 9).
-port_connects_to_channel(27, 9).
-port_connects_to_channel(28, 10).
-port_connects_to_channel(29, 10).
-port_connects_to_channel(30, 11).
-port_connects_to_channel(31, 11).
-port_connects_to_channel(33, 12).
-port_connects_to_channel(34, 12).
-port_connects_to_channel(36, 13).
-port_connects_to_channel(37, 13).
-port_connects_to_channel(39, 14).
-port_connects_to_channel(40, 14).
-port_connects_to_channel(42, 15).
-port_connects_to_channel(43, 15).
-port_connects_to_channel(45, 16).
-port_connects_to_channel(46, 16).
-port_connects_to_channel(49, 17).
-port_connects_to_channel(50, 17).
-port_connects_to_channel(51, 18).
-port_connects_to_channel(52, 18).
-port_connects_to_channel(51, 19).
-port_connects_to_channel(55, 19).
-port_connects_to_channel(51, 20).
-port_connects_to_channel(60, 20).
-port_connects_to_channel(54, 21).
-port_connects_to_channel(56, 21).
-port_connects_to_channel(59, 22).
-port_connects_to_channel(61, 22).
-port_connects_to_channel(62, 23).
-port_connects_to_channel(63, 23).
-port_connects_to_channel(62, 24).
-port_connects_to_channel(66, 24).
-port_connects_to_channel(62, 25).
-port_connects_to_channel(71, 25).
-port_connects_to_channel(65, 26).
-port_connects_to_channel(67, 26).
-port_connects_to_channel(70, 27).
-port_connects_to_channel(72, 27).
-port_connects_to_channel(73, 28).
-port_connects_to_channel(74, 28).
-port_connects_to_channel(73, 29).
-port_connects_to_channel(77, 29).
-port_connects_to_channel(73, 30).
-port_connects_to_channel(82, 30).
-port_connects_to_channel(76, 31).
-port_connects_to_channel(78, 31).
-port_connects_to_channel(81, 32).
-port_connects_to_channel(83, 32).
-port_connects_to_channel(84, 33).
-port_connects_to_channel(85, 33).
-port_connects_to_channel(84, 34).
-port_connects_to_channel(88, 34).
-port_connects_to_channel(84, 35).
-port_connects_to_channel(93, 35).
-port_connects_to_channel(87, 36).
-port_connects_to_channel(89, 36).
-port_connects_to_channel(92, 37).
-port_connects_to_channel(94, 37).
-port_connects_to_channel(95, 38).
-port_connects_to_channel(96, 38).
-port_connects_to_channel(95, 39).
-port_connects_to_channel(99, 39).
-port_connects_to_channel(95, 40).
-port_connects_to_channel(104, 40).
-port_connects_to_channel(98, 41).
-port_connects_to_channel(100, 41).
-port_connects_to_channel(103, 42).
-port_connects_to_channel(105, 42).
-port_connects_to_channel(106, 43).
-port_connects_to_channel(107, 43).
-port_connects_to_channel(106, 44).
-port_connects_to_channel(110, 44).
-port_connects_to_channel(106, 45).
-port_connects_to_channel(115, 45).
-port_connects_to_channel(109, 46).
-port_connects_to_channel(111, 46).
-port_connects_to_channel(114, 47).
-port_connects_to_channel(116, 47).
-port_connects_to_channel(117, 48).
-port_connects_to_channel(118, 48).
-port_connects_to_channel(117, 49).
-port_connects_to_channel(121, 49).
-port_connects_to_channel(117, 50).
-port_connects_to_channel(125, 50).
-port_connects_to_channel(117, 51).
-port_connects_to_channel(128, 51).
-port_connects_to_channel(124, 52).
-port_connects_to_channel(126, 52).
-port_connects_to_channel(127, 53).
-port_connects_to_channel(131, 53).
-port_connects_to_channel(127, 54).
-port_connects_to_channel(136, 54).
-port_connects_to_channel(130, 55).
-port_connects_to_channel(132, 55).
-port_connects_to_channel(135, 56).
-port_connects_to_channel(137, 56).
-port_connects_to_channel(138, 57).
-port_connects_to_channel(139, 57).
-port_connects_to_channel(138, 58).
-port_connects_to_channel(141, 58).
-port_connects_to_channel(142, 59).
-port_connects_to_channel(143, 59).
+port_connects_to_channel(10, 2).
+port_connects_to_channel(186, 3).
+port_connects_to_channel(188, 4).
+port_connects_to_channel(190, 5).
+port_connects_to_channel(192, 6).
+port_connects_to_channel(194, 7).
+port_connects_to_channel(196, 8).
+port_connects_to_channel(198, 9).
+port_connects_to_channel(11, 10).
+port_connects_to_channel(12, 10).
+port_connects_to_channel(13, 11).
+port_connects_to_channel(14, 11).
+port_connects_to_channel(15, 12).
+port_connects_to_channel(16, 12).
+port_connects_to_channel(19, 13).
+port_connects_to_channel(20, 13).
+port_connects_to_channel(23, 14).
+port_connects_to_channel(24, 14).
+port_connects_to_channel(27, 15).
+port_connects_to_channel(28, 15).
+port_connects_to_channel(31, 16).
+port_connects_to_channel(32, 16).
+port_connects_to_channel(33, 17).
+port_connects_to_channel(34, 17).
+port_connects_to_channel(35, 18).
+port_connects_to_channel(36, 18).
+port_connects_to_channel(37, 19).
+port_connects_to_channel(38, 19).
+port_connects_to_channel(39, 20).
+port_connects_to_channel(40, 20).
+port_connects_to_channel(42, 21).
+port_connects_to_channel(43, 21).
+port_connects_to_channel(45, 22).
+port_connects_to_channel(46, 22).
+port_connects_to_channel(48, 23).
+port_connects_to_channel(49, 23).
+port_connects_to_channel(51, 24).
+port_connects_to_channel(52, 24).
+port_connects_to_channel(54, 25).
+port_connects_to_channel(55, 25).
+port_connects_to_channel(58, 26).
+port_connects_to_channel(59, 26).
+port_connects_to_channel(60, 27).
+port_connects_to_channel(61, 27).
+port_connects_to_channel(60, 28).
+port_connects_to_channel(64, 28).
+port_connects_to_channel(60, 29).
+port_connects_to_channel(69, 29).
+port_connects_to_channel(63, 30).
+port_connects_to_channel(65, 30).
+port_connects_to_channel(68, 31).
+port_connects_to_channel(70, 31).
+port_connects_to_channel(71, 32).
+port_connects_to_channel(72, 32).
+port_connects_to_channel(71, 33).
+port_connects_to_channel(75, 33).
+port_connects_to_channel(71, 34).
+port_connects_to_channel(80, 34).
+port_connects_to_channel(74, 35).
+port_connects_to_channel(76, 35).
+port_connects_to_channel(79, 36).
+port_connects_to_channel(81, 36).
+port_connects_to_channel(82, 37).
+port_connects_to_channel(83, 37).
+port_connects_to_channel(82, 38).
+port_connects_to_channel(86, 38).
+port_connects_to_channel(82, 39).
+port_connects_to_channel(91, 39).
+port_connects_to_channel(85, 40).
+port_connects_to_channel(87, 40).
+port_connects_to_channel(90, 41).
+port_connects_to_channel(92, 41).
+port_connects_to_channel(93, 42).
+port_connects_to_channel(94, 42).
+port_connects_to_channel(93, 43).
+port_connects_to_channel(104, 43).
+port_connects_to_channel(95, 44).
+port_connects_to_channel(96, 44).
+port_connects_to_channel(95, 45).
+port_connects_to_channel(99, 45).
+port_connects_to_channel(98, 46).
+port_connects_to_channel(100, 46).
+port_connects_to_channel(103, 47).
+port_connects_to_channel(105, 47).
+port_connects_to_channel(106, 48).
+port_connects_to_channel(107, 48).
+port_connects_to_channel(106, 49).
+port_connects_to_channel(110, 49).
+port_connects_to_channel(106, 50).
+port_connects_to_channel(115, 50).
+port_connects_to_channel(109, 51).
+port_connects_to_channel(111, 51).
+port_connects_to_channel(114, 52).
+port_connects_to_channel(116, 52).
+port_connects_to_channel(117, 53).
+port_connects_to_channel(118, 53).
+port_connects_to_channel(117, 54).
+port_connects_to_channel(121, 54).
+port_connects_to_channel(117, 55).
+port_connects_to_channel(126, 55).
+port_connects_to_channel(120, 56).
+port_connects_to_channel(122, 56).
+port_connects_to_channel(125, 57).
+port_connects_to_channel(127, 57).
+port_connects_to_channel(128, 58).
+port_connects_to_channel(129, 58).
+port_connects_to_channel(128, 59).
+port_connects_to_channel(132, 59).
+port_connects_to_channel(128, 60).
+port_connects_to_channel(136, 60).
+port_connects_to_channel(128, 61).
+port_connects_to_channel(139, 61).
+port_connects_to_channel(135, 62).
+port_connects_to_channel(137, 62).
+port_connects_to_channel(138, 63).
+port_connects_to_channel(142, 63).
+port_connects_to_channel(138, 64).
+port_connects_to_channel(147, 64).
+port_connects_to_channel(141, 65).
+port_connects_to_channel(143, 65).
+port_connects_to_channel(146, 66).
+port_connects_to_channel(148, 66).
+port_connects_to_channel(149, 67).
+port_connects_to_channel(150, 67).
+port_connects_to_channel(151, 68).
+port_connects_to_channel(152, 68).
+port_connects_to_channel(153, 69).
+port_connects_to_channel(154, 69).
+port_connects_to_channel(155, 70).
+port_connects_to_channel(156, 70).
+port_connects_to_channel(157, 71).
+port_connects_to_channel(158, 71).
+port_connects_to_channel(159, 72).
+port_connects_to_channel(160, 72).
+port_connects_to_channel(163, 73).
+port_connects_to_channel(164, 73).
+port_connects_to_channel(165, 74).
+port_connects_to_channel(166, 74).
+port_connects_to_channel(167, 75).
+port_connects_to_channel(168, 75).
+port_connects_to_channel(170, 76).
+port_connects_to_channel(171, 76).
+port_connects_to_channel(172, 77).
+port_connects_to_channel(173, 77).
+port_connects_to_channel(174, 78).
+port_connects_to_channel(175, 78).
+port_connects_to_channel(176, 79).
+port_connects_to_channel(177, 79).
+port_connects_to_channel(178, 80).
+port_connects_to_channel(179, 80).
+port_connects_to_channel(182, 81).
+port_connects_to_channel(183, 81).
+port_connects_to_channel(182, 82).
+port_connects_to_channel(185, 82).
+port_connects_to_channel(182, 83).
+port_connects_to_channel(187, 83).
+port_connects_to_channel(182, 84).
+port_connects_to_channel(189, 84).
+port_connects_to_channel(182, 85).
+port_connects_to_channel(191, 85).
+port_connects_to_channel(182, 86).
+port_connects_to_channel(193, 86).
+port_connects_to_channel(182, 87).
+port_connects_to_channel(195, 87).
+port_connects_to_channel(182, 88).
+port_connects_to_channel(197, 88).
+port_connects_to_channel(10, 90).
+port_connects_to_channel(186, 92).
+port_connects_to_channel(188, 93).
+port_connects_to_channel(190, 94).
+port_connects_to_channel(192, 95).
+port_connects_to_channel(194, 96).
+port_connects_to_channel(196, 97).
+port_connects_to_channel(198, 98).
 
 % FACT: inflow_connects_to_channel(port_id, channel_id).
+inflow_connects_to_channel(1, 1).
+inflow_connects_to_channel(1, 2).
+inflow_connects_to_channel(1, 89).
+inflow_connects_to_channel(1, 90).
+inflow_connects_to_channel(1, 91).
 
 % FACT: outflow_connects_to_channel(port_id, channel_id).
+outflow_connects_to_channel(2, 1).
+outflow_connects_to_channel(3, 3).
+outflow_connects_to_channel(4, 4).
+outflow_connects_to_channel(5, 5).
+outflow_connects_to_channel(6, 6).
+outflow_connects_to_channel(7, 7).
+outflow_connects_to_channel(8, 8).
+outflow_connects_to_channel(9, 9).
+outflow_connects_to_channel(2, 89).
+outflow_connects_to_channel(2, 91).
+outflow_connects_to_channel(3, 92).
+outflow_connects_to_channel(4, 93).
+outflow_connects_to_channel(5, 94).
+outflow_connects_to_channel(6, 95).
+outflow_connects_to_channel(7, 96).
+outflow_connects_to_channel(8, 97).
+outflow_connects_to_channel(9, 98).
 
 % FACT: uri_variable(uri_variable_id, variable_name, port_id).
 

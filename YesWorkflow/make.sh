@@ -33,6 +33,7 @@ $YW_CMD graph $SCRIPT_DIR/data_preparation_annotations.py \
         > $RESULTS_DIR/complete_wf_graph_uri.gv
 dot -Tpdf $RESULTS_DIR/complete_wf_graph_uri.gv > $RESULTS_DIR/complete_wf_graph_uri.pdf
 dot -Tsvg $RESULTS_DIR/complete_wf_graph_uri.gv > $RESULTS_DIR/complete_wf_graph_uri.svg
+dot -Tpng $RESULTS_DIR/complete_wf_graph_uri.gv > $RESULTS_DIR/complete_wf_graph_uri.png
 
 # list workflow outputs
 $QUERIES_DIR/list_workflow_outputs.sh > $RESULTS_DIR/workflow_outputs.txt
